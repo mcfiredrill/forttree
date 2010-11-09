@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Last post at:</b>
+  <%= @branch.last_post_at %>
+</p>
+<h2>Reply</h2>
+<div class="hide">
+<%= $theid = @branch.id %>
+<%= @leaf = Leaf.new %>
+</div>
+<%= render 'leafs/form' %>
+
+
+<% @branch.leafs.each do |l| %>
+    <p>
+      <b>Name:</b>
+      <%= l.name %>
+    </p>
+    <p>
+      <b>Time:</b>
+      <%= l.created_at %>
+    </p>
+    <p>
+      <b>Content:</b>
+      <%= l.content %>
+    </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_branch_path(@branch) %> |
+<%= link_to 'Back', branches_path %>

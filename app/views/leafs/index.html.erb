@@ -1,0 +1,25 @@
+<h1>Listing leafs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @leafs.each do |leaf| %>
+  <tr>
+    <td><%= leaf.name %></td>
+    <td><%= leaf.content %></td>
+    <td><%= link_to 'Show', leaf %></td>
+    <td><%= link_to 'Edit', edit_leaf_path(leaf) %></td>
+    <td><%= link_to 'Destroy', leaf, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Leaf', new_leaf_path %>

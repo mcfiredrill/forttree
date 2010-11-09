@@ -13,6 +13,7 @@
 
 
 <% @branch.leafs.each do |l| %>
+<div class="leaf">
     <p>
       <b>Name:</b>
       <%= l.name %>
@@ -25,6 +26,8 @@
       <b>Content:</b>
       <%= l.content %>
     </p>
+    <%= image_tag l.photo.url %> 
+</div>
 <% end %>
 
 

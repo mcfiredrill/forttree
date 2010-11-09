@@ -1,4 +1,4 @@
-<%= form_for(@leaf) do |f| %>
+<%= form_for(@leaf, :html => { :multipart => true}) do |f| %>
   <% if @leaf.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@leaf.errors.count, "error") %> prohibited this leaf from being saved:</h2>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
   </div>
   <div class="actions">
     <%= f.submit %>

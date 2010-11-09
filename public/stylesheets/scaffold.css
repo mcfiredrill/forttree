@@ -58,3 +58,7 @@ div.field, div.actions {
 .hide {
     display: none;
 }
+
+.leaf img {
+    float: left;
+}

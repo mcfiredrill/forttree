@@ -21,7 +21,7 @@ class LeafsController < ApplicationController
   def create
     logger.info("the id: #{$theid}")
     @parentbranch = Branch.find($theid)
-    @leaf = Leaf.new(:content => params[:leaf][:content], :branch_id => @parentbranch.id, :name => params[:leaf][:name])
+    @leaf = Leaf.new(:content => params[:leaf][:content], :branch_id => @parentbranch.id, :name => params[:leaf][:name], :photo => params[:leaf][:photo])
 
     respond_to do |format|
       if @leaf.save

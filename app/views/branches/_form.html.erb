@@ -1,4 +1,4 @@
-<%= form_for(@branch) do |f| %>
+<%= form_for(@branch, :html => { :multipart => true }) do |f| %>
   <% if @branch.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
@@ -16,6 +16,9 @@
   </div>
   <div class="field">
     <textarea name="leaf[content]" cols="80" rows="20"><%= @leaf.content %></textarea>
+  </div>
+  <div class="field">
+    <input type="file" name="leaf[photo]"><%= @leaf.photo%></textarea>
   </div>
   <div class="actions">
     <%= f.submit %>

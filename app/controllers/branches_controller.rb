@@ -2,6 +2,8 @@ class BranchesController < ApplicationController
   # GET /branches
   # GET /branches.xml
   def index
+    @branch = Branch.new
+    @leaf = Leaf.new
     @branches = Branch.all
 
     respond_to do |format|

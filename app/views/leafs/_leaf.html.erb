@@ -1,0 +1,17 @@
+<div class="leaf">
+    <p>
+      <b>Name:</b>
+      <%= leaf.name %>
+    </p>
+    <p>
+      <b>Time:</b>
+      <%= leaf.created_at %>
+    </p>
+    <p>
+      <b>Content:</b>
+      <%= leaf.content %>
+    </p>
+    <% unless leaf.photo.url == "/photos/original/missing.png" %>
+    <%= link_to (image_tag leaf.photo.url), leaf.photo.url %> 
+    <% end %>
+</div>

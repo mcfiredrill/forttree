@@ -6,8 +6,8 @@
 </p>
 <h2>Reply</h2>
 <div class="hide">
-<%= $theid = @branch.id %>
-<%= @leaf = Leaf.new %>
+  <%= $theid = @branch.id %>
+  <%= @leaf = Leaf.new %>
 </div>
 <%= render 'leafs/form' %>
 
@@ -31,5 +31,5 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
+<!-- <%= link_to 'Edit', edit_branch_path(@branch) %> -->
 <%= link_to 'Back', branches_path %>

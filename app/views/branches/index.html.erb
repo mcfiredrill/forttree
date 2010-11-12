@@ -1,24 +1,12 @@
-<h1>Listing branches</h1>
+<h1>FortTree</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Last post at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= render 'form' %>
 
 <% @branches.each do |branch| %>
-  <tr>
-    <td><%= branch.leafs.first.name %></td>
-    <td><%= branch.last_post_at %></td>
-    <td><%= link_to 'Show', branch %></td>
-    <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-    <td><%= link_to 'Destroy', branch, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <% branch.leafs.each do |l| %>
+  <%= render l %>
+  <% end %>
 <% end %>
-</table>
 
 <br />
 

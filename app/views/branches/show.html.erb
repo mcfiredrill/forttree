@@ -1,34 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<h1>FortTree</h1>
+<h2>Reply</h2>
 <p>
   <b>Last post at:</b>
   <%= @branch.last_post_at %>
 </p>
-<h2>Reply</h2>
 <div class="hide">
   <%= $theid = @branch.id %>
   <%= @leaf = Leaf.new %>
 </div>
 <%= render 'leafs/form' %>
 
-
-<% @branch.leafs.each do |l| %>
-<div class="leaf">
-    <p>
-      <b>Name:</b>
-      <%= l.name %>
-    </p>
-    <p>
-      <b>Time:</b>
-      <%= l.created_at %>
-    </p>
-    <p>
-      <b>Content:</b>
-      <%= l.content %>
-    </p>
-    <%= image_tag l.photo.url %> 
-</div>
+<% f = @branch.leafs.first %>
+<div class="branch">
+  <div class="firstleaf">
+      <p>
+        <b>Name:</b>
+        <%= f.name %>
+      </p>
+      <p>
+        <b>Time:</b>
+        <%= f.created_at %>
+      </p>
+      <% unless f.photo.url == "/photos/original/missing.png" %>
+      <%= link_to (image_tag f.photo.url(:thumb), :class=> 'thumb'), f.photo.url %> 
+      <% end %>
+      <blockquote>
+      <p><%= f.content %></p>
+      </blockquote>
+  </div>
+<% for i in 1..@branch.leafs.length-1 %>
+<%= render @branch.leafs[i] %>
 <% end %>
+</div>
 
 
 <!-- <%= link_to 'Edit', edit_branch_path(@branch) %> -->

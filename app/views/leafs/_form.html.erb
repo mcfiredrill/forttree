@@ -14,26 +14,26 @@
   <div class="postarea">
     <table>
       <tr>
-      <td>Name</td>
+      <td class="fieldlabel">Name</td>
       <td class="field">
-        <input type="text" name="leaf[name]" cols="80" rows="20"><%= @leaf.name%></textarea>
+        <input type="text" name="leaf[name]" cols="80" rows="20" class="formbox"><%= @leaf.name%></textarea>
       </td>
       </tr>
       <tr>
-      <td>Post</td>
+      <td class="fieldlabel">Post</td>
       <td class="field">
-        <textarea name="leaf[content]" cols="48" rows="4"><%= @leaf.content %></textarea>
+        <textarea name="leaf[content]" cols="48" rows="4" class="formbox"><%= @leaf.content %></textarea>
       </td>
       </tr>
       <tr>
-      <td>Photo</td>
+      <td class="fieldlabel">Photo</td>
       <td class="field">
-        <input type="file" name="leaf[photo]"><div class="hide"><%= @leaf.photo%></div></textarea>
+        <input type="file" name="leaf[photo]" class="formbox"><div class="hide"><%= @leaf.photo%></div></textarea>
       </td>
       </tr>
   </table>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(:class => 'submitbutton') %>
   </div>
   </div>
 <% end %>

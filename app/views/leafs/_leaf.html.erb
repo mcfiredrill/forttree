@@ -7,11 +7,10 @@
       <b>Time:</b>
       <%= leaf.created_at %>
     </p>
-    <p>
-      <b>Content:</b>
-      <%= leaf.content %>
-    </p>
     <% unless leaf.photo.url == "/photos/original/missing.png" %>
-    <%= link_to (image_tag leaf.photo.url), leaf.photo.url %> 
+    <%= link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url %> 
     <% end %>
+    <blockquote>
+    <p><%= leaf.content %></p>
+    </blockquote>
 </div>

@@ -10,7 +10,9 @@
           <div class="replylink"><%= link_to 'Reply', branch %></div>
           <p>
             <b>Name:</b>
-            <%= f.name %>
+            <% unless f.name.empty? %>
+              <%= f.name %>
+            <% end %>
           </p>
           <p>
             <b>Time:</b>
@@ -20,7 +22,11 @@
           <%= link_to (image_tag f.photo.url(:thumb), :class=> 'thumb'), f.photo.url %> 
           <% end %>
           <blockquote>
-          <p><%= f.content %></p>
+          <p>
+          <% unless f.content.empty? %>
+            <%= f.content %>
+          <% end %>
+          </p>
           </blockquote>
           </div>
     <% for i in 1..branch.leafs.length-1 %>

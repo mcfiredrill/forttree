@@ -139,12 +139,6 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 .fieldlabel {
-  -moz-border-radius:    5px;
-  -webkit-border-radius: 5px;
-  border-radius:         5px;
-  background: #fff; /* for non-css3 */
-  background: -moz-linear-gradient(top, #fff, #aaa);
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#aaa));
   padding: 10px;
 }
 

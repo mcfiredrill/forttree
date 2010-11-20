@@ -2,29 +2,31 @@
 
 <%= render 'form' %>
 
-<% @branches.reverse_each do |branch| %>
-  <% f = branch.leafs.first %>
-  <div class="branch">
-    <div class="firstleaf">
-        <div class="replylink"><%= link_to 'Reply', branch %></div>
-        <p>
-          <b>Name:</b>
-          <%= f.name %>
-        </p>
-        <p>
-          <b>Time:</b>
-          <%= f.created_at %>
-        </p>
-        <% unless f.photo.url == "/photos/original/missing.png" %>
-        <%= link_to (image_tag f.photo.url(:thumb), :class=> 'thumb'), f.photo.url %> 
-        <% end %>
-        <blockquote>
-        <p><%= f.content %></p>
-        </blockquote>
-        </div>
-  <% for i in 1..branch.leafs.length-1 %>
-  <%= render branch.leafs[i] %>
+<% unless @branches.empty? %>
+  <% @branches.reverse_each do |branch| %>
+    <% f = branch.leafs.first %>
+    <div class="branch">
+      <div class="firstleaf">
+          <div class="replylink"><%= link_to 'Reply', branch %></div>
+          <p>
+            <b>Name:</b>
+            <%= f.name %>
+          </p>
+          <p>
+            <b>Time:</b>
+            <%= f.created_at %>
+          </p>
+          <% unless f.photo.url == "/photos/original/missing.png" %>
+          <%= link_to (image_tag f.photo.url(:thumb), :class=> 'thumb'), f.photo.url %> 
+          <% end %>
+          <blockquote>
+          <p><%= f.content %></p>
+          </blockquote>
+          </div>
+    <% for i in 1..branch.leafs.length-1 %>
+    <%= render branch.leafs[i] %>
+    <% end %>
+  </div>
+  <br style="clear:both;"/>
   <% end %>
-</div>
-<br style="clear:both;"/>
 <% end %>

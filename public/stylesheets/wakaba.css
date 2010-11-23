@@ -1,0 +1,168 @@
+@import url("base.css");
+
+body {
+  background: #ffffee;
+  color: #800000;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:hover { color: #555; }
+
+h1 a {
+  color: #800000;
+  text-decoration: none;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.hide {
+  display: none;
+}
+
+.firstleaf, .firstleaf img, .leaf,
+.postarea, .replylink {
+}
+
+.firstleaf, .leaf, .postarea,
+.replylink {
+}
+
+.firstleaf {
+  padding: 15px;
+}
+
+.firstleaf img {
+  padding: 10px;
+}
+
+.firstleaf blockquote, .leaf blockquote {
+  margin-bottom: 10px;
+}
+
+.leaf {
+  padding: 15px;
+  margin: 0 0 5px 0;
+  overflow: hidden;
+  background:none repeat scroll 0 0 #F0E0D6;
+  color:#800000;
+}
+
+.thumb {
+  float:left;
+  margin-right: 10px;
+  border: none;
+}
+
+.branch {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.postarea {
+  margin: 0 auto;
+  text-align: left;
+  padding: 15px;
+}
+
+.postarea table {
+  margin: 0 auto;
+  text-align: left;
+}
+
+.formbox, .submitbutton
+{
+}
+
+.formbox {
+  padding: 10px;
+}
+
+.formbox select {
+  border: 1px solid #7bdb84;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.fieldlabel {
+  padding: 10px;
+  background:none repeat scroll 0 0 #EEAA88;
+  color:#800000;
+  font-weight:800;
+}
+
+.actions {
+  margin-bottom: 20px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.submitbutton {
+}
+
+.replylink {
+  padding: 10px;
+  text-align: center;
+  width: 80px;
+  font-size: 20px;
+  float: right;
+  position: relative;
+  top: 15px;
+}
+
+.replylink a {
+  color: #fff;
+}
+
+.replylink a:hover {
+  /* background: #058337;
+  background: -moz-linear-gradient(top, #1b9e4f, #b1deb6);
+  background: -webkit-gradient(linear, left top, left bottom, from(#1b9e4f), to(#b1deb6)); */
+  font-size: 105%;
+}

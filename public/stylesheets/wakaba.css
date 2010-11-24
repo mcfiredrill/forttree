@@ -60,9 +60,6 @@ h1 a {
   list-style: square;
 }
 
-.hide {
-  display: none;
-}
 
 .firstleaf, .firstleaf img, .leaf,
 .postarea, .replylink {
@@ -165,4 +162,9 @@ h1 a {
   background: -moz-linear-gradient(top, #1b9e4f, #b1deb6);
   background: -webkit-gradient(linear, left top, left bottom, from(#1b9e4f), to(#b1deb6)); */
   font-size: 105%;
+}
+
+#smiley_helper {
+  background:none repeat scroll 0 0 #F0E0D6;
+  color:#800000;
 }

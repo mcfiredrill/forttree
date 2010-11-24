@@ -3,3 +3,22 @@
   position:absolute;
   top:5px;
 }
+
+.hide {
+  display: none;
+}
+
+#smiley_helper {
+  position:absolute;
+  right:67px;
+  top:117px;
+  width:200px;
+  text-align: center;
+  padding: 5px;
+}
+
+#smiley_toggle {
+  position:absolute;
+  right:225px;
+  top:127px;
+}

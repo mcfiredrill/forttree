@@ -22,7 +22,7 @@
       <tr>
       <td class="fieldlabel">Post</td>
       <td class="field">
-        <textarea name="leaf[content]" cols="48" rows="4" class="formbox"><%= @leaf.content %></textarea>
+        <textarea name="leaf[content]" id="leaf[content]" cols="48" rows="4" class="formbox"><%= @leaf.content %></textarea>
       </td>
       </tr>
       <tr>
@@ -37,3 +37,15 @@
   </div>
   </div>
 <% end %>
+<div id="smiley_toggle">
+<%= link_to_function "(´ε`)", "show_smiley_helper()" %>
+</div>
+<div id="smiley_helper" style="display:none;">
+<h3>smiley assistant</h3>
+<%= link_to_function "(´ε`) click me to close", "show_smiley_helper()" %>
+<br />
+<% faces.each do |f| %>
+  <%= link_to_function f, "insert_emoticon('" + f + "')" %>
+  <br />
+<% end %>
+</div>

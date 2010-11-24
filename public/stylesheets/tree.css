@@ -180,3 +180,10 @@ h1 a {
   background: -webkit-gradient(linear, left top, left bottom, from(#1b9e4f), to(#b1deb6)); */
   font-size: 105%;
 }
+
+#smiley_helper {
+  -moz-border-radius:    40px;
+  -webkit-border-radius: 40px;
+  border-radius:         40px;
+  background: red;
+}

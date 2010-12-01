@@ -25,8 +25,14 @@ class LeafsController < ApplicationController
 
     respond_to do |format|
       if @leaf.save
-        format.html { redirect_to(@parentbranch, :notice => 'Leaf was successfully created.') }
-        format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
+        @parentbranch.last_post_at = Time.now
+        if @parentbranch.save
+          format.html { redirect_to(@parentbranch, :notice => 'Leaf was successfully created.') }
+          format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
+        else
+          format.html { redirect_to(@parentbranch, :notice => 'Leaf was created for some reason.') }
+          format.xml  { render :xml => @parentbranch.errors, :status => :unprocessable_entity }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }

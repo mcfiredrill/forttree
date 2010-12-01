@@ -4,7 +4,8 @@ class BranchesController < ApplicationController
   def index
     @branch = Branch.new
     @leaf = Leaf.new
-    @branches = Branch.all
+    #@branches = Branch.all
+    @branches = Branch.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

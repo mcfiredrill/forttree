@@ -1,0 +1,32 @@
+<% unless branch == nil %>
+    <% f = branch.leafs.first %>
+    <div class="branch">
+      <div class="firstleaf">
+          <div class="replylink"><%= link_to 'Reply', branch %></div>
+          <p>
+            <b>Name:</b>
+            <% unless f.name.empty? %>
+              <%= f.name %>
+            <% end %>
+          </p>
+          <p>
+            <b>Time:</b>
+            <%= f.created_at %>
+          </p>
+          <% unless f.photo.url == "/photos/original/missing.png" %>
+            <%= link_to (image_tag f.photo.url(:thumb), :class=> 'thumb'), f.photo.url %> 
+          <% end %>
+          <blockquote>
+          <p>
+          <% unless f.content.empty? %>
+            <%= f.content %>
+          <% end %>
+          </p>
+          </blockquote>
+          </div>
+    <% for i in 1..branch.leafs.length-1 %>
+      <%= render branch.leafs[i] %>
+    <% end %>
+  </div>
+  <br style="clear:both;"/>
+<% end %>

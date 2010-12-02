@@ -1,7 +1,5 @@
 #themes {
-  left:90%;
-  position:absolute;
-  top:5px;
+  float: right;
 }
 
 .hide {

@@ -4,15 +4,17 @@
   <title>Forttree</title>
   <%= stylesheet_link_tag 'tree', :title => "tree" %>
   <%= stylesheet_link_tag 'wakaba', :title => "wakaba" %>
+  <%= stylesheet_link_tag 'kawaii', :title => "kawaii" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-<h1><%= link_to 'FortTree', branches_path %></h1>
 <div id="themes">
 <%= link_to_function "tree", "set_stylesheet('tree')" %>
 <%= link_to_function "wakaba", "set_stylesheet('wakaba')" %>
+<%= link_to_function "kawaii", "set_stylesheet('kawaii')" %>
 </div>
+<h1><%= link_to 'FortTree', branches_path %></h1>
 
 <%= yield %>
 

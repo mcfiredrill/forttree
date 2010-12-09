@@ -40,7 +40,11 @@ class LeafsController < ApplicationController
           format.xml  { render :xml => @parentbranch.errors, :status => :unprocessable_entity }
         end
       else
+        #@leaf = Leaf.new
+        @branch = Branch.find($theid)
+        #$theid = @branch.id
         format.html { render :action => "new" }
+        #format.html { redirect_to("/leafs/new?branch=#{$theid}") }
         #format.html { redirect_to(@parentbranch, :notice => "Leaf was not created for some reason: #{ @leaf.errors }") }
         #format.html { redirect_to(@parentbranch) }
         logger.info("#{ @leaf.errors }")

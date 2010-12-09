@@ -54,15 +54,15 @@ class BranchesController < ApplicationController
         logger.info("branch id: #{ @branch.id }")
         @leaf = Leaf.new(:content => params[:leaf][:content], :branch_id => @branch.id, :name => params[:leaf][:name],:photo => params[:leaf][:photo])
         if @leaf.save
-          format.html { redirect_to(@branch, :notice => 'Branch was successfully created.') }
+          format.html { redirect_to('/branches#index', :notice => 'Branch was successfully created.') }
           format.xml  { render :xml => @branch, :status => :created, :location => @branch }
         else
           logger.info("new branch, leaf save failed: #{ @leaf.errors }")
-          format.html { render :action => "new" }
+          format.html { redirect_to('/branches#index') }
           format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }
         end
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to('/branches#index') }
         format.xml  { render :xml => @branch.errors, :status => :unprocessable_entity }
       end
     end

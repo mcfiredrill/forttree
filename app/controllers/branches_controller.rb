@@ -57,6 +57,7 @@ class BranchesController < ApplicationController
           format.html { redirect_to(@branch, :notice => 'Branch was successfully created.') }
           format.xml  { render :xml => @branch, :status => :created, :location => @branch }
         else
+          logger.info("new branch, leaf save failed: #{ @leaf.errors }")
           format.html { render :action => "new" }
           format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }
         end

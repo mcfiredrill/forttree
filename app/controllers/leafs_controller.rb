@@ -4,6 +4,8 @@ class LeafsController < ApplicationController
   # GET /leafs/new.xml
   def new
     @leaf = Leaf.new
+    @branch = Branch.find(params[:branch])
+    $theid = @branch.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -20,21 +22,28 @@ class LeafsController < ApplicationController
   # POST /leafs.xml
   def create
     logger.info("the id: #{$theid}")
+    logger.info("branch: #{@branch}")
+    logger.info("params hash: #{ params }")
     @parentbranch = Branch.find($theid)
+    #@parentbranch = Branch.find(params[:branch])
+    #@parentbranch = Branch.find(params[:leaf][:branch_id])
     @leaf = Leaf.new(:content => params[:leaf][:content], :branch_id => @parentbranch.id, :name => params[:leaf][:name], :photo => params[:leaf][:photo])
 
     respond_to do |format|
       if @leaf.save
         @parentbranch.last_post_at = Time.now
         if @parentbranch.save
-          format.html { redirect_to(@parentbranch, :notice => 'Leaf was successfully created.') }
+          format.html { redirect_to('/branches#index', :notice => 'Leaf was successfully created.') }
           format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
         else
-          format.html { redirect_to(@parentbranch, :notice => 'Leaf was created for some reason.') }
+          format.html { redirect_to('/branches#index', :notice => 'Leaf was not created for some reason.') }
           format.xml  { render :xml => @parentbranch.errors, :status => :unprocessable_entity }
         end
       else
         format.html { render :action => "new" }
+        #format.html { redirect_to(@parentbranch, :notice => "Leaf was not created for some reason: #{ @leaf.errors }") }
+        #format.html { redirect_to(@parentbranch) }
+        logger.info("#{ @leaf.errors }")
         format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }
       end
     end

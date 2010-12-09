@@ -185,5 +185,9 @@ h1 a {
   -moz-border-radius:    40px;
   -webkit-border-radius: 40px;
   border-radius:         40px;
-  background: red;
+  background: #ddd;
+}
+
+hr {
+  color: #66066;
 }

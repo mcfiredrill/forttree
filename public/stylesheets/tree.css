@@ -187,3 +187,7 @@ h1 a {
   border-radius:         40px;
   background: red;
 }
+
+hr {
+  display: none;
+}

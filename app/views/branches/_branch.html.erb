@@ -3,7 +3,9 @@
     <% unless f == nil %>
       <div class="branch">
         <div class="firstleaf">
+        <% if(request.request_uri == "/branches") %>
             <div class="replylink"><%= link_to 'Reply', "leafs/new?branch=#{branch.id}" %></div>
+        <% end %>
             <p>
               <b>Name:</b>
               <% unless f.name.empty? %>

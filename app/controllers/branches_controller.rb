@@ -58,8 +58,10 @@ class BranchesController < ApplicationController
           format.xml  { render :xml => @branch, :status => :created, :location => @branch }
         else
           logger.info("new branch, leaf save failed: #{ @leaf.errors }")
+          @branch.destroy #destroy branch so we dont end up with a branch with no leafs
           format.html { redirect_to('/branches#index') }
           format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }
+          format.xml  { render :xml => @branch.errors, :status => :unprocessable_entity }
         end
       else
         format.html { redirect_to('/branches#index') }

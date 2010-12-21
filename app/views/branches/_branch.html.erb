@@ -3,7 +3,7 @@
     <% unless f == nil %>
       <div class="branch">
         <div class="firstleaf">
-        <% if(request.request_uri == "/branches") %>
+        <% if(!(request.request_uri =~ /leafs/)) %>
             <div class="replylink"><%= link_to 'Reply', "leafs/new?branch=#{branch.id}" %></div>
         <% end %>
             <p>

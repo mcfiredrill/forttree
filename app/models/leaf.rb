@@ -1,8 +1,6 @@
 class Leaf < ActiveRecord::Base
   belongs_to :branch
 
-  #attr_accessible :content
-
   has_attached_file :photo,
       :styles => { :thumb => "300x300>" },
       :storage => :s3,
@@ -13,6 +11,10 @@ class Leaf < ActiveRecord::Base
       :bucket => ENV['S3_BUCKET'],
       :path => "/:style/:filename"
 
-  validates(:content, :presence => true)
+  validate :validates_photo_or_post
 
+  def validates_photo_or_post
+    errors.add(:leaf, " must have text post or picture!") if
+      content.blank? && photo_file_name.blank?
+  end
 end

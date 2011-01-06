@@ -6,17 +6,40 @@
   display: none;
 }
 
+.postarea_container {
+  position: relative;
+}
+
+.postarea {
+  margin: 0 auto;
+  text-align: left;
+  padding: 15px;
+  width: 50%;
+}
+
+.postarea table {
+  margin: 0 auto;
+  text-align: left;
+}
+
 #smiley_helper {
-  position:absolute;
+ /* position:absolute;
   right:67px;
   top:117px;
-  width:200px;
+  width:200px;*/
   text-align: center;
   padding: 5px;
+  position:absolute;
+  right:0;
+  top:0;
+  min-height:300px;
 }
 
 #smiley_toggle {
-  position:absolute;
+/*  position:absolute;
   right:225px;
-  top:127px;
+  top:127px;*/
+  position:absolute;
+  right:40px;
+  top:15px;
 }

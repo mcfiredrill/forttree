@@ -74,9 +74,9 @@ h1 a {
 
 .firstleaf, .leaf, .postarea,
 .replylink {
-  -moz-border-radius:    50px;
-  -webkit-border-radius: 50px;
-  border-radius:         50px;
+  -moz-border-radius:    0px 50px 50px 50px;
+  -webkit-border-radius: 0px 50px 50px 50px;
+  border-radius:         0px 50px 50px 50px;
 }
 
 .firstleaf {
@@ -84,9 +84,9 @@ h1 a {
 }
 
 .firstleaf img {
-  -moz-border-radius:    20px;
-  -webkit-border-radius: 20px;
-  border-radius:         20px;
+  -moz-border-radius:    0px 20px 20px 20px;
+  -webkit-border-radius: 0px 20px 20px 20px;
+  border-radius:         0px 20px 20px 20px;
   padding: 10px;
 }
 
@@ -110,16 +110,6 @@ h1 a {
   margin-bottom: 30px;
 }
 
-.postarea {
-  margin: 0 auto;
-  text-align: left;
-  padding: 15px;
-}
-
-.postarea table {
-  margin: 0 auto;
-  text-align: left;
-}
 
 .formbox, .submitbutton
 {
@@ -182,9 +172,9 @@ h1 a {
 }
 
 #smiley_helper {
-  -moz-border-radius:    40px;
-  -webkit-border-radius: 40px;
-  border-radius:         40px;
+  -moz-border-radius:    0px 40px 40px 40px;
+  -webkit-border-radius: 0px 40px 40px 40px;
+  border-radius:         0px 40px 40px 40px;
   background: #ddd;
 }
 

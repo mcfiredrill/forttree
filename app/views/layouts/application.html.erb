@@ -2,17 +2,17 @@
 <html>
 <head>
   <title>Forttree</title>
-  <%= stylesheet_link_tag 'tree', :title => "tree" %>
-  <%= stylesheet_link_tag 'wakaba', :title => "wakaba" %>
-  <%= stylesheet_link_tag 'kawaii', :title => "kawaii" %>
+  <% theme_basenames.each do |t| %>
+    <%= stylesheet_link_tag "themes/" + t, :title => t %>
+  <% end %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 <div id="themes">
-<%= link_to_function "tree", "set_stylesheet('tree')" %>
-<%= link_to_function "wakaba", "set_stylesheet('wakaba')" %>
-<%= link_to_function "kawaii", "set_stylesheet('kawaii')" %>
+<% theme_basenames.each do |t| %>
+  <%= link_to_function t, "set_stylesheet('"+t+"')" %>
+<% end %>
 </div>
 <h1><%= link_to 'FortTree', branches_path %></h1>
 

@@ -1,0 +1,52 @@
+<%= form_for newpost, :html => { :multipart => true } do |f| %>
+  <% if newpost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(newpost.errors.count, "error") %> prohibited this newpost from being saved:</h2>
+
+      <ul>
+      <% newpost.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="postarea_container">
+    <div class="postarea">
+      <table>
+        <tr>
+        <td class="fieldlabel">Name</td>
+        <td class="field">
+          <input type="text" name="leaf[name]" cols="80" rows="20" class="formbox" value="<%= @leaf.name %>"><% @leaf.name%></textarea>
+        </td>
+        </tr>
+        <tr>
+        <td class="fieldlabel">Post</td>
+        <td class="field">
+          <textarea name="leaf[content]" id="leaf[content]" cols="48" rows="4" class="formbox"><% @leaf.content %></textarea>
+        </td>
+        </tr>
+        <tr>
+        <td class="fieldlabel">Photo</td>
+        <td class="field">
+          <input type="file" name="leaf[photo]" class="formbox"><div class="hide"><% @leaf.photo%></div></textarea>
+        </td>
+        </tr>
+    </table>
+    <div class="actions">
+      <%= f.submit(:class => 'submitbutton', :value => 'Reply') %>
+    </div>
+    </div>
+<% end %>
+  <div id="smiley_toggle">
+  <%= link_to_function "(´ε`)", "show_smiley_helper()" %>
+  </div>
+  <div id="smiley_helper" style="display:none;">
+  <h3>smiley assistant</h3>
+  <%= link_to_function "(´ε`) click me to close", "show_smiley_helper()" %>
+  <br />
+  <% faces.each do |f| %>
+    <%= link_to_function f, "insert_emoticon('" + f + "')" %>
+    <br />
+  <% end %>
+  </div>
+</div> <!-- end postarea_container -->

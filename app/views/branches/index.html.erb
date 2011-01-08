@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'form' %>
+<%= render :partial => "layouts/form", :locals => { :newpost => @branch } %>
 
 <%= render @branches %>
 

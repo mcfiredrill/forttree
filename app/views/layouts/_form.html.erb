@@ -33,16 +33,16 @@
         </tr>
     </table>
     <div class="actions">
-      <%= f.submit(:class => 'submitbutton', :value => 'Reply') %>
+      <%= f.submit(:class => 'submitbutton', :value => 'Post') %>
     </div>
     </div>
 <% end %>
   <div id="smiley_toggle">
-  <%= link_to_function "(´ε`)", "show_smiley_helper()" %>
+  <%= link_to_function "(´ε`)", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5) %>
   </div>
   <div id="smiley_helper" style="display:none;">
   <h3>smiley assistant</h3>
-  <%= link_to_function "(´ε`) click me to close", "show_smiley_helper()" %>
+  <%= link_to_function "(´ε`) click me to close", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5) %>
   <br />
   <% faces.each do |f| %>
     <%= link_to_function f, "insert_emoticon('" + f + "')" %>

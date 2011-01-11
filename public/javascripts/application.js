@@ -90,7 +90,3 @@ window.onload=function(e)
 function insert_emoticon(text){
   $('leaf[content]').value = $('leaf[content]').value+text;
 }
-
-function show_smiley_helper(){
-  $('smiley_helper').toggle();
-}

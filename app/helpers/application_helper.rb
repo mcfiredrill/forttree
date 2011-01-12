@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def faces 
+  def faces
     [ "´ ▽ `",
     "＾ω＾",
     "＾∀＾",
@@ -12,9 +12,9 @@ module ApplicationHelper
     "(づ｡◕‿‿‿‿◕｡)づ",
     "♡✰☁☼✿⚈‿‿⚈✿☼☁✰♡"]
   end
-  
+
   def themes
-    Dir['public/stylesheets/themes/*.css'] 
+    Dir['public/stylesheets/themes/*.css']
   end
 
   def theme_basenames

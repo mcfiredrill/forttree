@@ -1,9 +1,8 @@
-<% logger.info("params hash: #{ params[:branch] }") %>
 <h1>New leaf</h1>
 <p>
   <b>Last post in this thread:</b>
   <%= @branch.last_post_at %>
 </p>
 
-<%= render :partial => "layouts/form", :locals => { :newpost => @leaf } %>
+<%= render :partial => "layouts/form", :locals => { :newpost => @leaf, :leaf => @branch} %>
 <%= render @branch %>

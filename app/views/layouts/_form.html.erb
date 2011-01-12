@@ -2,9 +2,18 @@
   <% if newpost.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(newpost.errors.count, "error") %> prohibited this newpost from being saved:</h2>
-
       <ul>
       <% newpost.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if leaf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(leaf.errors.count, "error") %> prohibited this newpost from being saved:</h2>
+      <ul>
+      <% leaf.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

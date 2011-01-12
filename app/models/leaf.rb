@@ -14,7 +14,8 @@ class Leaf < ActiveRecord::Base
   validate :validates_photo_or_post
 
   def validates_photo_or_post
-    errors.add(:leaf, " must have text post or picture!") if
+    errors.add(:leaf, "must have text or a picture, why would you want to make a
+      blank post? ;3") if
       content.blank? && photo_file_name.blank?
   end
 end

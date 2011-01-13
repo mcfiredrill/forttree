@@ -5,7 +5,7 @@ class Branch < ActiveRecord::Base
 
   # pagination
   cattr_reader :per_page
-  @@per_page = 5
+  @@per_page = BRANCHES_PER_PAGE
   default_scope :order => 'last_post_at DESC'
 
   #validates(:leafs, :presence => true)

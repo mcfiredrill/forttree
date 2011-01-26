@@ -36,10 +36,12 @@ class LeafsController < ApplicationController
       if @leaf.save
         @parentbranch.last_post_at = Time.now
         if @parentbranch.save
-          format.html { redirect_to('/branches#index', :notice => 'Leaf was successfully created.') }
+          flash[:success] = "Leaf created!"
+          format.html { redirect_to('/branches#index') }
           format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
         else
-          format.html { redirect_to('/branches#index', :notice => 'Leaf was not created for some reason.') }
+          flash[:error] = "Leaf not created for some reason"
+          format.html { redirect_to('/branches#index') }
           format.xml  { render :xml => @parentbranch.errors, :status => :unprocessable_entity }
         end
       else

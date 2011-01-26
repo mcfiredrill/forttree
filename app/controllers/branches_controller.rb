@@ -30,7 +30,6 @@ class BranchesController < ApplicationController
     @branch = Branch.new
     @leaf = Leaf.new
     @branches = Branch.paginate(:page => params[:page])
-    logger.info("hey new method")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -58,7 +57,8 @@ class BranchesController < ApplicationController
         logger.info("lastpostat: #{ @branch.last_post_at }")
         logger.info("branch id: #{ @branch.id }")
         if @leaf.save
-          format.html { redirect_to('/branches#index', :notice => 'Branch was successfully created.') }
+          flash[:success] = "Branch created!"
+          format.html { redirect_to('/branches#index') }
           format.xml  { render :xml => @branch, :status => :created, :location => @branch }
         else
           @branch.destroy #destroy branch so we dont end up with a branch with no leafs

@@ -1,7 +1,7 @@
 <%= form_for newpost, :html => { :multipart => true } do |f| %>
   <% if newpost.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(newpost.errors.count, "error") %> prohibited this newpost from being saved:</h2>
+      <h2>Uh oh, you got <%= pluralize(newpost.errors.count, "error") %>!</h2>
       <ul>
       <% newpost.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,7 +11,7 @@
   <% end %>
   <% if leaf.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(leaf.errors.count, "error") %> prohibited this newpost from being saved:</h2>
+      <h2>Uh oh, you got <%= pluralize(leaf.errors.count, "error") %>!</h2>
       <ul>
       <% leaf.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

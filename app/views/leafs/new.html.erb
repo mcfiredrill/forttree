@@ -4,5 +4,7 @@
   <%= @branch.last_post_at %>
 </p>
 
+<div class="replyheader">Posting mode: Reply</div>
+
 <%= render :partial => "layouts/form", :locals => { :newpost => @leaf, :leaf => @branch} %>
 <%= render @branch %>

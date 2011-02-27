@@ -103,3 +103,11 @@
 .flash_error {
   color: red;
 }
+
+.replyheader {
+  background: #E04000;
+  text-align: center;
+  padding: 2px;
+  color: white;
+  width: 100%;
+}

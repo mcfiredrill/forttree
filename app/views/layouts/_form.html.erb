@@ -1,14 +1,4 @@
 <%= form_for newpost, :html => { :multipart => true } do |f| %>
-  <% if newpost.errors.any? %>
-    <div id="error_explanation">
-      <h2>Uh oh, you got <%= pluralize(newpost.errors.count, "error") %>!</h2>
-      <ul>
-      <% newpost.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <% if leaf.errors.any? %>
     <div id="error_explanation">
       <h2>Uh oh, you got <%= pluralize(leaf.errors.count, "error") %>!</h2>
@@ -19,28 +9,30 @@
       </ul>
     </div>
   <% end %>
+  <%= fields_for leaf do |l| %>
   <div class="postarea_container">
     <div class="postarea">
       <table>
         <tr>
         <td class="fieldlabel">Name</td>
         <td class="field">
-          <input type="text" name="leaf[name]" cols="80" rows="20" class="formbox" value="<%= @leaf.name %>"><% @leaf.name%>
+          <%= l.text_field :name, :cols => 80, :rows => 20, :class=>"formbox" %>
         </td>
         </tr>
         <tr>
         <td class="fieldlabel">Post</td>
         <td class="field">
-          <textarea name="leaf[content]" id="leaf[content]" cols="48" rows="4" class="formbox"><% @leaf.content %></textarea>
+          <%= l.text_area(:content, :cols => 48, :rows => 4, :class => "formbox") %>
         </td>
         </tr>
         <tr>
         <td class="fieldlabel">Photo</td>
         <td class="field">
-          <input type="file" name="leaf[photo]" class="formbox"><div class="hide"><% @leaf.photo%></div>
+          <%= l.file_field :photo, :class=>"formbox" %>
         </td>
         </tr>
     </table>
+    <% end %>
     <div class="actions">
       <%= f.submit(:class => 'submitbutton', :value => 'Post') %>
     </div>
@@ -58,4 +50,4 @@
     <br />
   <% end %>
   </div>
-</div> <!-- end postarea_container -->
+</div>

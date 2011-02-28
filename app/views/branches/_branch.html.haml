@@ -1,0 +1,24 @@
+- unless branch == nil
+  - f = branch.leafs.first
+  - unless f == nil
+    %div.branch
+      %div.firstleaf
+        - if(!(request.request_uri =~ /leafs/))
+          %div.replylink=link_to 'Reply', "leafs/new?branch=#{branch.id}"
+        %p
+          %b Name
+          - unless f.name.empty?
+            = f.name
+        %p
+          %b Time:
+          = f.created_at
+        - unless f.photo.url == "/photos/original/missing.png"
+          = link_to (image_tag f.photo.url(:thumb), :class=> 'thumb'), f.photo.url
+        %blockquote
+        %p
+        - unless f.content.empty?
+          = f.content
+  - for i in 1..branch.leafs.length-1
+    = render branch.leafs[i]
+%br{:style => "clear:both"}
+%hr

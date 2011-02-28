@@ -88,7 +88,7 @@ window.onload=function(e)
 }
 
 function insert_emoticon(text){
-  $('leaf[content]').value = $('leaf[content]').value+text;
+  $('leaf_content').value = $('leaf_content').value+text;
 }
 
 document.observe("dom:loaded", function() {

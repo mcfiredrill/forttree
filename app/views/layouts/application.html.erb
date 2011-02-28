@@ -14,7 +14,7 @@
   <%= link_to_function t, "set_stylesheet('"+t+"')" %>
 <% end %>
 </div>
-<h1><%= link_to BOARDTITLE, branches_path %></h1>
+<h1><%= link_to BOARDTITLE, new_branch_path %></h1>
 <% flash.each do |key, value| %>
   <div class="<%="flash_#{key}"%>">
       <h2><%= value %></h2>

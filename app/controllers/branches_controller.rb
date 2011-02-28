@@ -4,11 +4,15 @@ class BranchesController < ApplicationController
   def index
     @branch = Branch.new
     @leaf = Leaf.new
-    #@branches = Branch.all
     @branches = Branch.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js {
+        render :update do |page|
+          page.replace_html 'page', :partial => 'cur_page'
+        end
+      }
       format.xml  { render :xml => @branches }
     end
   end
@@ -33,6 +37,11 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js {
+        render :update do |page|
+          page.replace('page', :partial => 'cur_page')
+        end
+      }
       format.xml  { render :xml => @branch }
     end
   end

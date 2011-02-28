@@ -4,7 +4,7 @@
     %div.branch
       %div.firstleaf
         - if(!(request.request_uri =~ /leafs/))
-          %div.replylink=link_to 'Reply', "leafs/new?branch=#{branch.id}"
+          %div.replylink=link_to 'Reply', "/leafs/new?branch=#{branch.id}"
         %p
           %b Name
           - unless f.name.empty?

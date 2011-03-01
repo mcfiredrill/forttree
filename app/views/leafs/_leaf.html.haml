@@ -5,7 +5,7 @@
   %b Time:
   = leaf.created_at
 - unless leaf.photo.url == "/photos/original/missing.png"
-  = link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url
+  = link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url, :target => "_blank"
 - unless leaf.content.empty?
   %blockquote
   %p=simple_format(auto_link(leaf.content))

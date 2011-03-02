@@ -87,8 +87,13 @@ window.onload=function(e)
   set_stylesheet(title);
 }
 
-function insert_emoticon(text){
-  $('leaf_content').value = $('leaf_content').value+text;
+function insert_emoticon(text) {
+	var my_text = $('leaf_content').value;
+	var caret_pos = $('leaf_content').selectionEnd;
+
+	$(leaf_content).value = my_text.substring(0, caret_pos)
+		+ text
+		+ my_text.substring(caret_pos);
 }
 
 document.observe("dom:loaded", function() {

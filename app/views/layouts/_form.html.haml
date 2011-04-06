@@ -24,12 +24,13 @@
             = l.file_field :photo, :class=>"formbox"
     %div.actions
       = f.submit(:class => 'submitbutton', :value => 'Post')
-    %div#smiley_toggle
-      = link_to_function "(´ε`)", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5)
-    %div#smiley_helper{:style=>"display:none"}
-      %h3 smiley assistant
-      = link_to_function "(´ε`) click me to close", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5)
-      %br
-      - faces.each do |f|
-        = link_to_function f, "insert_emoticon('" + f + "')"
+    - if SMILEY_ASSIST == true
+      %div#smiley_toggle
+        = link_to_function "(´ε`)", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5)
+      %div#smiley_helper{:style=>"display:none"}
+        %h3 smiley assistant
+        = link_to_function "(´ε`) click me to close", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5)
         %br
+        - faces.each do |f|
+          = link_to_function f, "insert_emoticon('" + f + "')"
+          %br

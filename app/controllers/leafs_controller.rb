@@ -38,17 +38,14 @@ class LeafsController < ApplicationController
         if @parentbranch.save
           flash[:success] = "Leaf created!"
           format.html { redirect_to('/branches#index') }
-          format.xml  { render :xml => @leaf, :status => :created, :location => @leaf }
         else
           flash[:error] = "Leaf not created for some reason"
           format.html { redirect_to('/branches#index') }
-          format.xml  { render :xml => @parentbranch.errors, :status => :unprocessable_entity }
         end
       else
         @branch = Branch.find($theid)
         format.html { render :action => "new" }
         logger.info("reply, leaf save failed: #{ @leaf.errors }")
-        format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -71,13 +68,21 @@ class LeafsController < ApplicationController
 
   # DELETE /leafs/1
   # DELETE /leafs/1.xml
-  #def destroy
-  #  @leaf = Leaf.find(params[:id])
-  #  @leaf.destroy
+  def destroy
+    @leaf = Leaf.find(params[:id])
+    @branch = Branch.find(@leaf.branch_id)
 
-  #  respond_to do |format|
-  #    format.html { redirect_to(leafs_url) }
-  #    format.xml  { head :ok }
-  #  end
-  #end
+    respond_to do |format|
+      if @branch.leafs.count <= 1
+        if @branch.destroy
+          flash[:success] = "Branch pruned!"
+          format.html { redirect_to('/branches#index') }
+        end
+      elsif @leaf.destroy
+          flash[:success] = "Leaf pruned!"
+          format.html { redirect_to('/branches#index') }
+      end
+    end
+
+  end
 end

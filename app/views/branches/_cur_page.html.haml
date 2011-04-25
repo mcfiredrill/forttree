@@ -1,5 +1,12 @@
 %div#page
   = will_paginate
-  %div.branches
-    = render @branches
-  = will_paginate
+  = form_for :branch, :html => { :method => :delete } do |del|
+    %div.branches
+      = render @branches
+    = will_paginate
+    %table.deleteform
+      %tbody
+        %tr
+          %td
+            = password_field_tag :password
+            = del.submit(:class => 'submitbutton', :value => 'Delete')

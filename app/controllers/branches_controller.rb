@@ -1,4 +1,7 @@
 class BranchesController < ApplicationController
+
+  before_filter :check_password, :only => [:destroy]
+
   # GET /branches
   # GET /branches.xml
   def index
@@ -13,7 +16,6 @@ class BranchesController < ApplicationController
           page.replace_html 'page', :partial => 'cur_page'
         end
       }
-      format.xml  { render :xml => @branches }
     end
   end
 
@@ -42,7 +44,6 @@ class BranchesController < ApplicationController
           page.replace('page', :partial => 'cur_page')
         end
       }
-      format.xml  { render :xml => @branch }
     end
   end
 
@@ -68,18 +69,14 @@ class BranchesController < ApplicationController
         if @leaf.save
           flash[:success] = "Branch created!"
           format.html { redirect_to('/branches#index') }
-          format.xml  { render :xml => @branch, :status => :created, :location => @branch }
         else
           @branch.destroy #destroy branch so we dont end up with a branch with no leafs
           #format.html { redirect_to('/branches#index') }
           format.html { render :action => "new" }
           logger.info("new branch, leaf save failed: #{ @leaf.errors }")
-          format.xml  { render :xml => @leaf.errors, :status => :unprocessable_entity }
-          #format.xml  { render :xml => @branch.errors, :status => :unprocessable_entity }
         end
       else
         format.html { redirect_to('/branches#index') }
-        format.xml  { render :xml => @branch.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -99,16 +96,40 @@ class BranchesController < ApplicationController
   #    end
   #  end
   #end
+  
+  def check_password
+    unless Admin.authenticate(params[:password])
+      flash[:error] = "Incorrect password for deletion"
+      redirect_to('/branches#index')
+      return false
+    else
+      return true
+    end
+  end
 
   # DELETE /branches/1
   # DELETE /branches/1.xml
-  #def destroy
+  def destroy
   #  @branch = Branch.find(params[:id])
   #  @branch.destroy
 
-  #  respond_to do |format|
-  #    format.html { redirect_to(branches_url) }
+    logger.info("ids: #{params[:delete]}")
+
+    params[:delete].each do |id|
+      @leaf = Leaf.find(id)
+      @branch = Branch.find(@leaf.branch_id)
+      if @branch.leafs.count <= 1
+        if @branch.destroy
+          flash[:success] = "Branch pruned!"
+        end
+      elsif @leaf.destroy
+          flash[:success] = "Leaf pruned!"
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to('/branches#index') }
   #    format.xml  { head :ok }
-  #  end
-  #end
+    end
+  end
 end

@@ -34,6 +34,7 @@ GEM
       builder
       mime-types
       xml-simple
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -80,6 +81,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  bcrypt-ruby
   haml
   paperclip
   rails (= 3.0.0)

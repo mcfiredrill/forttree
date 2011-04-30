@@ -5,10 +5,10 @@ class Leaf < ActiveRecord::Base
       :styles => { :thumb => "300x300>" },
       :storage => :s3,
       :s3_credentials => {
-        :access_key_id => ENV['S3_KEY'],
-        :secret_access_key => ENV['S3_SECRET']
+        :access_key_id => S3_KEY,
+        :secret_access_key => S3_SECRET
       },
-      :bucket => ENV['S3_BUCKET'],
+      :bucket => S3_BUCKET,
       :path => "/:style/:filename"
 
   validate :validates_photo_or_post

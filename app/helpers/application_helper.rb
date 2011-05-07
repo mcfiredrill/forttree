@@ -28,4 +28,13 @@ module ApplicationHelper
     return names
   end
 
+  def reply_mode?
+    #hack?
+    if(request.request_uri =~ /leafs/)
+      return true
+    else
+      return false
+    end
+  end
+
 end

@@ -1,5 +1,45 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+
+function insert_emoticon(text) {
+	var my_text = $('leaf_content').value;
+	var caret_pos = $('leaf_content').selectionEnd;
+
+	$(leaf_content).value = my_text.substring(0, caret_pos)
+		+ text
+		+ my_text.substring(caret_pos);
+}
+
+document.observe("dom:loaded", function() {
+  // the element in which we will observe all clicks and capture
+  // ones originating from pagination links
+  var container = $(document.body);
+
+  if (container) {
+    var img = new Image;
+    img.src = '/images/spinner.gif';
+
+    function createSpinner() {
+      return new Element('img', { src: img.src, 'class': 'spinner' });
+    }
+
+    container.observe('click', function(e) {
+      var el = e.element();
+      if (el.match('.pagination a')) {
+        window.scrollTo(0,0);
+        el.up('.pagination').insert(createSpinner());
+        target = $('branches');
+            new Ajax.Request(el.href,
+            {
+              method: 'get'
+            })
+        e.stop();
+      }
+    });
+  }
+});
+
+/* yoinked from wakaba */
 function get_cookie(name)
 {
 	with(document.cookie)
@@ -86,41 +126,3 @@ window.onload=function(e)
   var title=cookie?cookie:get_preferred_stylesheet();
   set_stylesheet(title);
 }
-
-function insert_emoticon(text) {
-	var my_text = $('leaf_content').value;
-	var caret_pos = $('leaf_content').selectionEnd;
-
-	$(leaf_content).value = my_text.substring(0, caret_pos)
-		+ text
-		+ my_text.substring(caret_pos);
-}
-
-document.observe("dom:loaded", function() {
-  // the element in which we will observe all clicks and capture
-  // ones originating from pagination links
-  var container = $(document.body);
-
-  if (container) {
-    var img = new Image;
-    img.src = '/images/spinner.gif';
-
-    function createSpinner() {
-      return new Element('img', { src: img.src, 'class': 'spinner' });
-    }
-
-    container.observe('click', function(e) {
-      var el = e.element();
-      if (el.match('.pagination a')) {
-        window.scrollTo(0,0);
-        el.up('.pagination').insert(createSpinner());
-        target = $('branches');
-            new Ajax.Request(el.href,
-            {
-              method: 'get'
-            })
-        e.stop();
-      }
-    });
-  }
-});

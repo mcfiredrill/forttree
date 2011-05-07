@@ -1,3 +1,10 @@
 = render :partial => "layouts/form", :locals => { :newpost => @branch, :leaf => @leaf }
 
-= render 'cur_page'
+= form_for :branch, :html => { :method => :delete } do |del|
+  = render :partial => 'cur_page', :locals => { :del => del }
+  %table.deleteform
+    %tbody
+      %tr
+        %td
+          = password_field_tag :password
+          = del.submit(:class => 'submitbutton', :value => 'Delete')

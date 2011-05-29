@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(:version => 20110425114446) do
   end
 
   create_table "branches", :force => true do |t|
-    t.string   "name"
     t.datetime "last_post_at"
     t.datetime "created_at"
     t.datetime "updated_at"

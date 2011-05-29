@@ -9,6 +9,7 @@
   %div.postarea_container
     = fields_for leaf do |l|
       %div.postarea
+        = hidden_field_tag("branch_id", branch.id)
         %table
           %tr
           %td.fieldlabel Name

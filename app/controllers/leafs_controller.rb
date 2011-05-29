@@ -1,8 +1,7 @@
 class LeafsController < ApplicationController
   def new
     @leaf = Leaf.new
-    @branch = Branch.find(params[:branch])
-    $theid = @branch.id
+    @branch = Branch.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -10,7 +9,7 @@ class LeafsController < ApplicationController
   end
 
   def create
-    @parentbranch = Branch.find($theid)
+    @parentbranch = Branch.find(params[:branch_id])
     @leaf = Leaf.new(params[:leaf])
     @leaf.branch_id = @parentbranch.id
 
@@ -25,7 +24,7 @@ class LeafsController < ApplicationController
           format.html { redirect_to new_branch_path }
         end
       else
-        @branch = Branch.find($theid)
+        @branch = Branch.find(params[:branch_id])
         format.html { render :action => "new" }
       end
     end

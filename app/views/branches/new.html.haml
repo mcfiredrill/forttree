@@ -1,4 +1,4 @@
-= render :partial => "layouts/form", :locals => { :newpost => @branch, :leaf => @leaf }
+= render :partial => "layouts/form", :locals => { :newpost => @branch, :leaf => @leaf, :branch => @branch }
 
 = form_for :branch, :html => { :method => :delete } do |del|
   = render :partial => 'cur_page', :locals => { :del => del }

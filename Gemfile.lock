@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/mcfiredrill/paperclip.git
+  revision: e032fbde295d9c269bec364764877417ba0d4645
+  specs:
+    paperclip (2.3.10)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -36,6 +45,7 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cocaine (0.0.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     haml (3.0.25)
@@ -45,9 +55,6 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    paperclip (2.3.3)
-      activerecord
-      activesupport
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.13)
@@ -83,7 +90,7 @@ DEPENDENCIES
   aws-s3
   bcrypt-ruby
   haml
-  paperclip
+  paperclip!
   rails (= 3.0.0)
   sqlite3-ruby
   will_paginate (>= 3.0pre2)

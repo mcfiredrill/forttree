@@ -9,8 +9,8 @@
 
   - if reply_mode?
     = link_to_function "No. #{leaf.id}", "insert_emoticon('>>#{leaf.id}')"
-  -else
-    = link_to "No. #{leaf.id}", "/leafs/new?branch=#{leaf.branch_id}##{leaf.id}"
+  - else
+    = link_to "No. #{leaf.id}", "/leafs/new/#{leaf.branch_id}##{leaf.id}"
 
 - unless leaf.photo.url == "/photos/original/missing.png"
   = link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url, :target => "_blank"

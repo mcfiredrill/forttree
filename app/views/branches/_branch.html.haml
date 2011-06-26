@@ -3,9 +3,7 @@
   - unless f == nil
     %div.branch
       %div{:class => "firstleaf", :id => "#{f.id}"}
-        - if !reply_mode?
-          %div.replylink=link_to 'Reply', "/leafs/new/#{branch.id}"
-        = render f
+        = render :partial => 'leafs/first_leaf', :locals => {:leaf => f, :branch => branch}
   - for i in 1..branch.leafs.length-1
     %div{:class => "leaf", :id => "#{branch.leafs[i].id}"}
       = render branch.leafs[i]

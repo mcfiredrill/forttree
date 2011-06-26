@@ -34,34 +34,21 @@ h1 a {
 }
 
 .firstleaf {
-  padding: 15px;
 }
 
 .firstleaf img {
-  padding: 10px;
 }
 
 .firstleaf blockquote, .leaf blockquote {
-  margin-bottom: 10px;
 }
 
 .leaf {
-  padding: 15px;
-  margin: 0 0 5px 0;
-  overflow: hidden;
-  background:none repeat scroll 0 0 #F0E0D6;
-  color:#800000;
 }
 
 .thumb {
-  float:left;
-  margin-right: 10px;
-  border: none;
 }
 
 .branch {
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 
@@ -70,7 +57,6 @@ h1 a {
 }
 
 .formbox {
-  padding: 10px;
 }
 
 .formbox select {
@@ -78,14 +64,9 @@ h1 a {
 }
 
 .field {
-  margin-bottom: 20px;
 }
 
 .fieldlabel {
-  padding: 10px;
-  background:none repeat scroll 0 0 #EEAA88;
-  color:#800000;
-  font-weight:800;
 }
 
 .actions {
@@ -98,27 +79,23 @@ h1 a {
 }
 
 .replylink {
-  padding: 10px;
-  text-align: center;
-  width: 80px;
-  font-size: 20px;
-  float: right;
-  position: relative;
-  top: 15px;
 }
 
 .replylink a {
-  color: #800000;
 }
 
 .replylink a:hover {
   /* background: #058337;
   background: -moz-linear-gradient(top, #1b9e4f, #b1deb6);
   background: -webkit-gradient(linear, left top, left bottom, from(#1b9e4f), to(#b1deb6)); */
-  font-size: 105%;
 }
 
 #smiley_helper {
   background:none repeat scroll 0 0 #F0E0D6;
   color:#800000;
+}
+
+.reply {
+	background:#F0E0D6;
+	color:#800000;
 }

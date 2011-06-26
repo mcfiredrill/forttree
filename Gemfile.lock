@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/mcfiredrill/paperclip.git
-  revision: fe0564ea31ef73388990185724225df75a63d766
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 3695eaf302abd8da1b341529b53150710c74bf2c
   specs:
     paperclip (2.3.10)
       activerecord (>= 2.3.0)
@@ -45,7 +45,7 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    cocaine (0.0.2)
+    cocaine (0.1.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     haml (3.1.1)

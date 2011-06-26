@@ -10,7 +10,7 @@ gem 'rake', '0.8.7'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 #need a paperclip that preserves .gif animations when resizing
-gem 'paperclip', :git => 'git://github.com/mcfiredrill/paperclip.git'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'will_paginate', '>=3.0pre2'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'haml'

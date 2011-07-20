@@ -138,5 +138,7 @@ h1 a {
 }
 
 hr {
-  display: none;
+  color: #058337;
+  background-color: #058337;
+  height: 5px;
 }

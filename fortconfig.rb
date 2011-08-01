@@ -16,7 +16,8 @@
 #LEAFS_PER_BRANCH = 10 #replies per thread shown
 
 #limitations
-#MAX_UPLOAD_SIZE = 5000 #max upload size in KB for images
+#MAX_UPLOAD_SIZE = 5.megabytes #max upload size in KB for images
+#VALID_ATTACHMENT_TYPES = ['image/jpg', 'image/png', 'image/gif', 'image/pjpeg', 'image/tiff', 'image/x-png', 'image/bmp', 'image/svg-xml'] #valid image MIME types, all others will be rejected
 
 #misc
 #SMILEY_ASSIST = true #boolean, turns smiley assistant on or off

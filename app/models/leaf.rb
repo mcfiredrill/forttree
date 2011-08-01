@@ -12,6 +12,8 @@ class Leaf < ActiveRecord::Base
       :path => "/:style/:filename"
 
   validate :validates_photo_or_post
+  validates_attachment_content_type :photo, :content_type => VALID_ATTACHMENT_TYPES
+  validates_attachment_size :photo, :less_than => MAX_UPLOAD_SIZE, :message => "File too big! :{"
 
   def validates_photo_or_post
     errors.add(:leaf, "must have text or a picture, why would you want to make a

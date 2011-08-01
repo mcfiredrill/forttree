@@ -3,6 +3,8 @@ Forttree::Application.routes.draw do
 
   resources :branches
 
+  match 'leafs/new/:id' => 'leafs#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

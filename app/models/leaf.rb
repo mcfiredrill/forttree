@@ -12,12 +12,13 @@ class Leaf < ActiveRecord::Base
       :path => "/:style/:filename"
 
   validate :validates_photo_or_post
-  validates_attachment_content_type :photo, :content_type => VALID_ATTACHMENT_TYPES
-  validates_attachment_size :photo, :less_than => MAX_UPLOAD_SIZE, :message => "File too big! :{"
+  validates_attachment_content_type :photo, :content_type => VALID_ATTACHMENT_TYPES, :if => Proc.new { |p| p.errors.blank? }
+  validates_attachment_size :photo, :less_than => MAX_UPLOAD_SIZE, :message => "File too big! :{", :if => Proc.new { |p| p.errors.blank? }
 
   def validates_photo_or_post
-    errors.add(:leaf, "must have text or a picture, why would you want to make a
-      blank post? ;3") if
-      content.blank? && photo_file_name.blank?
+    if content.blank? && photo_file_name.blank?
+      errors.add(:leaf, "must have text or a picture, why would you want to make a
+        blank post? ;3")
+    end
   end
 end

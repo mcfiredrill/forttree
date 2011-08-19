@@ -7,6 +7,8 @@ class BranchesController < ApplicationController
     @leaf = Leaf.new
     @branches = Branch.paginate(:page => params[:page])
 
+		redirect_to 'http://fortchan.org/'
+
     respond_to do |format|
       format.html
       format.js {

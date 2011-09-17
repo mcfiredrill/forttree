@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'lib/rack/honeypot.rb'
+#require 'lib/rack/honeypot.rb'
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
@@ -40,6 +40,6 @@ module Forttree
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    config.middleware.use "Rack::Honeypot", :class_name => "funch"
+    #config.middleware.use "Rack::Honeypot", :class_name => "funch"
   end
 end

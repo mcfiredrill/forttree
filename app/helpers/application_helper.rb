@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'fortconfig.rb'
 require 'fortconfig_defaults.rb'
 
@@ -30,7 +32,7 @@ module ApplicationHelper
 
   def reply_mode?
     #hack?
-    if(request.request_uri =~ /leafs/)
+    if(request.url =~ /leafs/)
       return true
     else
       return false

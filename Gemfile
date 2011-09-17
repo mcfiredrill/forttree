@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #herp
-gem 'rake', '0.8.7'
+gem 'rake'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 #need a paperclip that preserves .gif animations when resizing

@@ -12,7 +12,10 @@
   Thumbnail displayed, click image for full size.
 %br
 - unless leaf.photo.url == "/photos/original/missing.png"
-  = link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url, :target => "_blank"
+  - if leaf.photo.url =~ /\.svg\?\d+$/
+    = link_to (image_tag leaf.photo.url(:original), :class=> 'thumb', :style=> 'max-width: 300px; max-height: 300px;'), leaf.photo.url, :target => "_blank"
+  - else
+    = link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url, :target => "_blank"
 %label
   = check_box_tag "delete[]", leaf.id
   %span{:class => "filetitle"}

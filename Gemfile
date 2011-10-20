@@ -16,3 +16,9 @@ gem 'haml'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 #gem 'unindentable'
+
+group :test do
+  gem 'factory_girl'
+  gem 'shoulda'
+  gem 'turn'
+end

@@ -1,4 +1,5 @@
 //= require prototype
+//= require effects
 
 function insert_emoticon(text) {
 	var my_text = $('leaf_content').value;

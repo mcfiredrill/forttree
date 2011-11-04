@@ -17,13 +17,13 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rinku'
 
 gem 'prototype-rails'
-gem 'uglifier'
 gem 'therubyracer'
 
 #gem 'unindentable'
 
 group :production do
 	gem 'pg'
+	gem 'uglifier'
 end
 
 group :test do

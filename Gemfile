@@ -16,6 +16,10 @@ gem 'haml'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rinku'
 
+gem 'prototype-rails'
+gem 'uglifier'
+gem 'therubyracer'
+
 #gem 'unindentable'
 
 group :test do

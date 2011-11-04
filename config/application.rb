@@ -42,5 +42,7 @@ module Forttree
     config.filter_parameters += [:password]
 
     #config.middleware.use "Rack::Honeypot", :class_name => "funch"
+
+    config.assets.enabled = true
   end
 end

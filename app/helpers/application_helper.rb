@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def themes
-    Dir['public/stylesheets/themes/*.css']
+    Dir['app/assets/stylesheets/themes/*.css']
   end
 
   def theme_basenames

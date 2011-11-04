@@ -22,6 +22,10 @@ gem 'therubyracer'
 
 #gem 'unindentable'
 
+group :production do
+	gem 'pg'
+end
+
 group :test do
   gem 'factory_girl'
   gem 'shoulda'

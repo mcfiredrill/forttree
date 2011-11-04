@@ -59,6 +59,7 @@ GEM
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
       mime-types
+    pg (0.11.0)
     polyglot (0.3.3)
     prototype-rails (3.1.0)
       rails (~> 3.1)
@@ -123,6 +124,7 @@ DEPENDENCIES
   factory_girl
   haml
   paperclip
+  pg
   prototype-rails
   rails
   rake

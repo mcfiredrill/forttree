@@ -15,7 +15,8 @@
           - else
             No file
         %span{:class => "thumbnailmsg"}
-          Thumbnail displayed, click image for full size.
+          - unless leaf.photo_file_name == nil
+            Thumbnail displayed, click image for full size.
         %br
         - unless leaf.photo.url == "/photos/original/missing.png"
           - if leaf.photo.url =~ /\.svg\?\d+$/

@@ -99,7 +99,7 @@ DEPENDENCIES
   haml
   paperclip
   rails (= 3.0.10)
-  rake (= 0.8.7)
+  rake
   shoulda
   sqlite3-ruby
   turn

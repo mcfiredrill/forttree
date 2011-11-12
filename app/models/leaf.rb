@@ -3,13 +3,13 @@ class Leaf < ActiveRecord::Base
 
   has_attached_file :photo,
       :styles => { :thumb => "300x300>" },
-      :storage => :s3,
+      :storage => STORAGE,
       :s3_credentials => {
         :access_key_id => S3_KEY,
         :secret_access_key => S3_SECRET
       },
-      :bucket => S3_BUCKET,
-      :path => "/:style/:filename"
+      :bucket => S3_BUCKET
+      #:path => "/:style/:filename"
 
   validate :validates_photo_or_post
   validates_attachment_content_type :photo, :content_type => VALID_ATTACHMENT_TYPES, :if => Proc.new { |p| p.errors.blank? }

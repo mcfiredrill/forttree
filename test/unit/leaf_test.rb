@@ -1,14 +1,19 @@
 require 'test_helper'
 
 class LeafTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "valid leaf" do
-    leaf = Leaf.new
-    assert !leaf.valid?
-    leaf.content = "Chillbert's vacation."
-    assert leaf.valid?
-    leaf.content = ""
-    leaf.photo_file_name = "chillbert.jpg"
-    assert leaf.valid?
+  should belong_to :branch
+  context "a leaf" do
+    setup { @leaf = Factory.create(:leaf) }
+
+    should "transliterate filename" do
+      assert_match /\d{1,2}-\d{1,2}-\d\d\d\d_\d{1,2}-\d{1,2}-\d{1,2}_forttree.png/, @leaf.photo_file_name
+    end
+    context "with content but without a photo" do
+      #assert !@leaf.save
+    end
+    context "with photo but without content" do
+      setup { @leaf = Factory.build(:leaf, :content => nil) }
+      #assert !@leaf.save
+    end
   end
 end

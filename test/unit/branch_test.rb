@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class BranchTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  should have_many :leafs
+  context "a branch" do
+    setup { @branch = Factory.create(:branch) }
   end
 end

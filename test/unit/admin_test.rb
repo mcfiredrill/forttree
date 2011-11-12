@@ -1,8 +1,7 @@
 require 'test_helper'
 
 class AdminTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  context "an admin" do
+
   end
 end

@@ -1,4 +1,5 @@
 //= require jquery
+//= require textinputs_jquery
 
 function anim_show(el) {
 	$(el).fadeIn();
@@ -8,15 +9,18 @@ function anim_hide(el) {
 	$(el).fadeOut();
 }
 
-/*function insert_emoticon(text) {
-	var my_text = $('leaf_content').value;
-	var caret_pos = $('leaf_content').selectionEnd;
+function insert_emoticon(text) {
+	var my_text = $('#leaf_content').val();
+	var caret_pos = $('#leaf_content').getSelection().end;
 
-	$(leaf_content).value = my_text.substring(0, caret_pos)
+	$('#leaf_content').val(
+		my_text.substring(0, caret_pos)
 		+ text
-		+ my_text.substring(caret_pos);
+		+ my_text.substring(caret_pos)
+	);
 }
 
+/*
 document.observe("dom:loaded", function() {
   // the element in which we will observe all clicks and capture
   // ones originating from pagination links

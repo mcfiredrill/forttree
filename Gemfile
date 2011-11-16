@@ -17,7 +17,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rinku'
 
 gem 'jquery-rails'
-#gem 'therubyracer'
+gem 'therubyracer'
 
 group :production do
 	gem 'pg'

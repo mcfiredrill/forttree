@@ -9,15 +9,17 @@ function anim_hide(el) {
 	$(el).fadeOut();
 }
 
-function insert_emoticon(text) {
+function insert_emoticon(face) {
 	var my_text = $('#leaf_content').val();
 	var caret_pos = $('#leaf_content').getSelection().end;
 
 	$('#leaf_content').val(
 		my_text.substring(0, caret_pos)
-		+ text
+		+ face
 		+ my_text.substring(caret_pos)
 	);
+
+	$('#leaf_content').setSelection(caret_pos + face.length);
 }
 
 /*

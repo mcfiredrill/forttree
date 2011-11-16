@@ -1,7 +1,14 @@
-//= require prototype
-//= require effects
+//= require jquery
 
-function insert_emoticon(text) {
+function anim_show(el) {
+	$(el).fadeIn();
+}
+
+function anim_hide(el) {
+	$(el).fadeOut();
+}
+
+/*function insert_emoticon(text) {
 	var my_text = $('leaf_content').value;
 	var caret_pos = $('leaf_content').selectionEnd;
 
@@ -36,10 +43,10 @@ document.observe("dom:loaded", function() {
       }
     });
   }
-});
+});*/
 
 /* yoinked from wakaba */
-function get_cookie(name)
+/*function get_cookie(name)
 {
 	with(document.cookie)
 	{
@@ -124,4 +131,4 @@ window.onload=function(e)
   var cookie=get_cookie('style_cookie');
   var title=cookie?cookie:get_preferred_stylesheet();
   set_stylesheet(title);
-}
+}*/

@@ -26,7 +26,6 @@ document.observe("dom:loaded", function() {
     container.observe('click', function(e) {
       var el = e.element();
       if (el.match('.pagination a')) {
-        window.scrollTo(0,0);
         el.up('.pagination').insert(createSpinner());
         target = $('branches');
             new Ajax.Request(el.href,

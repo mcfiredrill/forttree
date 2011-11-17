@@ -28,3 +28,7 @@ Factory.define :branch do |f|
     ff.leafs << Factory.create(:leaf, :branch => ff)
   end
 end
+
+Factory.define :admin do |f|
+  f.password 'REALLYCOOLPASSWORD'
+end

@@ -1,0 +1,6 @@
+[submodule "app/assets/javascripts/jquery-pjax"]
+	path = app/assets/javascripts/jquery-pjax
+	url = https://github.com/defunkt/jquery-pjax.git
+[submodule "app/assets/javascripts/jquery-cookie"]
+	path = app/assets/javascripts/jquery-cookie
+	url = https://github.com/carhartl/jquery-cookie.git

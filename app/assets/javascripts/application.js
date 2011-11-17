@@ -1,5 +1,7 @@
 //= require jquery
 //= require textinputs_jquery
+//= require jquery-pjax/jquery.pjax
+//= require jquery-cookie/jquery.cookie
 
 function anim_show(el) {
 	$(el).fadeIn();
@@ -22,61 +24,40 @@ function insert_emoticon(face) {
 	$('#leaf_content').setSelection(caret_pos + face.length);
 }
 
-/*
-document.observe("dom:loaded", function() {
+$(document).ready(function() {
   // the element in which we will observe all clicks and capture
   // ones originating from pagination links
   var container = $(document.body);
 
   if (container) {
-    var img = new Image;
-    img.src = '/images/spinner.gif';
+    img_src = '/images/spinner.gif';
 
     function createSpinner() {
-      return new Element('img', { src: img.src, 'class': 'spinner' });
+			return $('<img/>', {
+				src: img_src,
+				class: 'spinner'
+			});
     }
 
-    container.observe('click', function(e) {
-      var el = e.element();
-      if (el.match('.pagination a')) {
-        el.up('.pagination').insert(createSpinner());
-        target = $('branches');
-            new Ajax.Request(el.href,
-            {
-              method: 'get'
-            })
-        e.stop();
-      }
+		$('.pagination a').on('click', function(e) {
+			e.preventDefault();
+			console.log(e);
+			console.log('click!');
+
+      var $el = $(e.target);
+			$el.closest('.pagination').append(createSpinner());
+			target = $('branches');
+			$.pjax({
+				url: $el.attr('href'),
+				container: '#page'
+			});
     });
   }
-});*/
+});
 
 /* yoinked from wakaba */
-/*function get_cookie(name)
-{
-	with(document.cookie)
-	{
-		var regexp=new RegExp("(^|;\\s+)"+name+"=(.*?)(;|$)");
-		var hit=regexp.exec(document.cookie);
-		if(hit&&hit.length>2) return unescape(hit[2]);
-		else return '';
-	}
-}
-
-function set_cookie(name,value,days)
-{
-	if(days)
-	{
-		var date=new Date();
-		date.setTime(date.getTime()+(days*24*60*60*1000));
-		var expires="; expires="+date.toGMTString();
-	}
-	else expires="";
-	document.cookie=name+"="+value+expires+"; path=/";
-}
-
-function set_stylesheet(styletitle)
-{
+/*
+function set_stylesheet(styletitle) {
 	var links=document.getElementsByTagName("link");
 	var found=false;
 	for(var i=0;i<links.length;i++)
@@ -92,8 +73,7 @@ function set_stylesheet(styletitle)
 	if(!found) set_preferred_stylesheet();
 }
 
-function set_preferred_stylesheet()
-{
+function set_preferred_stylesheet() {
 	var links=document.getElementsByTagName("link");
 	for(var i=0;i<links.length;i++)
 	{
@@ -103,8 +83,7 @@ function set_preferred_stylesheet()
 	}
 }
 
-function get_preferred_stylesheet()
-{
+function get_preferred_stylesheet() {
 	var links=document.getElementsByTagName("link");
 	for(var i=0;i<links.length;i++)
 	{
@@ -115,8 +94,7 @@ function get_preferred_stylesheet()
 	return null;
 }
 
-function get_active_stylesheet()
-{
+function get_active_stylesheet() {
 	var links=document.getElementsByTagName("link");
 	for(var i=0;i<links.length;i++)
 	{
@@ -126,15 +104,13 @@ function get_active_stylesheet()
 	}
 }
 
-window.onunload=function(e)
-{
-  var title=get_active_stylesheet();
-  set_cookie('style_cookie',title,365);
+window.onunload = function(e) {
+  var title = get_active_stylesheet();
+	$.cookie('style_cookie', title, 365);
 }
 
-window.onload=function(e)
-{
-  var cookie=get_cookie('style_cookie');
-  var title=cookie?cookie:get_preferred_stylesheet();
+window.onload = function(e) {
+  var cookie = $.cookie('style_cookie');
+  var title = cookie ? cookie : get_preferred_stylesheet();
   set_stylesheet(title);
 }*/

@@ -2,21 +2,6 @@ class BranchesController < ApplicationController
 
   before_filter :check_password, :only => [:destroy]
 
-  def index
-    @branch = Branch.new
-    @leaf = Leaf.new
-    @branches = Branch.paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html
-      format.js {
-        render :update do |page|
-          page.replace_html 'page', :partial => 'cur_page'
-        end
-      }
-    end
-  end
-
   def new
     @branch = Branch.new
     @leaf = Leaf.new

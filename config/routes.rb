@@ -1,7 +1,7 @@
 Forttree::Application.routes.draw do
-  resources :leafs
+  resources :leafs, :only => [:new, :create]
 
-  resources :branches
+  resources :branches, :except => :index
 
   match 'leafs/new/:id' => 'leafs#new'
 

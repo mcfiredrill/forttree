@@ -27,10 +27,10 @@
       = f.submit(:class => 'submitbutton', :value => 'Post')
     - if SMILEY_ASSIST == true
       %div#smiley_toggle
-        = link_to_function "(´ε`)", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5)
+        = link_to_function "(´ε`)", "anim_show('#smiley_helper')"
       %div#smiley_helper{:style=>"display:none"}
         %h3 smiley assistant
-        = link_to_function "(´ε`) click me to close", visual_effect(:toggle_appear, "smiley_helper", :duration => 0.5)
+        = link_to_function "(´ε`) click me to close", "anim_hide('#smiley_helper')"
         %br
         - faces.each do |f|
           = link_to_function f, "insert_emoticon('" + f + "')"

@@ -25,82 +25,79 @@ function insert_emoticon(face) {
 }
 
 $(document).ready(function() {
-  // the element in which we will observe all clicks and capture
-  // ones originating from pagination links
-  var container = $(document.body);
+	img_src = '/images/spinner.gif';
 
-  if (container) {
-    img_src = '/images/spinner.gif';
+	function createSpinner() {
+		return $('<img/>', {
+			src: img_src,
+			class: 'spinner'
+		});
+	}
 
-    function createSpinner() {
-			return $('<img/>', {
-				src: img_src,
-				class: 'spinner'
-			});
-    }
+	$('.pagination a').on('click', function(e) {
+		e.preventDefault();
 
-		$('.pagination a').on('click', function(e) {
-			e.preventDefault();
-			console.log(e);
-			console.log('click!');
-
-      var $el = $(e.target);
-			$el.closest('.pagination').append(createSpinner());
-			target = $('branches');
-			$.pjax({
-				url: $el.attr('href'),
-				container: '#page'
-			});
-    });
-  }
+		var $el = $(e.target);
+		$el.closest('.pagination').append(createSpinner());
+		target = $('branches');
+		$.pjax({
+			url: $el.attr('href'),
+			container: '#page'
+		});
+	});
 });
 
 /* yoinked from wakaba */
-/*
 function set_stylesheet(styletitle) {
-	var links=document.getElementsByTagName("link");
-	var found=false;
-	for(var i=0;i<links.length;i++)
-	{
-		var rel=links[i].getAttribute("rel");
-		var title=links[i].getAttribute("title");
-		if(rel.indexOf("style")!=-1&&title)
-		{
-			links[i].disabled=true; // IE needs this to work. IE needs to die.
-			if(styletitle==title) { links[i].disabled=false; found=true; }
+	var links = document.getElementsByTagName("link");
+	var found = false;
+	for (var i=0; i<links.length; i++) {
+		var rel = links[i].getAttribute("rel");
+		var title = links[i].getAttribute("title");
+		if(rel.indexOf("style") != -1 && title) {
+			links[i].disabled = true; // IE needs this to work. IE needs to die.
+			if (styletitle == title) {
+				links[i].disabled = false;
+				found = true;
+			}
 		}
 	}
-	if(!found) set_preferred_stylesheet();
+	if (!found) {
+		set_preferred_stylesheet();
+	}
 }
 
 function set_preferred_stylesheet() {
-	var links=document.getElementsByTagName("link");
-	for(var i=0;i<links.length;i++)
-	{
-		var rel=links[i].getAttribute("rel");
-		var title=links[i].getAttribute("title");
-		if(rel.indexOf("style")!=-1&&title) links[i].disabled=(rel.indexOf("alt")!=-1);
+	var links = document.getElementsByTagName("link");
+	for (var i=0; i<links.length; i++) {
+		var rel = links[i].getAttribute("rel");
+		var title = links[i].getAttribute("title");
+		if (rel.indexOf("style") != -1 && title) {
+			links[i].disabled = (rel.indexOf("alt") != -1);
+		}
 	}
 }
 
 function get_preferred_stylesheet() {
-	var links=document.getElementsByTagName("link");
-	for(var i=0;i<links.length;i++)
-	{
-		var rel=links[i].getAttribute("rel");
-		var title=links[i].getAttribute("title");
-		if(rel.indexOf("style")!=-1&&rel.indexOf("alt")==-1&&title) return title;
+	var links = document.getElementsByTagName("link");
+	for (var i=0; i<links.length; i++) {
+		var rel = links[i].getAttribute("rel");
+		var title = links[i].getAttribute("title");
+		if (rel.indexOf("style") != -1 && rel.indexOf("alt") == -1 && title) {
+			return title;
+		}
 	}
 	return null;
 }
 
 function get_active_stylesheet() {
 	var links=document.getElementsByTagName("link");
-	for(var i=0;i<links.length;i++)
-	{
+	for (var i=0; i<links.length; i++) {
 		var rel=links[i].getAttribute("rel");
 		var title=links[i].getAttribute("title");
-		if(rel.indexOf("style")!=-1&&title&&!links[i].disabled) return title;
+		if (rel.indexOf("style") != -1 && title && !links[i].disabled) {
+			return title;
+		}
 	}
 }
 
@@ -113,4 +110,4 @@ window.onload = function(e) {
   var cookie = $.cookie('style_cookie');
   var title = cookie ? cookie : get_preferred_stylesheet();
   set_stylesheet(title);
-}*/
+}

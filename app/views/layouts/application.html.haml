@@ -2,6 +2,7 @@
 %html
 %head
   %title=BOARDTITLE
+  = stylesheet_link_tag "application"
   - theme_basenames.each do |t|
     = stylesheet_link_tag "themes/" + t, :title => t
   = javascript_include_tag "application"

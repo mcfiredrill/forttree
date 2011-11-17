@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 require 'lib/rack/honeypot.rb'
+require 'rails_rinku'
 require 'iconv'
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -42,5 +43,7 @@ module Forttree
     config.filter_parameters += [:password]
 
     #config.middleware.use "Rack::Honeypot", :class_name => "funch"
+
+    config.assets.enabled = true
   end
 end

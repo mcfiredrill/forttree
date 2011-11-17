@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -16,14 +16,18 @@ gem 'haml'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rinku'
 
-gem 'prototype-rails'
+gem 'jquery-rails'
 gem 'therubyracer'
-
-#gem 'unindentable'
 
 group :production do
 	gem 'pg'
-	gem 'uglifier'
+end
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.1.4'
+  gem 'uglifier', '>= 1.0.3'
 end
 
 group :test do

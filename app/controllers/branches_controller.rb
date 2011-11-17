@@ -7,14 +7,9 @@ class BranchesController < ApplicationController
     @leaf = Leaf.new
     @branches = Branch.paginate(:page => params[:page])
 
-    respond_to do |format|
-      format.html
-      format.js {
-        render :update do |page|
-          page.replace('page', :partial => 'cur_page')
-        end
-      }
-    end
+		if request.headers['X-PJAX']
+			render :partial => 'cur_page'
+		end
   end
 
   def create
@@ -49,7 +44,6 @@ class BranchesController < ApplicationController
   end
 
   def destroy
-    logger.info("branch destroy")
     params[:delete].each do |id|
       @leaf = Leaf.find(id)
       @branch = Branch.find(@leaf.branch_id)

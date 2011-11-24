@@ -1,8 +1,11 @@
-@import url("../application.css");
+/*
+ *= require_self
+ */
+@import "../application.css.scss";
 
 body {
-  background: #000000;
-  color: #555555;
+  @include gradient(#ffffff, #dddddd);
+  color: #66066;
 }
 
 body, p, ol, ul, td {
@@ -17,22 +20,21 @@ pre {
   font-size: 11px;
 }
 
-a { color: #fff; }
+a { color: #ff69ec; }
 a:hover { color: #555; }
 
 h1 a {
-  color: #330033;
   text-decoration: none;
 }
 
 
-
 .firstleaf, .firstleaf img, .leaf,
 .postarea, .replylink {
+  @include gradient(#ff69ec, #ffffff);
 }
 
-.firstleaf, .leaf, .postarea,
-.replylink {
+.firstleaf, .leaf, .postarea {
+  @include border-radius(0px 50px 50px 50px);
 }
 
 .firstleaf {
@@ -40,6 +42,7 @@ h1 a {
 }
 
 .firstleaf img {
+  @include border-radius(0px 20px 20px 20px);
   padding: 10px;
 }
 
@@ -49,10 +52,7 @@ h1 a {
 
 .leaf {
   padding: 15px;
-  margin: 0 0 5px 0;
   overflow: hidden;
-  background:none repeat scroll 0 0 #111;
-  color:#555;
 }
 
 .thumb {
@@ -69,9 +69,11 @@ h1 a {
 
 .formbox, .submitbutton
 {
+  @include gradient(#fff, #ddd);
 }
 
 .formbox {
+  @include border-radius(5px);
   padding: 10px;
 }
 
@@ -85,9 +87,6 @@ h1 a {
 
 .fieldlabel {
   padding: 10px;
-  background:none repeat scroll 0 0 #111;
-  color:#555;
-  font-weight:800;
 }
 
 .actions {
@@ -97,6 +96,8 @@ h1 a {
 }
 
 .submitbutton {
+  @include border-radius(2px);
+  padding: 5px;
 }
 
 .replylink {
@@ -107,20 +108,22 @@ h1 a {
   float: right;
   position: relative;
   top: 15px;
+  @include border-radius(40px 0px 40px 40px);
 }
 
 .replylink a {
-  color: #330033;
+  color: #66066;
 }
 
 .replylink a:hover {
-  /* background: #058337;
-  background: -moz-linear-gradient(top, #1b9e4f, #b1deb6);
-  background: -webkit-gradient(linear, left top, left bottom, from(#1b9e4f), to(#b1deb6)); */
   font-size: 105%;
 }
 
 #smiley_helper {
-  background:none repeat scroll 0 0 #111;
-  color:#555;
+  @include border-radius(40px 0px 40px 40px);
+  background: #ddd;
+}
+
+hr {
+  color: #66066;
 }

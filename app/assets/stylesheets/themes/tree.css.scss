@@ -1,0 +1,131 @@
+/*
+ *= require_self
+ */
+@import "../application.css.scss";
+
+body {
+  @include gradient(#c3b86e, #58451e);
+  color: #333;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:hover { color: #555; }
+
+h1 a {
+  text-decoration: none;
+}
+
+
+.firstleaf, .firstleaf img, .leaf,
+.postarea, .replylink {
+  @include gradient(#058337, #7bdb84);
+}
+
+.firstleaf, .leaf, .postarea,
+.replylink {
+  @include border-radius(50px 50px 50px 50px);
+}
+
+.firstleaf {
+  padding: 15px;
+}
+
+.firstleaf img {
+  @include border-radius(20px 20px 20px  20px);
+  padding: 10px;
+}
+
+.firstleaf blockquote, .leaf blockquote {
+  margin-bottom: 10px;
+}
+
+.leaf {
+  padding: 15px;
+  overflow: hidden;
+}
+
+.thumb {
+  float:left;
+  margin-right: 10px;
+  border: none;
+}
+
+.branch {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.formbox, .submitbutton
+{
+  @include gradient(#fff,#ddd);
+}
+
+.formbox {
+  @include border-radius(5px 5px 5px 5px);
+  padding: 10px;
+}
+
+.formbox select {
+  border: 1px solid #7bdb84;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.fieldlabel {
+  padding: 10px;
+}
+
+.actions {
+  margin-bottom: 20px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.submitbutton {
+  @include border-radius(2px 2px 2px 2px);
+  padding: 5px;
+}
+
+.replylink {
+  padding: 10px;
+  text-align: center;
+  width: 80px;
+  font-size: 20px;
+  float: right;
+  position: relative;
+  top: 15px;
+}
+
+.replylink a {
+  color: #fff;
+}
+
+.replylink a:hover {
+  font-size: 105%;
+}
+
+#smiley_helper {
+  @include border-radius(40px 40px 40px 40px);
+  background: red;
+}
+
+hr {
+  color: #058337;
+  background-color: #058337;
+  height: 5px;
+}

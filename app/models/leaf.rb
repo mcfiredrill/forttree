@@ -39,8 +39,7 @@ class Leaf < ActiveRecord::Base
     def transliterate(str)
       # Based on permalink_fu by Rick Olsen
 
-      # Escape str by transliterating to UTF-8 with Iconv
-      s = Iconv.iconv('ascii//ignore//translit', 'utf-8', str).to_s
+      s = str.encode("UTF-8")
       # Downcase string
       s.downcase!
       # Remove apostrophes so isn't changes to isnt

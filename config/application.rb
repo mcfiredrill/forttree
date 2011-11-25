@@ -1,7 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
-require 'lib/rack/honeypot.rb'
+require './lib/rack/honeypot.rb'
+#require File.expand_path('../lib/rack/honeypot.rb', __FILE__)
 require 'rails_rinku'
 require 'iconv'
 

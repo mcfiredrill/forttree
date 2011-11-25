@@ -5,3 +5,4 @@ tmp/**/*
 *.swp
 .sass-cache/
 public/assets/
+tags

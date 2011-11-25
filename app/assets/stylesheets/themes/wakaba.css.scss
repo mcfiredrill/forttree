@@ -1,4 +1,7 @@
-@import url("../application.css");
+/*
+ *= require_self
+ */
+@import "../application.css.scss";
 
 body {
   background: #ffffee;

@@ -34,4 +34,5 @@ group :test do
   gem 'factory_girl'
   gem 'shoulda'
   gem 'turn'
+  gem 'minitest'
 end

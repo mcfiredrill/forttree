@@ -4,7 +4,6 @@ require 'rails/all'
 require './lib/rack/honeypot.rb'
 #require File.expand_path('../lib/rack/honeypot.rb', __FILE__)
 require 'rails_rinku'
-require 'iconv'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

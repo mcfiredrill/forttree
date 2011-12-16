@@ -1,0 +1,167 @@
+/*
+ *= require_self
+ */
+@import "../application.css.scss";
+
+@mixin rotate($deg) {
+	-webkit-transform: rotate($deg);	
+	-moz-transform: rotate($deg);
+	-ms-transform: rotate($deg);
+	-o-transform: rotate($deg);
+	transform: rotate($deg);
+}
+
+@mixin tieDye($a, $b, $c) {
+	background-color: $a;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $a), color-stop(2%, $b), color-stop(100%, $c));
+	background-image: -webkit-linear-gradient($a, $b 12%,$c);
+	background-image: linear-gradient($a, $b 2%,$c);
+}
+
+$pink: #ff69ec;
+
+body {
+  @include gradient(#ffffff, #dddddd);
+  color: blue;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: blue; }
+a:hover { color: #555; }
+
+h1 a {
+  text-decoration: none;
+}
+
+
+.firstleaf, .firstleaf img, .leaf,
+.postarea, .replylink {
+  @include tieDye($pink, #d0a9b5, #b0a0d0);
+}
+
+.firstleaf, .leaf, .postarea {
+  @include border-radius(1px 2px 3px 4px);
+}
+
+.firstleaf {
+  padding: 15px;
+}
+
+.firstleaf img {
+  @include border-radius(1px 2px 3px 4px);
+  padding: 10px;
+}
+
+.firstleaf blockquote, .leaf blockquote {
+  margin-bottom: 10px;
+}
+
+.leaf {
+  padding: 15px;
+  overflow: hidden;
+}
+
+.thumb {
+  float:left;
+  margin-right: 10px;
+  border: none;
+}
+
+.branch {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.formbox, .submitbutton
+{
+  @include gradient(#fff, #ddd);
+}
+
+.formbox {
+  @include border-radius(5px);
+  padding: 10px;
+}
+
+.formbox select {
+  border: 1px solid #7bdb84;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.fieldlabel {
+  padding: 10px;
+}
+
+.actions {
+  margin-bottom: 20px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.submitbutton {
+  @include border-radius(2px);
+  padding: 5px;
+}
+
+.replylink {
+  padding: 10px;
+  text-align: center;
+  width: 80px;
+  font-size: 20px;
+  float: right;
+  position: relative;
+  top: 15px;
+  @include border-radius(1px 2px 3px 4px);
+}
+
+.replylink a {
+  color: blue;
+}
+
+.replylink a:hover {
+  font-size: 105%;
+}
+
+#smiley_helper {
+  @include border-radius(1px 2px 3px 4px);
+  background: #ddd;
+}
+
+hr {
+  color: blue;
+}
+
+* {
+	background-color: #f0f0b0;
+	text-shadow: rgba(123, 30, 20, 0.5)  2px -2px 2px;
+}
+
+div, span, a, img, input, button {
+  box-shadow: 1px 1px 20px #f88;
+}
+
+.postarea {
+  @include rotate(-7deg);
+}
+
+.branch {
+  @include rotate(3deg);
+}
+#smiley_helper {
+	margin-right: 50px;
+  @include rotate(-147deg);
+}

@@ -1,5 +1,5 @@
-require 'fortconfig.rb'
 require 'fortconfig_defaults.rb'
+require 'fortconfig.rb'
 
 class Branch < ActiveRecord::Base
   has_many :leafs, :dependent => :destroy

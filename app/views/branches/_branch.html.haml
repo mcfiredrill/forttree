@@ -1,5 +1,5 @@
 %div.branch
-  - branch.leafs.each do |l|
+  - branch.leafs.sort!{|a,b| a.created_at <=> b.created_at}.each do |l|
     - if l == branch.leafs.first
       %div{:class => "firstleaf", :id => "#{l.id}"}
         = render :partial => 'leafs/first_leaf', :locals => {:leaf => l, :branch => branch}

@@ -1,5 +1,5 @@
 %div#page
-  = will_paginate
-  %div.branches
+  %div#branches
+    = will_paginate
     = render @branches, :action => :show
-  = will_paginate
+    = will_paginate

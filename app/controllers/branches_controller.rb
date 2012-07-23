@@ -2,14 +2,17 @@ class BranchesController < ApplicationController
 
   before_filter :check_password, :only => [:destroy]
 
+  layout :set_layout
+
   def new
+    logger.info "HEADERS: #{request.headers['X-PJAX']}"
     @branch = Branch.new
     @leaf = Leaf.new
     @branches = Branch.paginate(:page => params[:page])
 
-		if request.headers['X-PJAX']
-			render :partial => 'cur_page'
-		end
+    if request.headers['X-PJAX']
+      render :partial => 'cur_page'
+    end
   end
 
   def create
@@ -58,6 +61,16 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to new_branch_path }
+    end
+  end
+
+  protected
+
+  def set_layout
+    if request.headers['X-PJAX']
+      false
+    else
+      "application"
     end
   end
 end

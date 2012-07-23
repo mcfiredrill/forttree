@@ -25,26 +25,9 @@ function insert_emoticon(face) {
 }
 
 $(document).ready(function() {
-	img_src = '/images/spinner.gif';
-
-	function createSpinner() {
-		return $('<img/>', {
-			src: img_src,
-			class: 'spinner'
-		});
-	}
-
-	$('.pagination a').on('click', function(e) {
-		e.preventDefault();
-
-		var $el = $(e.target);
-		$el.closest('.pagination').append(createSpinner());
-		target = $('branches');
-		$.pjax({
-			url: $el.attr('href'),
-			container: '#page'
-		});
-	});
+  $('.pagination a').pjax('#branches',{timeout:2000});
+  $('#branches').bind('pjax:start', function(){ $('.loader').show(); })
+  .bind('pjax:end', function(){ $('.loader').hide(); });
 });
 
 /* yoinked from wakaba */

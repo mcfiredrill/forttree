@@ -1,7 +1,11 @@
 = render :partial => "layouts/form", :locals => { :newpost => @branch, :leaf => @leaf, :branch => @branch }
 
 = form_for :branch, :html => { :method => :delete } do |del|
+  %div.loader(style='display:none')
+    %img(src='/images/spinner.gif')
   = render :partial => 'cur_page', :locals => { :del => del }
+  %div.loader(style='display:none')
+    %img(src='/images/spinner.gif')
   %table.deleteform
     %tbody
       %tr

@@ -15,6 +15,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem 'haml'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rinku'
+gem 'honeypot-captcha'
 
 gem 'jquery-rails'
 gem 'therubyracer'

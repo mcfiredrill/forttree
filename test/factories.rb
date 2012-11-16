@@ -16,19 +16,22 @@ module FactoryGirl
   end
 end
 
-Factory.define :leaf do |f|
-  f.name "Anonymous"
-  f.content "Hi I'm making a post."
-  f.attachment(:photo, "test/fixtures/forttree.png", "image/x-png")
-end
-
-Factory.define :branch do |f|
-  f.after_create do |ff|
-    ff.leafs = []
-    ff.leafs << Factory.create(:leaf, :branch => ff)
+FactoryGirl.define do
+  factory :leaf do |f|
+    f.name "Anonymous"
+    f.content "Hi I'm making a post."
+    f.attachment(:photo, "test/fixtures/forttree.png", "image/x-png")
+    f.branch_id 2
   end
-end
 
-Factory.define :admin do |f|
-  f.password 'REALLYCOOLPASSWORD'
+  factory :branch do |f|
+    f.after(:create) do |ff|
+      ff.leafs = []
+      ff.leafs << FactoryGirl.create(:leaf, :branch_id => ff.id)
+    end
+  end
+
+  factory :admin do |f|
+    f.password 'REALLYCOOLPASSWORD'
+  end
 end

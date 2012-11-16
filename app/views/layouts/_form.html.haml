@@ -1,9 +1,16 @@
 = form_for newpost, :html => { :multipart => true } do |f|
   - if leaf.errors.any?
     %div#error_explanation
-      %h2="Uh oh, you got" + pluralize(leaf.errors.count, "error") + "!"
+      %h2="Uh oh, you got" + pluralize(leaf.errors.count, "error!")
       %ul
       = leaf.errors.full_messages.each do |msg|
+        %li
+          = msg
+  - if branch.errors.any?
+    %div#error_explanation
+      %h2="Uh oh, you got" + pluralize(branch.errors.count, "error!")
+      %ul
+      = branch.errors.full_messages.each do |msg|
         %li
           = msg
   %div.postarea_container

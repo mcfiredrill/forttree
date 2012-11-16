@@ -1,5 +1,5 @@
 class Leaf < ActiveRecord::Base
-  belongs_to :branch
+  belongs_to :branch, :touch => true
 
   has_attached_file :photo,
       :styles => { :thumb => "300x300>" },
@@ -14,6 +14,7 @@ class Leaf < ActiveRecord::Base
   validate :validates_photo_or_post
   validates_attachment_content_type :photo, :content_type => VALID_ATTACHMENT_TYPES, :if => Proc.new { |p| p.errors.blank? }
   validates_attachment_size :photo, :less_than => MAX_UPLOAD_SIZE, :message => "File too big! :{", :if => Proc.new { |p| p.errors.blank? }
+  validates_presence_of :branch_id
 
   before_post_process :transliterate_file_name
 

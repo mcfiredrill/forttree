@@ -3,7 +3,7 @@ require 'test_helper'
 class LeafsControllerTest < ActionController::TestCase
   context "a leafs controller" do
     setup do
-      @branch = Factory.create :branch
+      @branch = create :branch
       @leaf = @branch.leafs.first
     end
 
@@ -17,6 +17,7 @@ class LeafsControllerTest < ActionController::TestCase
         post :create, :branch_id => @branch.id, :leaf => @leaf.attributes
       end
 
+      assert_equal Leaf.last.branch, @branch
       assert_redirected_to new_branch_path
     end
   end

@@ -27,10 +27,12 @@ class BranchesController < ApplicationController
           flash[:success] = "Branch created!"
           format.html { redirect_to new_branch_path }
         else
+          flash[:error] = "Couldn't save leaf for some reason!"
           @branch.destroy #destroy branch so we dont end up with a branch with no leafs
           format.html { render :action => "new" }
         end
       else
+        flash[:error] = "Couldn't create branch for some reason!"
         format.html { redirect_to new_branch_path }
       end
     end

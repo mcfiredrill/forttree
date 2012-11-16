@@ -3,7 +3,7 @@ require 'test_helper'
 class BranchesControllerTest < ActionController::TestCase
   context "a branches controller" do
     setup do
-      @branch = Factory.create :branch
+      @branch = create :branch
     end
 
     should "get new" do
@@ -13,14 +13,14 @@ class BranchesControllerTest < ActionController::TestCase
 
     should "create branch" do
       assert_difference('Branch.count', 1) do
-        post :create, :leaf => {:content => @branch.leafs.first.content}
+        post :create, :leaf => {:content => @branch.leafs.first.content, :branch_id => Branch.new.id}
       end
 
       assert_redirected_to new_branch_path
     end
 
     should "destroy branch" do
-      @admin = Factory.create :admin
+      @admin = create :admin
       assert_difference('Branch.count', -1) do
         delete :destroy, :delete => [@branch.leafs.first.id], :password => @admin.password, :id => "new"
       end

@@ -8,7 +8,6 @@ class CreateAdmins < ActiveRecord::Migration
 
       t.timestamps
     end
-    Admin.create :password => ADMIN_PASS
   end
 
   def self.down

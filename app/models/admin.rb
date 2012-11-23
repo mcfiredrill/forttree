@@ -3,7 +3,7 @@ class Admin < ActiveRecord::Base
   attr_accessor :password
 
   def self.authenticate(password)
-    user = Admin.find(1)
+    user = Admin.first
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else

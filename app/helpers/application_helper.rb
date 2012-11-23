@@ -1,8 +1,4 @@
 # encoding: utf-8
-
-require 'fortconfig.rb'
-require 'fortconfig_defaults.rb'
-
 module ApplicationHelper
   def faces
     [ "´ ▽ `",

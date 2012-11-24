@@ -20,8 +20,11 @@ gem 'honeypot-captcha'
 gem 'jquery-rails'
 gem 'therubyracer'
 
+gem 'rspec-rails', :group => [:test,:development]
+gem 'rspecify'
+
 group :production do
-	gem 'pg'
+  gem 'pg'
 end
 
 # Gems used only for assets and not required
@@ -33,7 +36,6 @@ end
 
 group :test do
   gem 'factory_girl'
-  gem 'shoulda'
-  gem 'turn'
-  gem 'minitest'
+  gem 'shoulda-matchers'
+  gem 'capybara'
 end

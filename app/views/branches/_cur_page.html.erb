@@ -1,0 +1,8 @@
+<div id="page">
+  <div id="branches">
+    <%= will_paginate %>
+    <% logger.info "omg cur_page" %>
+    <%= render @branches, :action => :show %>
+    <%= will_paginate %>
+  </div>
+</div>

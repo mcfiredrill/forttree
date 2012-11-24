@@ -1,0 +1,10 @@
+<h1>New leaf</h1>
+<p>
+  <b>Last post in this thread:</b>
+  <%= @branch.last_post_at %>
+</p>
+
+<div class="replyheader">Posting mode: Reply</a>
+
+<%= render :partial => "layouts/form", :locals => { :newpost => @leaf, :leaf => @leaf, :branch => @branch } %>
+<%= render @branch %>

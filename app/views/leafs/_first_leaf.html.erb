@@ -1,0 +1,23 @@
+<span class="filesize">
+  <%= link_to_file(leaf)  %>
+<span>
+<span class="thumbnailmsg">Thumbnail displayed, click image for full size.</span>
+<br/>
+<%= display_photo(leaf) %>
+<label>
+  <%= check_box_tag "delete[]", leaf.id %>
+  <span class="filetitle"></span>
+  <span class="postername">
+    <%= postername(leaf) %>
+    <%= leaf.created_at %>
+  </span>
+</label>
+<span class="reflink">
+  <%= reflink(leaf) %>
+</span>
+<% if !reply_mode? %>
+  <div class="replylink"><%= link_to 'Reply', "/leafs/new/#{branch.id}" %></div>
+<% end %>
+<blockquote>
+  <%= display_content(leaf) %>
+</blockquote>

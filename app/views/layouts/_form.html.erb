@@ -1,0 +1,60 @@
+<%= form_for newpost, :html => { :multipart => true, :honeypot => true } do |f| %>
+  <% if leaf.errors.any? %>
+    <div id="error_explanation">
+      <h2><%="Uh oh, you got" + pluralize(leaf.errors.count, "error!")%></h2>
+      <ul>
+        <% leaf.errors.full_messages.each do |msg| %>
+          <li><%=msg%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%="Uh oh, you got" + pluralize(branch.errors.count, "error!")%></h2>
+      <ul>
+        <% branch.errors.full_messages.each do |msg| %>
+          <li><%=msg%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="postarea_container">
+    <%= fields_for leaf do |l| %>
+      <div class="postarea">
+        <%= hidden_field_tag("branch_id", branch.id) %>
+        <table>
+          <tr>
+            <td class="fieldlabel">Name</td>
+            <td class="field"><%= l.text_field :name, :cols => 80, :rows => 20, :class=>"formbox" %></td>
+          </tr>
+          <tr>
+            <td class="fieldlabel">Post</td>
+            <td class="field"><%= l.text_area :content, :cols => 48, :rows => 4, :class => "formbox"  %></td>
+          <tr>
+          <tr>
+            <td class="fieldlabel">Photo</td>
+            <td class="field"><%= l.file_field :photo, :class=>"formbox" %></td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit(:class => 'submitbutton', :value => 'Post') %>
+      <% if SMILEY_ASSIST == true %>
+        <div id="smiley_toggle">
+          <%= link_to_function "(´ε`)", "anim_show('#smiley_helper')" %>
+        </div>
+        <div id="smiley_helper" style="display:none">
+          <h3>smiley assistant</h3>
+          <%= link_to_function "(´ε`) click me to close", "anim_hide('#smiley_helper')" %>
+          <br />
+          <% faces.each do |f| %>
+            <%= link_to_function f, "insert_emoticon('" + f + "')" %>
+            <br />
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

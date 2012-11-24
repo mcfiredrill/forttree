@@ -1,0 +1,21 @@
+<%= render :partial => "layouts/form", :locals => { :newpost => @branch, :leaf => @leaf, :branch => @branch } %>
+
+<%= form_for :branch, :html => { :method => :delete } do |del| %>
+  <div class="loader" style="display:none">
+    <img src="/images/spinner.gif"/>
+  </div>
+  <%= render :partial => 'cur_page' %>
+  <div class="loader" style="display:none">
+    <img src="/images/spinner.gif"/>
+  </div>
+  <table class="deleteform">
+    <tbody>
+      <tr>
+        <td>
+          <%= password_field_tag :password %>
+          <%= del.submit(:class => 'submitbutton', :value => 'Delete') %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

@@ -53,7 +53,6 @@ GEM
     factory_girl (4.1.0)
       activesupport (>= 3.0.0)
     ffi (1.2.0)
-    haml (3.1.7)
     hike (1.2.1)
     honeypot-captcha (0.0.2)
     i18n (0.6.1)
@@ -106,6 +105,7 @@ GEM
     rake (10.0.2)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.0.0b5)
     rinku (1.7.2)
     rspec-core (2.12.0)
     rspec-expectations (2.12.0)
@@ -185,13 +185,13 @@ DEPENDENCIES
   bcrypt-ruby
   capybara
   factory_girl
-  haml
   honeypot-captcha
   jquery-rails
   paperclip
   pg
   rails (= 3.1.1)
   rake
+  redcarpet
   rinku
   rspec-rails
   rspecify

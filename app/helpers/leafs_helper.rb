@@ -35,7 +35,7 @@ module LeafsHelper
 
   def display_content(leaf)
     if !leaf.content.empty?
-      "<p>#{simple_format(auto_link(leaf.content))}</p>".html_safe
+      "<p>#{markdown(leaf.content)}</p>".html_safe
     end
   end
 end

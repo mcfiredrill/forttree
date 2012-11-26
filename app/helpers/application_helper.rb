@@ -35,4 +35,7 @@ module ApplicationHelper
     end
   end
 
+  def markdown(text)
+    markdown.render(text)
+  end
 end

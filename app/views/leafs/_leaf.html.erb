@@ -12,7 +12,7 @@
         <br/>
         <%= display_photo(leaf) %>
         <label>
-          <%= check_box_tag "delete[]", leaf.id %>
+          <%= check_box_tag "delete[]", leaf.id, :id => "delete_#{leaf.id}" %>
           <span class="filetitle"></span>
           <span class="postername">
             <%= postername(leaf) %>

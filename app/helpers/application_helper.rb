@@ -36,6 +36,8 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    markdown.render(text)
+    options = {hard_wrap:true, filter_html:true, autolink:true, no_intraemphasis:true, fenced_code:true, gh_blockcode:true}
+    m = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    m.render(text)
   end
 end

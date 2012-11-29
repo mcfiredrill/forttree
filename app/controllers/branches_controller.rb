@@ -5,7 +5,6 @@ class BranchesController < ApplicationController
   layout :set_layout
 
   def new
-    logger.info "HEADERS: #{request.headers['X-PJAX']}"
     @branch = Branch.new
     @leaf = Leaf.new
     @branches = Branch.paginate(:page => params[:page])

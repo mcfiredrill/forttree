@@ -5,7 +5,7 @@
 <br/>
 <%= display_photo(leaf) %>
 <label>
-  <%= check_box_tag "delete[]", leaf.id, :id => "delete_#{leaf.id}" %>
+  <%= check_box_tag "delete[]", leaf.id, false, :id => "delete_#{leaf.id}" %>
   <span class="filetitle"></span>
   <span class="postername">
     <%= postername(leaf) %>
@@ -16,7 +16,7 @@
   <%= reflink(leaf) %>
 </span>
 <% if !reply_mode? %>
-  <div class="replylink"><%= link_to 'Reply', "/leafs/new/#{branch.id}" %></div>
+  <div class="replylink"><%= link_to 'Reply', "/leafs/new/#{leaf.branch_id}" %></div>
 <% end %>
 <blockquote>
   <%= display_content(leaf) %>

@@ -1,11 +1,11 @@
 <div class="branch">
   <% branch.leafs.sort!{|a,b| a.created_at <=> b.created_at}.each do |l| %>
     <% if l == branch.leafs.first %>
-      <div class="firstleaf" id="#{l.id}">
-        <%= render :partial => 'leafs/first_leaf', :locals => {:leaf => l, :branch => branch} %>
+      <div class="firstleaf" id="leaf_<%=l.id%>">
+        <%= render :partial => 'leafs/first_leaf', :locals => {:leaf => l} %>
       </div>
     <% else %>
-      <div class="leaf" id="#{l.id}">
+      <div class="leaf" id="leaf_<%=l.id%>">
        <%= render l %>
       </div>
     <% end %>

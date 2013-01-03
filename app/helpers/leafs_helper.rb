@@ -1,9 +1,11 @@
 module LeafsHelper
   def link_to_file(leaf)
-    if leaf.photo_file_name != nil
-      "File: #{link_to leaf.photo_file_name, leaf.photo.url, :target => "_blank"} -(#{leaf.photo_file_size.to_s} B)"
-    else
-      "No file"
+    content_tag :span, class: "filesize" do
+      if leaf.photo_file_name != nil
+        "File: #{link_to leaf.photo_file_name, leaf.photo.url, :target => "_blank"} -(#{leaf.photo_file_size.to_s} B)".html_safe
+      else
+        "No file"
+      end
     end
   end
 
@@ -36,6 +38,14 @@ module LeafsHelper
   def display_content(leaf)
     if !leaf.content.empty?
       "<p>#{markdown(leaf.content)}</p>".html_safe
+    end
+  end
+
+  def reply_link(leaf)
+    if !reply_mode? && (leaf == leaf.branch.leafs.first)
+      content_tag :div, class: 'replylink' do
+        link_to 'Reply', "/leafs/new/#{leaf.branch_id}"
+      end
     end
   end
 end

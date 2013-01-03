@@ -6,7 +6,7 @@
       </div>
     <% else %>
       <div class="leaf" id="leaf_<%=l.id%>">
-       <%= render l %>
+        <%= render :partial => 'leafs/reply_leaf', :locals => {:leaf => l} %>
       </div>
     <% end %>
   <% end %>

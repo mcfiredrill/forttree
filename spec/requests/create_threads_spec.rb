@@ -12,8 +12,8 @@ describe "A visitor" do
     attach_file "leaf[photo]", image
     click_button 'Post'
     page.should have_content 'Branch created!'
-    page.should have_content 'anon'
-    page.should have_content 'hi im making a post'
+    page.should have_content name
+    page.should have_content content
     page.should have_xpath "//img[contains(@src,\"#{File.basename(image)}\")]"
   end
 end

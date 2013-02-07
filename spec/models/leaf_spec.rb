@@ -1,8 +1,6 @@
 require "spec_helper"
 
 describe Leaf do
-  it { should belong_to(:branch) }
-  
   context "a leaf" do
     before(:each) do
       @leaf = create(:leaf)

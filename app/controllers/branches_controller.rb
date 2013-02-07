@@ -16,7 +16,7 @@ class BranchesController < ApplicationController
 
   def create
     @branch = Branch.new(:last_post_at => Time.now)
-    @leaf = Leaf.new(params[:leaf])
+    @leaf = Leaf.new(leaf_params)
     @branches = Branch.paginate(:page => params[:page])
 
     respond_to do |format|
@@ -65,6 +65,13 @@ class BranchesController < ApplicationController
     end
   end
 
+  private
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def leaf_params
+    params.require(:leaf).permit(:name, :content, :photo)
+  end
+
   protected
 
   def set_layout
@@ -74,4 +81,5 @@ class BranchesController < ApplicationController
       "application"
     end
   end
+
 end

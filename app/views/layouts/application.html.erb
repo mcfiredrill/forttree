@@ -15,7 +15,7 @@
   <body>
     <div id="themes">
       <% theme_basenames.each do |t| %>
-        <%= link_to_function t, "set_stylesheet('"+t+"')" %>
+        <%= link_to t, "#", class: 'set-theme', data: { theme: "#{t}" } %>
       <% end %>
     </div>
     <h1><%= link_to BOARDTITLE, new_branch_path %></h1>

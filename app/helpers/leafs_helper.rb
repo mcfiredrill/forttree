@@ -29,7 +29,7 @@ module LeafsHelper
 
   def reflink(leaf)
     if reply_mode?
-      link_to_function "No. #{leaf.id}", "insert_emoticon('>>#{leaf.id}')"
+      link_to "No. #{leaf.id}", "#", class: "insert-emoticon", data: { text: ">>#{leaf.id}" }
     else
       link_to "No. #{leaf.id}", "/leafs/new/#{leaf.branch_id}##{leaf.id}"
     end

@@ -24,12 +24,6 @@ function insert_emoticon(face) {
   $('#leaf_content').setSelection(caret_pos + face.length);
 }
 
-$(document).ready(function() {
-  $('.pagination a').pjax('#branches',{timeout:2000});
-  $('#branches').bind('pjax:start', function(){ $('.loader').show(); })
-  .bind('pjax:end', function(){ $('.loader').hide(); });
-});
-
 /* yoinked from wakaba */
 function set_stylesheet(styletitle) {
 	var links = document.getElementsByTagName("link");
@@ -94,3 +88,24 @@ window.onload = function(e) {
   var title = cookie ? cookie : get_preferred_stylesheet();
   set_stylesheet(title);
 }
+
+$(document).ready(function() {
+  $('.pagination a').pjax('#branches',{timeout:2000});
+  $('#branches').bind('pjax:start', function(){ $('.loader').show(); })
+  .bind('pjax:end', function(){ $('.loader').hide(); });
+
+  $('.set-theme').click(function(e) {
+    set_stylesheet($(this).data('theme'));
+    return false;
+  });
+
+  $('.insert-emoticon').click(function(e) {
+    insert_emoticon($(this).data('text'));
+    return false;
+  });
+
+  $('#smiley-helper-show').click(function(e) {
+    $("#smiley_helper").fadeToggle();
+    return false;
+  });
+});

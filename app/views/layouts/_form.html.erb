@@ -43,14 +43,14 @@
       <%= f.submit(:class => 'submitbutton', :value => 'Post') %>
       <% if SMILEY_ASSIST == true %>
         <div id="smiley_toggle">
-          <%= link_to_function "(´ε`)", "anim_show('#smiley_helper')" %>
+          <%= link_to "(´ε`)", "#", id: "smiley-helper-show" %>
         </div>
         <div id="smiley_helper" style="display:none">
           <h3>smiley assistant</h3>
-          <%= link_to_function "(´ε`) click me to close", "anim_hide('#smiley_helper')" %>
+          <%= link_to "(´ε`) click me to close", "#", id: "smiley-helper-show"  %>
           <br />
           <% faces.each do |f| %>
-            <%= link_to_function f, "insert_emoticon('" + f + "')" %>
+            <%= link_to f, "#", class: 'insert-emoticon', data: { text:  " #{f} " }  %>
             <br />
           <% end %>
         </div>

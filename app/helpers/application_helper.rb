@@ -35,9 +35,16 @@ module ApplicationHelper
     end
   end
 
-  def markdown(text)
-    options = {hard_wrap:true, filter_html:true, autolink:true, no_intraemphasis:true, fenced_code:true, gh_blockcode:true}
-    m = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
-    m.render(text)
+  def html_pipeline(text)
+    context = {
+      :asset_root => "/images/"
+    }
+    pipeline = HTML::Pipeline.new [
+      HTML::Pipeline::MarkdownFilter,
+      HTML::Pipeline::SyntaxHighlightFilter,
+      HTML::Pipeline::EmojiFilter
+    ], context
+    result = pipeline.call(text)
+    result[:output].to_s
   end
 end

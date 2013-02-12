@@ -43,18 +43,35 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    charlock_holmes (0.6.9)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     cocaine (0.4.2)
     diff-lcs (1.1.3)
     erubis (2.7.0)
+    escape_utils (0.2.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
       activesupport (>= 3.0.0)
     ffi (1.2.0)
+    gemoji (1.4.0)
+    github-linguist (2.4.0)
+      charlock_holmes (~> 0.6.6)
+      escape_utils (~> 0.2.3)
+      mime-types (~> 1.19)
+      pygments.rb (>= 0.3.0)
+    github-markdown (0.5.3)
     hike (1.2.1)
     honeypot-captcha (0.0.2)
+    html-pipeline (0.0.8)
+      activesupport (>= 2)
+      escape_utils (~> 0.2)
+      gemoji (~> 1.0)
+      github-markdown (~> 0.5)
+      nokogiri (~> 1.4)
+      rinku (~> 1.7)
+      sanitize (~> 2.0)
     i18n (0.6.1)
     jquery-rails (2.1.3)
       railties (>= 3.1.0, < 5.0)
@@ -78,6 +95,10 @@ GEM
       mime-types
     pg (0.14.1)
     polyglot (0.3.3)
+    posix-spawn (0.3.6)
+    pygments.rb (0.3.7)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
     rack (1.3.6)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -105,7 +126,6 @@ GEM
     rake (10.0.2)
     rdoc (3.12)
       json (~> 1.4)
-    redcarpet (2.0.0b5)
     rinku (1.7.2)
     rspec-core (2.12.0)
     rspec-expectations (2.12.0)
@@ -139,6 +159,9 @@ GEM
       ruby_scribe (~> 0.1.4)
       thor (~> 0.13)
     rubyzip (0.9.9)
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
+      nokogiri (>= 1.4.4, < 1.6)
     sass (3.2.3)
     sass-rails (3.1.6)
       actionpack (~> 3.1.0)
@@ -176,6 +199,7 @@ GEM
     xml-simple (1.1.2)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -185,14 +209,14 @@ DEPENDENCIES
   bcrypt-ruby
   capybara
   factory_girl
+  github-linguist
   honeypot-captcha
+  html-pipeline
   jquery-rails
   paperclip
   pg
   rails (= 3.1.1)
   rake
-  redcarpet
-  rinku
   rspec-rails
   rspecify
   sass-rails (~> 3.1.4)

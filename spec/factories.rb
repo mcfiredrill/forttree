@@ -20,7 +20,7 @@ FactoryGirl.define do
   factory :leaf do |f|
     f.name "Anonymous"
     f.content "Hi I'm making a post."
-    f.attachment(:photo, "test/fixtures/forttree.png", "image/x-png")
+    f.attachment(:photo, "spec/fixtures/forttree.png", "image/x-png")
     f.branch_id 2
   end
 

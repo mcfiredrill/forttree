@@ -1,4 +1,5 @@
 [![Build Status](https://secure.travis-ci.org/mcfiredrill/forttree.png?branch=master)](http://travis-ci.org/mcfiredrill/forttree)
+[![Code Climate](https://codeclimate.com/github/mcfiredrill/forttree.png)](https://codeclimate.com/github/mcfiredrill/forttree)
 
 Fortree
 =======

@@ -11,8 +11,8 @@ describe "DeletePosts" do
     fill_in "password", :with => @admin.password
     click_button "Delete"
     page.should have_content 'Branch pruned!'
-    Branch.exists?(@branch).should be false
-    Leaf.exists?(@branch.leafs.first).should be false
+    Branch.exists?(@branch).should be_false
+    Leaf.exists?(@branch.leafs.first).should be_false
   end
   it "should delete just one leaf" do
     @leaf = create :leaf, :branch_id => @branch.id
@@ -21,9 +21,9 @@ describe "DeletePosts" do
     fill_in "password", :with => @admin.password
     click_button "Delete"
     page.should have_content 'Leaf pruned!'
-    Leaf.exists?(@leaf.id).should be false
-    Branch.exists?(@branch).should be true
-    Leaf.exists?(@branch.leafs.first).should be true
+    Leaf.exists?(@leaf.id).should be_false
+    Branch.exists?(@branch).should be_true
+    Leaf.exists?(@branch.leafs.first).should be_true
   end
   it "should not delete branch with wrong password" do
     visit "/"
@@ -31,7 +31,7 @@ describe "DeletePosts" do
     fill_in "password", :with => "WRONGPASSWORD"
     click_button "Delete"
     page.should have_content 'Incorrect password for deletion'
-    Branch.exists?(@branch).should be true
-    Leaf.exists?(@branch.leafs.first).should be true
+    Branch.exists?(@branch).should be_true
+    Leaf.exists?(@branch.leafs.first).should be_true
   end
 end

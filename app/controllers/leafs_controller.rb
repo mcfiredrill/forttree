@@ -9,7 +9,7 @@ class LeafsController < ApplicationController
   end
 
   def create
-    @leaf = Leaf.new(params[:leaf])
+    @leaf = Leaf.new(leaf_params)
     @leaf.branch_id = params[:branch_id]
 
     respond_to do |format|
@@ -21,5 +21,12 @@ class LeafsController < ApplicationController
         format.html { redirect_to new_branch_path }
       end
     end
+  end
+
+  private
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def leaf_params
+    params.require(:leaf).permit(:name, :content, :photo)
   end
 end

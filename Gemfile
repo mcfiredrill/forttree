@@ -1,12 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails',     github: 'rails/rails', branch: 'master'
-gem 'journey',   github: 'rails/journey'
-gem 'arel',      github: 'rails/arel'
-gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
+gem 'rails', '4.0.0'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'paperclip'
 gem 'will_paginate'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'bcrypt-ruby', :require => 'bcrypt'
@@ -31,7 +28,6 @@ group :assets do
 end
 
 group :test do
-  gem 'factory_girl'
-  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
   gem 'capybara'
 end

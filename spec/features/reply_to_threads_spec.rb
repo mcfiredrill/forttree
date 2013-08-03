@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "A visitor" do
   before(:each) do
-    @branch = create :branch
+    @board = create :board
   end
   it "replies to a post" do
     name = "anon"

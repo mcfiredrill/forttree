@@ -1,12 +1,15 @@
 require 'spec_helper'
 
 describe "A visitor" do
+  before :each do
+    @board = create :board
+  end
   it "creates a new post" do
     name = "anon"
     content = "hi im making a post"
     image = "#{::Rails.root.to_s}/spec/fixtures/forttree.png"
 
-    visit new_branch_path
+    visit "/"
     fill_in "leaf[name]", with: name
     fill_in "leaf[content]", with: content
     attach_file "leaf[photo]", image

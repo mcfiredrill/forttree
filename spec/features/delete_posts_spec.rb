@@ -3,7 +3,8 @@ require 'spec_helper'
 describe "DeletePosts" do
   before(:each) do
     @admin = create :admin
-    @branch = create :branch
+    @board = create :board
+    @branch = @board.branches.first
   end
   it "should delete a branch and all the leafs" do
     visit "/"
@@ -15,7 +16,8 @@ describe "DeletePosts" do
     Leaf.exists?(@branch.leafs.first).should be_false
   end
   it "should delete just one leaf" do
-    @leaf = create :leaf, :branch_id => @branch.id
+    @branch.leafs << create(:leaf)
+    @leaf = @branch.leafs.first
     visit "/"
     check "delete_#{@leaf.id}"
     fill_in "password", :with => @admin.password

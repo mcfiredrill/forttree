@@ -72,13 +72,4 @@ class PostsController < ApplicationController
   def leaf_params
     params.require(:leaf).permit(:name, :content, :photo)
   end
-  def check_password
-    unless Admin.authenticate(params[:password])
-      flash[:error] = "Incorrect password for deletion"
-      redirect_to post_path
-      return false
-    else
-      return true
-    end
-  end
 end

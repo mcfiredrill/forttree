@@ -4,7 +4,6 @@ ruby "2.0.0"
 
 gem 'rails', '4.0.0'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'paperclip'
 gem 'will_paginate'
 gem 'aws-s3', :require => 'aws/s3'
@@ -35,4 +34,5 @@ end
 
 group :development, :test do
   gem 'byebug'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
 end

@@ -1,0 +1,27 @@
+<%= form_for @board, html: { multipart: true } do |f| %>
+   <% if @board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%="Uh oh, you got" + pluralize(@board.errors.count, "error!")%></h2>
+      <ul>
+        <% @board.errors.full_messages.each do |msg| %>
+          <li><%=msg%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+    <tr>
+      <td class="fieldlabel">Name</td>
+      <td class="field"><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td class="fieldlabel">Banner</td>
+      <td class="field"><%= f.file_field :banner %></td>
+    </tr>
+    <tr>
+      <td class="fieldlabel">Password</td>
+      <td class="field"><%= password_field_tag :password %>
+    </tr>
+  </table>  
+  <%= f.submit value: 'Create board', id: 'submit' %>
+<% end %>

@@ -1,6 +1,8 @@
-<%= render :partial => "layouts/form", :locals => { :new_post => @new_post } %>
+<h2><%= @board.name %></h2>
 
-<%= form_for :branch, :html => { :method => :delete } do |del| %>
+<%= render :partial => "layouts/form", :locals => { :post_form => @post_form } %>
+
+<%= form_for :post, url: posts_destroy_path(@post_form.board), :html => { :method => :delete } do |del| %>
   <div class="loader" style="display:none">
     <img src="/images/spinner.gif"/>
   </div>

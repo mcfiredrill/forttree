@@ -44,7 +44,7 @@ module LeafsHelper
   def reply_link(leaf)
     if !reply_mode? && (leaf == leaf.branch.leafs.first)
       content_tag :div, class: 'replylink' do
-        link_to 'Reply', posts_path(leaf.branch.board.id, leaf.branch.id)
+        link_to 'Reply', edit_board_post_path(leaf.branch.board.id, leaf.branch.id)
       end
     end
   end

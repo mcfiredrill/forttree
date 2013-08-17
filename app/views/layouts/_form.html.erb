@@ -1,4 +1,4 @@
-<% url = post_form.persisted? ? posts_path(post_form.board.id, post_form.branch.id) : post_path %>
+<% url = post_form.persisted? ? board_post_path(post_form.board.id, post_form.branch.id) : board_posts_path(post_form.board.id) %>
 <%= form_for post_form, url: url, html: { :multipart => true, :honeypot => true } do |f| %>
   <% if post_form.errors.any? %>
     <div id="error_explanation">

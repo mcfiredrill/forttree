@@ -1,3 +1,5 @@
+<h2><%= @board.name %></h2>
+
 <%= render :partial => "layouts/form", :locals => { :post_form => @post_form } %>
 
 <%= form_for :post, :html => { :method => :delete } do |del| %>

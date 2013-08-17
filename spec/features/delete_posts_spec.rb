@@ -8,6 +8,7 @@ describe "DeletePosts" do
   end
   it "should delete a branch and all the leafs" do
     visit "/"
+    click_on "da board"
     check "delete_#{@branch.leafs.first.id}"
     fill_in "password", :with => @admin.password
     click_button "Delete"
@@ -19,6 +20,7 @@ describe "DeletePosts" do
     @branch.leafs << create(:leaf)
     @leaf = @branch.leafs.first
     visit "/"
+    click_on "da board"
     check "delete_#{@leaf.id}"
     fill_in "password", :with => @admin.password
     click_button "Delete"
@@ -29,10 +31,11 @@ describe "DeletePosts" do
   end
   it "should not delete branch with wrong password" do
     visit "/"
+    click_on "da board"
     check "delete_#{@branch.leafs.first.id}"
     fill_in "password", :with => "WRONGPASSWORD"
     click_button "Delete"
-    page.should have_content 'Incorrect password for deletion'
+    page.should have_content 'Incorrect password!'
     Branch.exists?(@branch).should be_true
     Leaf.exists?(@branch.leafs.first).should be_true
   end

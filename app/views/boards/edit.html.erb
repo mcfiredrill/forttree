@@ -1,0 +1,8 @@
+<h1>edit board</h1>
+<%= render 'form' %>
+<h2>DELETE BOARD</h2>
+<p>can't be undone!</p>
+<%= form_for @board, :html => {:method => :delete} do |f| %>
+  <%= password_field_tag :delete_password %>
+  <%= f.submit 'Delete board', id: 'delete' %>
+<% end %>

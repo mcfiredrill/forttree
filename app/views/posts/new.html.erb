@@ -1,0 +1,29 @@
+<h2><%= @board.name %></h2>
+
+<%= render :partial => "layouts/form", :locals => { :post_form => @post_form } %>
+
+<%= form_for :post, :html => { :method => :delete } do |del| %>
+  <div class="loader" style="display:none">
+    <img src="/images/spinner.gif"/>
+  </div>
+  <div id="page">
+    <div id="branches">
+      <%= will_paginate @branches %>
+      <%= render @branches, :action => :show %>
+      <%= will_paginate @branches %>
+    </div>
+  </div>
+  <div class="loader" style="display:none">
+    <img src="/images/spinner.gif"/>
+  </div>
+  <table class="deleteform">
+    <tbody>
+      <tr>
+        <td>
+          <%= password_field_tag :password %>
+          <%= del.submit(:class => 'submitbutton', :value => 'Delete') %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

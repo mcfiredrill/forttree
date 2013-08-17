@@ -1,5 +1,6 @@
 class Branch < ActiveRecord::Base
   has_many :leafs, :dependent => :destroy
+  belongs_to :board
 
   accepts_nested_attributes_for :leafs, :allow_destroy => true
 

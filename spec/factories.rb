@@ -31,6 +31,13 @@ FactoryGirl.define do
     end
   end
 
+  factory :board do |f|
+    f.name "da board"
+    f.after :create do |ff|
+      ff.branches << FactoryGirl.create(:branch)
+    end
+  end
+
   factory :admin do |f|
     f.password 'REALLYCOOLPASSWORD'
   end

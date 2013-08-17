@@ -6,3 +6,4 @@ tmp/**/*
 .sass-cache/
 public/assets/
 tags
+public/system/**/*

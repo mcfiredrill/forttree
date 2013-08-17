@@ -11,31 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20110425114446) do
+ActiveRecord::Schema.define(version: 20130803071120) do
 
   create_table "admins", force: true do |t|
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.string    "password_hash"
+    t.string    "password_salt"
+    t.timestamp "created_at",    null: false
+    t.timestamp "updated_at",    null: false
+  end
+
+  create_table "boards", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   create_table "branches", force: true do |t|
-    t.datetime "last_post_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.timestamp "last_post_at"
+    t.timestamp "created_at",   null: false
+    t.timestamp "updated_at",   null: false
+    t.integer   "board_id"
   end
 
   create_table "leafs", force: true do |t|
-    t.string   "name"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "branch_id"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
+    t.string    "name"
+    t.text      "content"
+    t.timestamp "created_at",         null: false
+    t.timestamp "updated_at",         null: false
+    t.integer   "branch_id"
+    t.string    "photo_file_name"
+    t.string    "photo_content_type"
+    t.integer   "photo_file_size"
+    t.timestamp "photo_updated_at"
   end
 
 end

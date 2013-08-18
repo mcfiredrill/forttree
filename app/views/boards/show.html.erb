@@ -4,6 +4,9 @@
     <%= image_tag @board.banner.url %>
   </center>
 <% end %>
+<div id="manage">
+  <%= link_to "[Manage]", edit_board_path(@board) %>
+</div>
 
 <%= render :partial => "layouts/form", :locals => { :post_form => @post_form } %>
 

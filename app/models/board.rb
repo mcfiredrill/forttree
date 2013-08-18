@@ -8,4 +8,5 @@ class Board < ActiveRecord::Base
         :secret_access_key => S3_SECRET
       },
       :bucket => S3_BUCKET
+  default_scope -> { order('name ASC') }
 end

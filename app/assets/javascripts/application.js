@@ -1,6 +1,5 @@
 //= require jquery
 //= require textinputs_jquery
-//= require jquery-pjax/jquery.pjax
 //= require jquery-cookie/jquery.cookie
 
 function anim_show(el) {
@@ -90,11 +89,9 @@ window.onload = function(e) {
 }
 
 $(document).ready(function() {
-  $('.pagination a').pjax('#branches',{timeout:2000});
-  $('#branches').bind('pjax:start', function(){ $('.loader').show(); })
-  .bind('pjax:end', function(){ $('.loader').hide(); });
 
   $('.set-theme').click(function(e) {
+    console.log($(this).data('theme'));
     set_stylesheet($(this).data('theme'));
     return false;
   });

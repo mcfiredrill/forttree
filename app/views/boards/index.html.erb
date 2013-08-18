@@ -4,6 +4,6 @@
 
 <h2>latest posts...</h2>
 <% @latest_posts.each do |post| %>
-  <h3>in <%= link_to post.board_name %><h3>
-  <%= render post %>
+  <h3>in <%= link_to "/#{post.board_name}/", post.board %><h3>
+      <%= link_to image_tag(post.photo.url(:thumb)), edit_board_post_path(post.board_id, post.branch_id) %>
 <% end %>

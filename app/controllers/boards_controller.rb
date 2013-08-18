@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.all
-    @latest_posts = Leaf.all(order: "updated_at DESC", limit:  5)
+    @latest_posts = Leaf.where("photo_file_name is not null").limit(5).order("updated_at DESC")
   end
   def new
     @board = Board.new

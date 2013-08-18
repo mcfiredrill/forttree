@@ -41,7 +41,6 @@ module ApplicationHelper
     }
     pipeline = HTML::Pipeline.new [
       HTML::Pipeline::MarkdownFilter,
-      HTML::Pipeline::SyntaxHighlightFilter,
       HTML::Pipeline::EmojiFilter
     ], context
     result = pipeline.call(text)

@@ -1,4 +1,7 @@
 <h2><%= @board.name %></h2>
+<% if @board.banner %>
+  <%= image_tag @board.banner.url %>
+<% end %>
 
 <%= render :partial => "layouts/form", :locals => { :post_form => @post_form } %>
 

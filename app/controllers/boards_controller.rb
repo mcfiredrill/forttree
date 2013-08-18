@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.all
+    @latest_posts = Leaf.all(order: "updated_at DESC", limit:  5)
   end
   def new
     @board = Board.new

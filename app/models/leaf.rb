@@ -25,6 +25,10 @@ class Leaf < ActiveRecord::Base
     end
   end
 
+  def board_name
+    branch.board.name
+  end
+
   #XXX totally yoinked from bigchan
   private
     def transliterate_file_name

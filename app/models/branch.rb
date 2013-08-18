@@ -7,6 +7,6 @@ class Branch < ActiveRecord::Base
   # pagination
   cattr_reader :per_page
   @@per_page = BRANCHES_PER_PAGE
-  default_scope :order => 'updated_at DESC'
+  default_scope -> { order('updated_at DESC') }
 
 end

@@ -9,8 +9,7 @@ describe "A visitor" do
     content = "hi im replying to a post"
     image = "#{::Rails.root.to_s}/spec/fixtures/forttree.png"
 
-    visit "/"
-    click_on "da board"
+    visit board_path @board
     click_link "Reply"
     fill_in "leaf[name]", with: name
     fill_in "leaf[content]", with: content

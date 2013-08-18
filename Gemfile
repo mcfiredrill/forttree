@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 
 gem 'paperclip'
 gem 'will_paginate'
-gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-sdk'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'honeypot-captcha'
 gem 'html-pipeline'

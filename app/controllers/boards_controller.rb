@@ -1,6 +1,5 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all
     @latest_posts = Leaf.latest
   end
   def new

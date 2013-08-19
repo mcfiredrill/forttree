@@ -46,4 +46,13 @@ module ApplicationHelper
     result = pipeline.call(text)
     result[:output].to_s
   end
+
+  def current_board(board)
+    @board && (@board.name == board.name)
+  end
+
+  def board_listing
+    logger.info 'hey'
+    Board.all
+  end
 end

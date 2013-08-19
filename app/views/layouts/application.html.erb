@@ -19,6 +19,13 @@
       <% end %>
     </div>
     <h1><%= link_to BOARDTITLE, "/" %></h1>
+    <% board_listing.each do |board| %>
+      <% if current_board(board) %>
+        <%= "/#{board.name}/" %>
+      <% else %>
+        <%= link_to "/#{board.name}/", board %>
+      <% end %>
+    <% end %>
     <% flash.each do |key, value| %>
       <div class="flash_#{key}">
         <h2><%=value%></h2>

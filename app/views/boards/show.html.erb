@@ -1,9 +1,9 @@
-<h2>/<%=@board.name%>/</h2>
-<% if @board.banner %>
   <center>
-    <%= image_tag @board.banner.url %>
+    <% if @board.banner %>
+      <%= image_tag @board.banner.url %>
+    <% end %>
+    <h2>/<%=@board.name%>/</h2>
   </center>
-<% end %>
 <div id="manage">
   <%= link_to "[Manage]", edit_board_path(@board) %>
 </div>

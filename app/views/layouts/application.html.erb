@@ -29,6 +29,7 @@
           <%= link_to "/#{board.name}/", board %>
         <% end %>
       <% end %>
+<<<<<<< HEAD
       <% flash.each do |key, value| %>
         <div class="flash_#{key}">
           <h2><%=value%></h2>
@@ -50,6 +51,9 @@
         , lbl_amount: "DOGE"
       });
     </script>
+    <%= javascript_tag do %>
+      Forttree.initialize({boards: <%== @boards.to_json %> });
+    <% end %>
     <%= yield %>
   <body>
 </html>

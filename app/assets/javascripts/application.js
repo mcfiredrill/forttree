@@ -1,6 +1,15 @@
 //= require jquery
 //= require textinputs_jquery
 //= require jquery-cookie/jquery.cookie
+//
+//= require underscore
+//= require backbone
+//= require forttree
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 
 function anim_show(el) {
   $(el).fadeIn();

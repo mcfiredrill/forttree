@@ -17,6 +17,7 @@ gem 'gemoji'
 
 gem 'jquery-rails'
 gem 'therubyracer'
+gem 'backbone-on-rails'
 
 gem 'rspec-rails', :group => [:test,:development]
 

@@ -26,5 +26,5 @@ Forttree::Application.configure do
 
   config.serve_static_assets = true
 
-  config.ember.variant = development
+  config.ember.variant = :development
 end

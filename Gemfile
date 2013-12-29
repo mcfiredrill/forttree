@@ -2,14 +2,18 @@ source 'http://rubygems.org'
 
 ruby "2.0.0"
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
-gem 'paperclip'
+gem 'paperclip', '~> 3.5.2'
 gem 'will_paginate'
 gem 'aws-sdk'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'honeypot-captcha'
-gem 'html-pipeline'
+gem 'html-pipeline', '~> 1.1.0'
+
+# html-pipeline deps
+gem 'github-markdown'
+gem 'gemoji'
 
 gem 'jquery-rails'
 gem 'therubyracer'

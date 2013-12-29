@@ -37,3 +37,5 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
+
+gem 'ember-rails'

@@ -25,4 +25,6 @@ Forttree::Application.configure do
   config.eager_load = false
 
   config.serve_static_assets = true
+
+  config.ember.variant = development
 end

@@ -36,7 +36,7 @@ module LeafsHelper
   end
 
   def display_content(leaf)
-    if !leaf.content.empty?
+    if !leaf.content.blank?
       "<p>#{html_pipeline(leaf.content)}</p>".html_safe
     end
   end

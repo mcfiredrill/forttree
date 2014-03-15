@@ -1,5 +1,5 @@
-[![Build Status](https://secure.travis-ci.org/mcfiredrill/forttree.png?branch=master)](http://travis-ci.org/mcfiredrill/forttree)
-[![Code Climate](https://codeclimate.com/github/mcfiredrill/forttree.png)](https://codeclimate.com/github/mcfiredrill/forttree)
+[![Build Status](https://img.shields.io/travis/mcfiredrill/forttree.svg?branch=master)](http://travis-ci.org/mcfiredrill/forttree)
+[![Code Climate](https://img.shields.io/codeclimate/github/mcfiredrill/forttree.svg)](https://codeclimate.com/github/mcfiredrill/forttree)
 
 Fortree
 =======
@@ -20,7 +20,7 @@ Admin created.
 
 Configuration
 =============
-Edit the file config/initializers/fortconfig.rb to configure various options. 
+Edit the file config/initializers/fortconfig.rb to configure various options.
 
 Image Storage
 =============

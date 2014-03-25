@@ -11,6 +11,7 @@
       <%= stylesheet_link_tag "themes/" + t, :title => t %>
     <% end %>
     <%= javascript_include_tag "application" %>
+    <script src="http://cdn.bitmindo.com/dogecoin.min.js"></script>
     <%= csrf_meta_tag %>
   </head>
   <body>
@@ -35,6 +36,20 @@
       <% end %>
     </header>
     <a href="https://libreplanet.org/2014"><img src="https://static.fsf.org/nosvn/images/libreplanet2014-badge.png" alt="Come to LibrePlanet 2014!"/></a>
+    <script>
+      CoinWidgetCom.go({
+        /* make sure you update the wallet_address or you will not get your donations */
+        wallet_address: "<%=ENV['DOGE_ADDRESS']%>"
+        , currency: "dogecoin"
+        , counter: "amount"
+        , alignment: "bl"
+        , qrcode: true
+        , auto_show: false
+        , lbl_button: "Donate"
+        , lbl_address: "Tip Dogecoin to this Address:"
+        , lbl_amount: "DOGE"
+      });
+    </script>
     <%= yield %>
   <body>
 </html>

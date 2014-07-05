@@ -8,7 +8,7 @@ gem 'paperclip', '~> 4.1.1'
 gem 'will_paginate'
 gem 'aws-sdk'
 gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'honeypot-captcha'
+gem 'negative_captcha'
 gem 'html-pipeline', '~> 1.1.0'
 
 # html-pipeline deps

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :check_password, :only => [:destroy]
+  before_filter :check_password, only: [:destroy]
+  before_filter :setup_negative_captcha, only: [:create]
   def index
     @board = Board.find(params[:board_id])
   end
@@ -13,13 +14,14 @@ class PostsController < ApplicationController
   end
   def create
     board = Board.find(params[:board_id])
-    @post_form = PostForm.new board, Branch.new, Leaf.new(leaf_params)
+    @post_form = PostForm.new board, Branch.new, Leaf.new(@captcha.values)
     respond_to do |format|
-      if @post_form.save!
+      if @captcha.valid? && @post_form.save!
         flash[:success] = "Branch created!"
         format.html { redirect_to board_path(board) }
       else
         flash[:error] = "Couldn't create branch for some reason!"
+        flash[:error] << " #{@captcha.error}" if @captcha.error
         format.html { redirect_to board_path(board) }
       end
     end

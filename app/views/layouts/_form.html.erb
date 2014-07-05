@@ -1,5 +1,6 @@
 <% url = post_form.persisted? ? board_post_path(post_form.board.id, post_form.branch.id) : board_posts_path(post_form.board.id) %>
-<%= form_for post_form, url: url, html: { :multipart => true, :honeypot => true } do |f| %>
+<%= form_for post_form, url: url, html: { multipart: true } do |f| %>
+  <%= raw negative_captcha(@captcha) %>
   <% if post_form.errors.any? %>
     <div id="error_explanation">
       <h2><%="Uh oh, you got" + pluralize(leaf.errors.count, "error!")%></h2>
@@ -15,16 +16,16 @@
       <div class="postarea">
         <table>
           <tr>
-            <td class="fieldlabel">Name</td>
-            <td class="field"><%= l.text_field :name, :cols => 80, :rows => 20, :class=>"formbox" %></td>
+            <td class="fieldlabel"><%= negative_label_tag @captcha, :name, 'Name'  %></td>
+            <td class="field"><%= negative_text_field_tag @captcha, :name, cols: 80, rows: 20, class: "formbox" %></td>
           </tr>
           <tr>
-            <td class="fieldlabel">Post</td>
-            <td class="field"><%= l.text_area :content, :cols => 48, :rows => 4, :class => "formbox"  %></td>
+            <td class="fieldlabel"><%= negative_label_tag @captcha, :post, 'Post' %></td>
+            <td class="field"><%= negative_text_area_tag @captcha,  :content, cols: 48, rows: 4, class: "formbox"  %></td>
           <tr>
           <tr>
-            <td class="fieldlabel">Photo</td>
-            <td class="field"><%= l.file_field :photo, :class=>"formbox" %></td>
+            <td class="fieldlabel"><%= negative_label_tag @captcha, :photo, 'Photo' %></td>
+            <td class="field"><%= negative_file_field_tag @captcha, :photo, class: "formbox" %></td>
           </tr>
         </table>
       </div>

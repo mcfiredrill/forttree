@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+  before_filter :setup_negative_captcha, only: [:show]
   def index
     @latest_posts = Leaf.latest
   end

@@ -16,4 +16,16 @@ class ApplicationController < ActionController::Base
   def prepare_for_mobile
     session[:mobile_override] = params[:mobile] if params[:mobile]
   end
+
+  def setup_negative_captcha
+    @captcha = NegativeCaptcha.new(
+      # A secret key entered in environment.rb. 'rake secret' will give you a good one.
+      secret: ENV['NEGATIVE_CAPTCHA_SECRET'],
+      spinner: request.remote_ip,
+      # Whatever fields are in your form
+      fields: [:name, :content, :photo],
+      params: params,
+      message: "X__x"
+    )
+  end
 end

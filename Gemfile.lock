@@ -59,7 +59,6 @@ GEM
     gemoji (1.5.0)
     github-markdown (0.6.3)
     hike (1.2.3)
-    honeypot-captcha (0.0.2)
     html-pipeline (1.1.0)
       activesupport (>= 2)
       nokogiri (~> 1.4)
@@ -76,6 +75,9 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
+    negative_captcha (0.3.3)
+      actionpack
+      activesupport
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     paperclip (4.1.1)
@@ -164,9 +166,9 @@ DEPENDENCIES
   factory_girl_rails
   gemoji
   github-markdown
-  honeypot-captcha
   html-pipeline (~> 1.1.0)
   jquery-rails
+  negative_captcha
   paperclip (~> 4.1.1)
   pg
   rails (= 4.0.2)

@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def update
     board = Board.find(params[:board_id])
     branch = Branch.find(params[:id])
-    @post_form = PostForm.new board, Branch.new, Leaf.new(@captcha.values)
+    @post_form = PostForm.new board, branch, Leaf.new(@captcha.values)
     respond_to do |format|
       if @captcha.valid? && @post_form.save!
         flash[:success] = "Leaf created!"

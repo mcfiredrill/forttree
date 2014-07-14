@@ -1,5 +1,6 @@
 [![Build Status](https://img.shields.io/travis/mcfiredrill/forttree.svg?branch=master)](http://travis-ci.org/mcfiredrill/forttree)
 [![Code Climate](https://img.shields.io/codeclimate/github/mcfiredrill/forttree.svg)](https://codeclimate.com/github/mcfiredrill/forttree)
+[![Dependency Status](https://img.shields.io/gemnasium/mcfiredrill/forttree.svg)](https://gemnasium.com/mcfiredrill/forttree)
 
 Fortree
 =======

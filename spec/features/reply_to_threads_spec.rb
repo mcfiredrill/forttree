@@ -11,9 +11,9 @@ describe "A visitor" do
 
     visit board_path @board
     click_link "Reply"
-    fill_in "leaf[name]", with: name
-    fill_in "leaf[content]", with: content
-    attach_file "leaf[photo]", image
+    fill_in "test-name", with: name
+    fill_in "test-content", with: content
+    attach_file "test-photo", image
     click_button 'Post'
     page.should have_content 'Leaf created!'
     page.should have_content name

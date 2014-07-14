@@ -10,9 +10,9 @@ describe "A visitor" do
     image = "#{::Rails.root.to_s}/spec/fixtures/forttree.png"
 
     visit board_path @board
-    fill_in "leaf[name]", with: name
-    fill_in "leaf[content]", with: content
-    attach_file "leaf[photo]", image
+    fill_in "test-name", with: name
+    fill_in "test-content", with: content
+    attach_file "test-photo", image
     click_button 'Post'
     page.should have_content 'Branch created!'
     page.should have_content name

@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby "2.1.2"
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.4'
 
 gem 'paperclip', '~> 4.2.0'
 gem 'will_paginate'
@@ -25,7 +25,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do

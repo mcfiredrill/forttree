@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby "2.1.2"
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.5'
 
 gem 'paperclip', '~> 4.2.0'
 gem 'will_paginate'

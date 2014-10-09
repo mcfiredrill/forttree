@@ -2,14 +2,14 @@ source 'http://rubygems.org'
 
 ruby "2.1.2"
 
-gem 'rails', '4.1.6.rc1'
+gem 'rails', '4.2.0.beta2'
 
 gem 'paperclip', '~> 4.2.0'
 gem 'will_paginate'
 gem 'aws-sdk'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'negative_captcha'
-gem 'html-pipeline', '~> 1.1.0'
+gem 'html-pipeline', '~> 1.11.0'
 
 # html-pipeline deps
 gem 'github-markdown'
@@ -25,7 +25,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do

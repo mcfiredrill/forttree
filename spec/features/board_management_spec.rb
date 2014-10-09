@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe "board management" do
+feature "board management" do
   before :each do
     @admin = create :admin
   end
 
-  it "creates a new board" do
+  scenario "creates a new board" do
     visit new_board_path
     fill_in :board_name, with: "cool board name"
     attach_file :board_banner, File.expand_path("spec/fixtures/forttree.png")
@@ -15,7 +15,7 @@ describe "board management" do
     page.should have_content "cool board name"
   end
 
-  it "doesn't create a new board with wrong password" do
+  scenario "doesn't create a new board with wrong password" do
     visit new_board_path
     fill_in :board_name, with: "cool board name"
     attach_file :board_banner, File.expand_path("spec/fixtures/forttree.png")
@@ -24,7 +24,7 @@ describe "board management" do
     page.should have_content "Incorrect password"
   end
 
-  it "updates existing board" do
+  scenario "updates existing board" do
     @board = Board.create name: "cool board name"
     visit edit_board_path @board
     fill_in :board_name, with: "new board name"
@@ -35,7 +35,7 @@ describe "board management" do
     page.should have_content "new board name"
   end
 
-  it "doesnt update existing board with wrong password" do
+  scenario "doesnt update existing board with wrong password" do
     @board = Board.create name: "cool board name"
     visit edit_board_path @board
     fill_in :board_name, with: "new board name"
@@ -46,14 +46,15 @@ describe "board management" do
     page.should_not have_content "new board name"
   end
 
-  it "destroys board" do
+  scenario "destroys board" do
     @board = Board.create name: "cool board name"
     visit edit_board_path @board
     fill_in :delete_password, with: "REALLYCOOLPASSWORD"
     click_button "Delete board"
     page.should have_content "Board deleted!"
   end
-  it "doesn't destroy board with wrong password" do
+
+  scenario "doesn't destroy board with wrong password" do
     @board = Board.create name: "cool board name"
     visit edit_board_path @board
     fill_in :delete_password, with: "TOTALLWRONGPASSWORD"

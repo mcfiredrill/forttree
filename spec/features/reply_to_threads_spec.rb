@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "A visitor" do
+feature "A visitor" do
   before(:each) do
     @board = create :board
   end
-  it "replies to a post" do
+  scenario "replies to a post" do
     name = "anon"
     content = "hi im replying to a post"
     image = "#{::Rails.root.to_s}/spec/fixtures/forttree.png"

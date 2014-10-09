@@ -1,10 +1,11 @@
 require 'spec_helper'
+#include Rails.application.routes.url_helpers
 
-describe "A visitor" do
+feature "A visitor" do
   before :each do
     @board = create :board
   end
-  it "creates a new post" do
+  scenario "creates a new post" do
     name = "anon"
     content = "hi im making a post"
     image = "#{::Rails.root.to_s}/spec/fixtures/forttree.png"

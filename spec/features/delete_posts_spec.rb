@@ -1,21 +1,21 @@
 require 'spec_helper'
 
-describe "DeletePosts" do
+feature "DeletePosts" do
   before(:each) do
     @admin = create :admin
     @board = create :board
     @branch = @board.branches.first
   end
-  it "should delete a branch and all the leafs" do
+  scenario "should delete a branch and all the leafs" do
     visit board_path @board
     check "delete_#{@branch.leafs.first.id}"
     fill_in "password", :with => @admin.password
     click_button "Delete"
     page.should have_content 'Branch pruned!'
-    Branch.exists?(@branch).should be_false
-    Leaf.exists?(@branch.leafs.first).should be_false
+    expect(Branch.exists?(@branch)).to eq false
+    expect(Leaf.exists?(@branch.leafs.first)).to eq false
   end
-  it "should delete just one leaf" do
+  scenario "should delete just one leaf" do
     @branch.leafs << create(:leaf)
     @leaf = @branch.leafs.first
     visit board_path @board
@@ -23,17 +23,17 @@ describe "DeletePosts" do
     fill_in "password", :with => @admin.password
     click_button "Delete"
     page.should have_content 'Leaf pruned!'
-    Leaf.exists?(@leaf.id).should be_false
-    Branch.exists?(@branch).should be_true
-    Leaf.exists?(@branch.leafs.first).should be_true
+    expect(Leaf.exists?(@leaf.id)).to eq false
+    expect(Branch.exists?(@branch)).to eq true
+    expect(Leaf.exists?(@branch.leafs.first)).to eq true
   end
-  it "should not delete branch with wrong password" do
+  scenario "should not delete branch with wrong password" do
     visit board_path @board
     check "delete_#{@branch.leafs.first.id}"
     fill_in "password", :with => "WRONGPASSWORD"
     click_button "Delete"
     page.should have_content 'Incorrect password!'
-    Branch.exists?(@branch).should be_true
-    Leaf.exists?(@branch.leafs.first).should be_true
+    expect(Branch.exists?(@branch)).to eq true
+    expect(Leaf.exists?(@branch.leafs.first)).to eq true
   end
 end

@@ -64,6 +64,9 @@ GEM
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    exception_notification (4.0.1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     execjs (2.2.1)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -193,6 +196,7 @@ DEPENDENCIES
   bcrypt-ruby
   byebug
   capybara
+  exception_notification (~> 4.0.1)
   factory_girl_rails
   gemoji
   github-markdown

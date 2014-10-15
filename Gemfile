@@ -37,3 +37,5 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3', :require => 'sqlite3'
 end
+
+gem 'exception_notification', '~> 4.0.1'

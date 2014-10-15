@@ -50,4 +50,11 @@ Forttree::Application.configure do
   config.assets.compress = true
 
   config.eager_load = true
+
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+    email_prefix: "[Exception] ",
+    sender_address: %{"Exception Notifier" #{ENV['EXCEPTION_EMAIL_SENDER']}>},
+    exception_recipients: %W{#{ENV['EXCEPTION_EMAIL_RECEPIENTS']}}
+  }
 end

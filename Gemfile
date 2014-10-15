@@ -39,3 +39,4 @@ group :development, :test do
 end
 
 gem 'exception_notification', '~> 4.0.1'
+gem 'unicorn'

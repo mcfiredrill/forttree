@@ -58,7 +58,7 @@ GEM
       xpath (~> 2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.4)
+    cocaine (0.5.5)
       climate_control (>= 0.0.3, < 1.0)
     columnize (0.8.9)
     debugger-linecache (1.2.0)
@@ -101,7 +101,7 @@ GEM
       activesupport
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
-    paperclip (4.2.0)
+    paperclip (4.2.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)

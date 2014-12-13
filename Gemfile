@@ -25,7 +25,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do

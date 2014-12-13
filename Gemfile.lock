@@ -96,7 +96,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.5.0)
     multi_json (1.10.1)
-    negative_captcha (0.3.3)
+    negative_captcha (0.4)
       actionpack
       activesupport
     nokogiri (1.6.5)

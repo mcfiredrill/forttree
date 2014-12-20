@@ -13,7 +13,7 @@ feature "DeletePosts" do
     click_button "Delete"
     page.should have_content 'Branch pruned!'
     expect(Branch.exists?(@branch.id)).to eq false
-    expect(Leaf.exists?(@branch.leafs.first.id)).to eq false
+    expect(@branch.leafs.empty?).to eq true
   end
   scenario "should delete just one leaf" do
     @branch.leafs << create(:leaf)

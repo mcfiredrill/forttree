@@ -12,8 +12,8 @@ feature "DeletePosts" do
     fill_in "password", :with => @admin.password
     click_button "Delete"
     page.should have_content 'Branch pruned!'
-    expect(Branch.exists?(@branch)).to eq false
-    expect(Leaf.exists?(@branch.leafs.first)).to eq false
+    expect(Branch.exists?(@branch.id)).to eq false
+    expect(Leaf.exists?(@branch.leafs.first.id)).to eq false
   end
   scenario "should delete just one leaf" do
     @branch.leafs << create(:leaf)
@@ -24,8 +24,8 @@ feature "DeletePosts" do
     click_button "Delete"
     page.should have_content 'Leaf pruned!'
     expect(Leaf.exists?(@leaf.id)).to eq false
-    expect(Branch.exists?(@branch)).to eq true
-    expect(Leaf.exists?(@branch.leafs.first)).to eq true
+    expect(Branch.exists?(@branch.id)).to eq true
+    expect(Leaf.exists?(@branch.leafs.first.id)).to eq true
   end
   scenario "should not delete branch with wrong password" do
     visit board_path @board
@@ -33,7 +33,7 @@ feature "DeletePosts" do
     fill_in "password", :with => "WRONGPASSWORD"
     click_button "Delete"
     page.should have_content 'Incorrect password!'
-    expect(Branch.exists?(@branch)).to eq true
-    expect(Leaf.exists?(@branch.leafs.first)).to eq true
+    expect(Branch.exists?(@branch.id)).to eq true
+    expect(Leaf.exists?(@branch.leafs.first.id)).to eq true
   end
 end

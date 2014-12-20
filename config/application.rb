@@ -45,5 +45,7 @@ module Forttree
     #config.middleware.use "Rack::Honeypot", :class_name => "funch"
 
     config.assets.enabled = true
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

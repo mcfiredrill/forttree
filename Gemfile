@@ -7,7 +7,7 @@ gem 'rails', '4.2.0'
 gem 'paperclip', '~> 4.2.0'
 gem 'will_paginate'
 gem 'aws-sdk'
-gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bcrypt'
 gem 'negative_captcha'
 gem 'html-pipeline', '~> 1.11.0'
 

@@ -52,7 +52,6 @@ module ApplicationHelper
   end
 
   def board_listing
-    logger.info 'hey'
     Board.all
   end
 end

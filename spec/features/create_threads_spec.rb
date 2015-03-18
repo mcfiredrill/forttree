@@ -15,9 +15,9 @@ feature "A visitor" do
     fill_in "test-content", with: content
     attach_file "test-photo", image
     click_button 'Post'
-    page.should have_content 'Branch created!'
-    page.should have_content name
-    page.should have_content content
-    page.should have_xpath "//img[contains(@src,\"#{File.basename(image)}\")]"
+    expect(page).to have_content 'Branch created!'
+    expect(page).to have_content name
+    expect(page).to have_content content
+    expect(page).to have_xpath "//img[contains(@src,\"#{File.basename(image)}\")]"
   end
 end

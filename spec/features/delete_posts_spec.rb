@@ -11,7 +11,7 @@ feature "DeletePosts" do
     check "delete_#{@branch.leafs.first.id}"
     fill_in "password", :with => @admin.password
     click_button "Delete"
-    page.should have_content 'Branch pruned!'
+    expect(page).to have_content 'Branch pruned!'
     expect(Branch.exists?(@branch.id)).to eq false
     expect(@branch.leafs.empty?).to eq true
   end
@@ -22,7 +22,7 @@ feature "DeletePosts" do
     check "delete_#{@leaf.id}"
     fill_in "password", :with => @admin.password
     click_button "Delete"
-    page.should have_content 'Leaf pruned!'
+    expect(page).to have_content 'Leaf pruned!'
     expect(Leaf.exists?(@leaf.id)).to eq false
     expect(Branch.exists?(@branch.id)).to eq true
     expect(Leaf.exists?(@branch.leafs.first.id)).to eq true
@@ -32,7 +32,7 @@ feature "DeletePosts" do
     check "delete_#{@branch.leafs.first.id}"
     fill_in "password", :with => "WRONGPASSWORD"
     click_button "Delete"
-    page.should have_content 'Incorrect password!'
+    expect(page).to have_content 'Incorrect password!'
     expect(Branch.exists?(@branch.id)).to eq true
     expect(Leaf.exists?(@branch.leafs.first.id)).to eq true
   end

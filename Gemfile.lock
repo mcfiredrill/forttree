@@ -148,7 +148,7 @@ GEM
     raindrops (0.13.0)
     rake (10.4.2)
     ref (1.0.5)
-    rspec-core (3.2.1)
+    rspec-core (3.2.2)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
       diff-lcs (>= 1.2.0, < 2.0)

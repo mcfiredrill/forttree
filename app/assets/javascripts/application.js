@@ -91,7 +91,6 @@ window.onload = function(e) {
 $(document).ready(function() {
 
   $('.set-theme').click(function(e) {
-    console.log($(this).data('theme'));
     set_stylesheet($(this).data('theme'));
     return false;
   });

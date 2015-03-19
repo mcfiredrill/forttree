@@ -95,13 +95,16 @@
 
   $(document).ready(function() {
 
+    var fortscene;
     $('.set-theme').click(function(e) {
       var theme = $(this).data('theme');
       if (theme === '3d') {
         var $container = $('#forttree-content-container');
-        var fortscene = new FortScene($container);
+        if (typeof fortscene === 'undefined') {
+          var fortscene = new FortScene($container);
+        }
+
         fortscene.init();
-        fortscene.animate();
       } else {
         set_stylesheet($(this).data('theme'));
       }

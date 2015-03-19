@@ -3,6 +3,17 @@ var FortScene = function($container) {
 };
 
 /**
+ * Returns true if the testUrl is on the same origin as the site.
+ */
+FortScene.prototype.isSameOrigin = function(testUrl) {
+  if (testUrl.indexOf('http') !== -1) {
+    // This is a naive test that catches most situations.
+    return testUrl.indexOf(document.domain) !== -1;
+  }
+  return true;
+};
+
+/**
  * This function creates the three.js stage if it's not already there.
  */
 FortScene.prototype.init = function() {
@@ -29,6 +40,10 @@ FortScene.prototype.init = function() {
       $('#branches img,#forttree-content img').each(function(k, v) {
         // Add a three.js sprite for each img in the board
         var url = $(v).attr('src');
+        if (!me.isSameOrigin(url)) {
+          return;
+        }
+
         var map = THREE.ImageUtils.loadTexture(url, {}, function() {
           me.renderer.render(me.scene, me.camera);
         });
@@ -50,6 +65,7 @@ FortScene.prototype.init = function() {
 
       var light = new THREE.AmbientLight(0xf0e000);
       this.scene.add(light);
+      this.animate();
     }
 
     $3dContainer.show();
@@ -60,12 +76,13 @@ FortScene.prototype.init = function() {
  */
 FortScene.prototype.animate = function() {
   requestAnimationFrame(this.animate.bind(this));
+  var n = Math.min(Math.random() / 20, 0.02);
   if (this.camera.rotation.y % 2 == 0) {
-    this.camera.rotation.z += 0.01;
-    this.camera.rotation.x += 0.01;
+    this.camera.rotation.z += n;
+    this.camera.rotation.x += n / 2;
   } else {
-    this.camera.rotation.z -= 0.01;
-    this.camera.rotation.x -= 0.01;
+    this.camera.rotation.z -= n;
+    this.camera.rotation.x -= n / 2;
   }
 
   this.renderer.render(this.scene, this.camera);

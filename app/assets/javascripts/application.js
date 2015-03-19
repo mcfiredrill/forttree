@@ -5,37 +5,29 @@
 //= require fort-scene
 
 (function() {
-  function anim_show(el) {
-    $(el).fadeIn();
-  }
-
-  function anim_hide(el) {
-    $(el).fadeOut();
-  }
-
-  function insert_emoticon(face) {
-    var my_text = $('#leaf_content').val();
-    var caret_pos = $('#leaf_content').getSelection().end;
+  function insertEmoticon(face) {
+    var myText = $('#leaf_content').val();
+    var caretPos = $('#leaf_content').getSelection().end;
 
     $('#leaf_content').val(
-      my_text.substring(0, caret_pos)
-      + face
-      + my_text.substring(caret_pos)
-      );
+      myText.substring(0, caretPos) +
+      face +
+      myText.substring(caretPos)
+    );
 
-    $('#leaf_content').setSelection(caret_pos + face.length);
+    $('#leaf_content').setSelection(caretPos + face.length);
   }
 
   /* yoinked from wakaba */
-  function set_stylesheet(styletitle) {
+  function setStylesheet(styletitle) {
     $('#forttree-3d-content').hide();
     $('#forttree-content').show();
-    var links = document.getElementsByTagName("link");
+    var links = document.getElementsByTagName('link');
     var found = false;
     for (var i=0; i<links.length; i++) {
-      var rel = links[i].getAttribute("rel");
-      var title = links[i].getAttribute("title");
-      if(rel.indexOf("style") != -1 && title) {
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if(rel.indexOf('style') != -1 && title) {
         links[i].disabled = true; // IE needs this to work. IE needs to die.
         if (styletitle == title) {
           links[i].disabled = false;
@@ -44,80 +36,80 @@
       }
     }
     if (!found) {
-      set_preferred_stylesheet();
+      setPreferredStylsheet();
     }
   }
 
-  function set_preferred_stylesheet() {
-    var links = document.getElementsByTagName("link");
+  function setPreferredStylsheet() {
+    var links = document.getElementsByTagName('link');
     for (var i=0; i<links.length; i++) {
-      var rel = links[i].getAttribute("rel");
-      var title = links[i].getAttribute("title");
-      if (rel.indexOf("style") != -1 && title) {
-        links[i].disabled = (rel.indexOf("alt") != -1);
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if (rel.indexOf('style') != -1 && title) {
+        links[i].disabled = (rel.indexOf('alt') != -1);
       }
     }
   }
 
-  function get_preferred_stylesheet() {
-    var links = document.getElementsByTagName("link");
+  function getPreferredStylesheet() {
+    var links = document.getElementsByTagName('link');
     for (var i=0; i<links.length; i++) {
-      var rel = links[i].getAttribute("rel");
-      var title = links[i].getAttribute("title");
-      if (rel.indexOf("style") != -1 && rel.indexOf("alt") == -1 && title) {
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if (rel.indexOf('style') != -1 && rel.indexOf('alt') == -1 && title) {
         return title;
       }
     }
     return null;
   }
 
-  function get_active_stylesheet() {
-    var links=document.getElementsByTagName("link");
+  function getActiveStylesheet() {
+    var links=document.getElementsByTagName('link');
     for (var i=0; i<links.length; i++) {
-      var rel=links[i].getAttribute("rel");
-      var title=links[i].getAttribute("title");
-      if (rel.indexOf("style") != -1 && title && !links[i].disabled) {
+      var rel=links[i].getAttribute('rel');
+      var title=links[i].getAttribute('title');
+      if (rel.indexOf('style') != -1 && title && !links[i].disabled) {
         return title;
       }
     }
   }
 
-  window.onunload = function(e) {
-    var title = get_active_stylesheet();
+  window.onunload = function() {
+    var title = getActiveStylesheet();
     $.cookie('style_cookie', title, 365);
   };
 
-  window.onload = function(e) {
+  window.onload = function() {
     var cookie = $.cookie('style_cookie');
-    var title = cookie ? cookie : get_preferred_stylesheet();
-    set_stylesheet(title);
+    var title = cookie ? cookie : getPreferredStylesheet();
+    setStylesheet(title);
   };
 
   $(document).ready(function() {
 
     var fortscene;
-    $('.set-theme').click(function(e) {
+    $('.set-theme').click(function() {
       var theme = $(this).data('theme');
       if (theme === '3d') {
         var $container = $('#forttree-content-container');
         if (typeof fortscene === 'undefined') {
-          var fortscene = new FortScene($container);
+          fortscene = new FortScene($container);
         }
 
         fortscene.init();
       } else {
-        set_stylesheet($(this).data('theme'));
+        setStylesheet($(this).data('theme'));
       }
       return false;
     });
 
-    $('.insert-emoticon').click(function(e) {
-      insert_emoticon($(this).data('text'));
+    $('.insert-emoticon').click(function() {
+      insertEmoticon($(this).data('text'));
       return false;
     });
 
-    $('#smiley-helper-show').click(function(e) {
-      $("#smiley_helper").fadeToggle();
+    $('#smiley-helper-show').click(function() {
+      $('#smiley_helper').fadeToggle();
       return false;
     });
   });

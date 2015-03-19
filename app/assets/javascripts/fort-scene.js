@@ -77,7 +77,7 @@ FortScene.prototype.init = function() {
 FortScene.prototype.animate = function() {
   requestAnimationFrame(this.animate.bind(this));
   var n = Math.min(Math.random() / 20, 0.02);
-  if (this.camera.rotation.y % 2 == 0) {
+  if (this.camera.rotation.y % 2 === 0) {
     this.camera.rotation.z += n;
     this.camera.rotation.x += n / 2;
   } else {

@@ -1,28 +1,11 @@
 /*
  *= require_self
  */
-@import "../application.css.scss";
-
-@mixin rotate($deg) {
-	-webkit-transform: rotate($deg);	
-	-moz-transform: rotate($deg);
-	-ms-transform: rotate($deg);
-	-o-transform: rotate($deg);
-	transform: rotate($deg);
-}
-
-@mixin tieDye($a, $b, $c) {
-	background-color: $a;
-	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $a), color-stop(2%, $b), color-stop(100%, $c));
-	background-image: -webkit-linear-gradient($a, $b 12%,$c);
-	background-image: linear-gradient($a, $b 2%,$c);
-}
-
-$pink: #ff69ec;
+@import "../application.scss";
 
 body {
   @include gradient(#ffffff, #dddddd);
-  color: blue;
+  color: #66066;
 }
 
 body, p, ol, ul, td {
@@ -37,7 +20,7 @@ pre {
   font-size: 11px;
 }
 
-a { color: blue; }
+a { color: #ff69ec; }
 a:hover { color: #555; }
 
 h1 a {
@@ -47,11 +30,11 @@ h1 a {
 
 .firstleaf, .firstleaf img, .leaf,
 .postarea, .replylink {
-  @include tieDye($pink, #d0a9b5, #b0a0d0);
+  @include gradient(#ff69ec, #ffffff);
 }
 
 .firstleaf, .leaf, .postarea {
-  @include border-radius(1px 2px 3px 4px);
+  @include border-radius(0px 50px 50px 50px);
 }
 
 .firstleaf {
@@ -59,7 +42,7 @@ h1 a {
 }
 
 .firstleaf img {
-  @include border-radius(1px 2px 3px 4px);
+  @include border-radius(0px 20px 20px 20px);
   padding: 10px;
 }
 
@@ -125,11 +108,11 @@ h1 a {
   float: right;
   position: relative;
   top: 15px;
-  @include border-radius(1px 2px 3px 4px);
+  @include border-radius(40px 0px 40px 40px);
 }
 
 .replylink a {
-  color: blue;
+  color: #66066;
 }
 
 .replylink a:hover {
@@ -137,31 +120,10 @@ h1 a {
 }
 
 #smiley_helper {
-  @include border-radius(1px 2px 3px 4px);
+  @include border-radius(40px 0px 40px 40px);
   background: #ddd;
 }
 
 hr {
-  color: blue;
-}
-
-* {
-	background-color: #f0f0b0;
-	text-shadow: rgba(123, 30, 20, 0.5)  2px -2px 2px;
-}
-
-div, span, a, img, input, button {
-  box-shadow: 1px 1px 20px #f88;
-}
-
-.postarea {
-  @include rotate(-7deg);
-}
-
-.branch {
-  @include rotate(3deg);
-}
-#smiley_helper {
-	margin-right: 50px;
-  @include rotate(-147deg);
+  color: #66066;
 }

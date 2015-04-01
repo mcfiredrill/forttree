@@ -16,6 +16,9 @@
   <body>
     <header>
       <div id="themes">
+        <%= link_to image_tag('/assets/3d.png', height: 24, width: 24), '#',
+            class: 'set-theme', data: { theme: '3d' }
+        %>
         <% theme_basenames.each do |t| %>
           <%= link_to t, "#", class: 'set-theme', data: { theme: "#{t}" } %>
         <% end %>
@@ -34,6 +37,11 @@
         </div>
       <% end %>
     </header>
-    <%= yield %>
+    <div id="forttree-content-container">
+      <div id="forttree-3d-content"></div>
+      <div id="forttree-content">
+        <%= yield %>
+      </div>
+    </div>
   <body>
 </html>

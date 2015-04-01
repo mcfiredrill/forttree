@@ -1,107 +1,116 @@
 //= require jquery
 //= require textinputs_jquery
 //= require jquery-cookie/jquery.cookie
+//= require three.min
+//= require fort-scene
 
-function anim_show(el) {
-  $(el).fadeIn();
-}
+(function() {
+  function insertEmoticon(face) {
+    var myText = $('#leaf_content').val();
+    var caretPos = $('#leaf_content').getSelection().end;
 
-function anim_hide(el) {
-  $(el).fadeOut();
-}
-
-function insert_emoticon(face) {
-  var my_text = $('#leaf_content').val();
-  var caret_pos = $('#leaf_content').getSelection().end;
-
-  $('#leaf_content').val(
-    my_text.substring(0, caret_pos)
-    + face
-    + my_text.substring(caret_pos)
+    $('#leaf_content').val(
+      myText.substring(0, caretPos) +
+      face +
+      myText.substring(caretPos)
     );
 
-  $('#leaf_content').setSelection(caret_pos + face.length);
-}
+    $('#leaf_content').setSelection(caretPos + face.length);
+  }
 
-/* yoinked from wakaba */
-function set_stylesheet(styletitle) {
-  var links = document.getElementsByTagName("link");
-  var found = false;
-  for (var i=0; i<links.length; i++) {
-    var rel = links[i].getAttribute("rel");
-    var title = links[i].getAttribute("title");
-    if(rel.indexOf("style") != -1 && title) {
-      links[i].disabled = true; // IE needs this to work. IE needs to die.
-      if (styletitle == title) {
-        links[i].disabled = false;
-        found = true;
+  /* yoinked from wakaba */
+  function setStylesheet(styletitle) {
+    $('#forttree-3d-content').hide();
+    $('#forttree-content').show();
+    var links = document.getElementsByTagName('link');
+    var found = false;
+    for (var i=0; i<links.length; i++) {
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if(rel.indexOf('style') != -1 && title) {
+        links[i].disabled = true; // IE needs this to work. IE needs to die.
+        if (styletitle == title) {
+          links[i].disabled = false;
+          found = true;
+        }
+      }
+    }
+    if (!found) {
+      setPreferredStylsheet();
+    }
+  }
+
+  function setPreferredStylsheet() {
+    var links = document.getElementsByTagName('link');
+    for (var i=0; i<links.length; i++) {
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if (rel.indexOf('style') != -1 && title) {
+        links[i].disabled = (rel.indexOf('alt') != -1);
       }
     }
   }
-  if (!found) {
-    set_preferred_stylesheet();
-  }
-}
 
-function set_preferred_stylesheet() {
-  var links = document.getElementsByTagName("link");
-  for (var i=0; i<links.length; i++) {
-    var rel = links[i].getAttribute("rel");
-    var title = links[i].getAttribute("title");
-    if (rel.indexOf("style") != -1 && title) {
-      links[i].disabled = (rel.indexOf("alt") != -1);
+  function getPreferredStylesheet() {
+    var links = document.getElementsByTagName('link');
+    for (var i=0; i<links.length; i++) {
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if (rel.indexOf('style') != -1 && rel.indexOf('alt') == -1 && title) {
+        return title;
+      }
+    }
+    return null;
+  }
+
+  function getActiveStylesheet() {
+    var links=document.getElementsByTagName('link');
+    for (var i=0; i<links.length; i++) {
+      var rel=links[i].getAttribute('rel');
+      var title=links[i].getAttribute('title');
+      if (rel.indexOf('style') != -1 && title && !links[i].disabled) {
+        return title;
+      }
     }
   }
-}
 
-function get_preferred_stylesheet() {
-  var links = document.getElementsByTagName("link");
-  for (var i=0; i<links.length; i++) {
-    var rel = links[i].getAttribute("rel");
-    var title = links[i].getAttribute("title");
-    if (rel.indexOf("style") != -1 && rel.indexOf("alt") == -1 && title) {
-      return title;
-    }
-  }
-  return null;
-}
+  window.onunload = function() {
+    var title = getActiveStylesheet();
+    $.cookie('style_cookie', title, 365);
+  };
 
-function get_active_stylesheet() {
-  var links=document.getElementsByTagName("link");
-  for (var i=0; i<links.length; i++) {
-    var rel=links[i].getAttribute("rel");
-    var title=links[i].getAttribute("title");
-    if (rel.indexOf("style") != -1 && title && !links[i].disabled) {
-      return title;
-    }
-  }
-}
+  window.onload = function() {
+    var cookie = $.cookie('style_cookie');
+    var title = cookie ? cookie : getPreferredStylesheet();
+    setStylesheet(title);
+  };
 
-window.onunload = function(e) {
-  var title = get_active_stylesheet();
-  $.cookie('style_cookie', title, 365);
-}
+  $(document).ready(function() {
 
-window.onload = function(e) {
-  var cookie = $.cookie('style_cookie');
-  var title = cookie ? cookie : get_preferred_stylesheet();
-  set_stylesheet(title);
-}
+    var fortscene;
+    $('.set-theme').click(function() {
+      var theme = $(this).data('theme');
+      if (theme === '3d') {
+        var $container = $('#forttree-content-container');
+        if (typeof fortscene === 'undefined') {
+          fortscene = new FortScene($container);
+        }
 
-$(document).ready(function() {
+        fortscene.init();
+      } else {
+        setStylesheet($(this).data('theme'));
+      }
+      return false;
+    });
 
-  $('.set-theme').click(function(e) {
-    set_stylesheet($(this).data('theme'));
-    return false;
+    $('.insert-emoticon').click(function() {
+      insertEmoticon($(this).data('text'));
+      return false;
+    });
+
+    $('#smiley-helper-show').click(function() {
+      $('#smiley_helper').fadeToggle();
+      return false;
+    });
   });
-
-  $('.insert-emoticon').click(function(e) {
-    insert_emoticon($(this).data('text'));
-    return false;
-  });
-
-  $('#smiley-helper-show').click(function(e) {
-    $("#smiley_helper").fadeToggle();
-    return false;
-  });
-});
+})();

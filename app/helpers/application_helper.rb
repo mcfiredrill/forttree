@@ -1,17 +1,19 @@
 # encoding: utf-8
 module ApplicationHelper
   def faces
-    [ "´ ▽ `",
-    "＾ω＾",
-    "＾∀＾",
-    "(´ε`)",
-    "Σ(ﾟДﾟ)",
-    "( ﾟ ヮﾟ)",
-    "ヽ(´ー｀)ノ",
-    "ノ°ο°)ノ",
-    "o(≧∀≦)o",
-    "(づ｡◕‿‿‿‿◕｡)づ",
-    "♡✰☁☼✿⚈‿‿⚈✿☼☁✰♡"]
+    [
+      '´ ▽ `',
+      '＾ω＾',
+      '＾∀＾',
+      '(´ε`)',
+      'Σ(ﾟДﾟ)',
+      '( ﾟ ヮﾟ)',
+      'ヽ(´ー｀)ノ',
+      'ノ°ο°)ノ',
+      'o(≧∀≦)o',
+      '(づ｡◕‿‿‿‿◕｡)づ',
+      '♡✰☁☼✿⚈‿‿⚈✿☼☁✰♡'
+    ]
   end
 
   def themes
@@ -19,16 +21,16 @@ module ApplicationHelper
   end
 
   def theme_basenames
-    names = Array.new
+    names = []
     themes.each do |t|
       names << t[/(\w*)\.css\.scss/, 1]
     end
-    return names
+    names
   end
 
   def reply_mode?
-    #hack?
-    if(request.url =~ /leafs/)
+    # hack?
+    if request.url =~ /leafs/
       return true
     else
       return false
@@ -37,7 +39,7 @@ module ApplicationHelper
 
   def html_pipeline(text)
     context = {
-      :asset_root => "/images/"
+      asset_root: '/images/'
     }
     pipeline = HTML::Pipeline.new [
       HTML::Pipeline::MarkdownFilter,

@@ -4,24 +4,26 @@ module LeafsHelper
       if leaf.photo_file_name != nil
         "File: #{link_to leaf.photo_file_name, leaf.photo.url, :target => "_blank"} -(#{leaf.photo_file_size.to_s} B)".html_safe
       else
-        "No file"
+        'No file'
       end
     end
   end
 
   def display_photo(leaf)
-   if leaf.photo.url != "/photos/original/missing.png"
+   if leaf.photo.url != '/photos/original/missing.png'
      if leaf.photo.url =~ /\.svg\?\d+$/
-       link_to (image_tag leaf.photo.url(:original), :class=> 'thumb', :style=> 'max-width: 300px; max-height: 300px;'), leaf.photo.url, :target => "_blank"
+       link_to (image_tag leaf.photo.url(:original),
+         class: 'thumb', style: 'max-width: 300px; max-height: 300px;'),
+         leaf.photo.url, target: '_blank'
      else
-       link_to (image_tag leaf.photo.url(:thumb), :class=> 'thumb'), leaf.photo.url, :target => "_blank"
+       link_to (image_tag leaf.photo.url(:thumb), class: 'thumb'), leaf.photo.url, target: '_blank'
      end
    end
   end
 
   def postername(leaf)
-    if leaf.name == ""
-      "Anonymous"
+    if leaf.name == ''
+      'Anonymous'
     else
       leaf.name
     end
@@ -29,7 +31,8 @@ module LeafsHelper
 
   def reflink(leaf)
     if reply_mode?
-      link_to "No. #{leaf.id}", "#", class: "insert-emoticon", data: { text: ">>#{leaf.id}" }
+      link_to "No. #{leaf.id}", '#',
+        class: 'insert-emoticon', data: { text: ">>#{leaf.id}" }
     else
       link_to "No. #{leaf.id}", "/leafs/new/#{leaf.branch_id}##{leaf.id}"
     end
@@ -44,7 +47,8 @@ module LeafsHelper
   def reply_link(leaf)
     if !reply_mode? && (leaf == leaf.branch.leafs.first)
       content_tag :div, class: 'replylink' do
-        link_to 'Reply', edit_board_post_path(leaf.branch.board.id, leaf.branch.id)
+        link_to 'Reply',
+          edit_board_post_path(leaf.branch.board.id, leaf.branch.id)
       end
     end
   end

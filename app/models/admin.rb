@@ -4,10 +4,9 @@ class Admin < ActiveRecord::Base
 
   def self.authenticate(password)
     user = Admin.first
-    if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
+    if user && user.password_hash == BCrypt::Engine.hash_secret(
+      password, user.password_salt)
       user
-    else
-      nil
     end
   end
 

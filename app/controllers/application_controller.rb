@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def mobile_device?
     if session[:mobile_override]
-      session[:mobile_override] == "1"
+      session[:mobile_override] == '1'
     else
       (request.user_agent =~ /Mobile|webOS/) && (request.user_agent !~ /iPad/)
     end
@@ -19,13 +19,14 @@ class ApplicationController < ActionController::Base
 
   def setup_negative_captcha
     @captcha = NegativeCaptcha.new(
-      # A secret key entered in environment.rb. 'rake secret' will give you a good one.
+      # A secret key entered in environment.rb. 'rake secret' will give
+      # you a good one.
       secret: ENV['NEGATIVE_CAPTCHA_SECRET'],
       spinner: request.remote_ip,
       # Whatever fields are in your form
       fields: [:name, :content, :photo],
       params: params,
-      message: "X__x"
+      message: 'X__x'
     )
   end
 end

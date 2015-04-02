@@ -2,17 +2,6 @@ var FortScene = function($container) {
   this.$container = $container;
 };
 
-/**
- * Returns true if the testUrl is on the same origin as the site.
- */
-FortScene.prototype.isSameOrigin = function(testUrl) {
-  if (testUrl.indexOf('http') !== -1) {
-    // This is a naive test that catches most situations.
-    return testUrl.indexOf(document.domain) !== -1;
-  }
-  return true;
-};
-
 FortScene.prototype.addLighting = function(scene) {
   var lights = [];
   var strength = 50;
@@ -58,10 +47,11 @@ FortScene.prototype.draw = function($container) {
   $('#branches img,#forttree-content img').each(function(k, v) {
     // Add a three.js sprite for each img in the board
     var url = $(v).attr('src');
-      if (!me.isSameOrigin(url) || url.indexOf('spinner.gif') !== -1) {
+    if (url.indexOf('spinner.gif') !== -1) {
       return;
     }
 
+    THREE.ImageUtils.crossOrigin = '';
     var map = THREE.ImageUtils.loadTexture(url, {}, function() {
       me.renderer.render(me.scene, me.camera);
     });

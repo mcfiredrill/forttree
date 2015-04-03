@@ -23,15 +23,15 @@ class BranchesController < ApplicationController
       if @branch.save
         @leaf.branch_id = @branch.id
         if @leaf.save
-          flash[:success] = "Branch created!"
+          flash[:success] = 'Branch created!'
           format.html { redirect_to new_branch_path }
         else
-          flash[:error] = "Couldn't save leaf for some reason!"
+          flash[:error] = 'Couldn\'t save leaf for some reason!'
           @branch.destroy #destroy branch so we dont end up with a branch with no leafs
           format.html { render :action => "new" }
         end
       else
-        flash[:error] = "Couldn't create branch for some reason!"
+        flash[:error] = 'Couldn\'t create branch for some reason!'
         format.html { redirect_to new_branch_path }
       end
     end
@@ -39,7 +39,7 @@ class BranchesController < ApplicationController
 
   def check_password
     unless Admin.authenticate(params[:password])
-      flash[:error] = "Incorrect password for deletion"
+      flash[:error] = 'Incorrect password for deletion'
       redirect_to new_branch_path
       return false
     else
@@ -53,10 +53,10 @@ class BranchesController < ApplicationController
       @branch = Branch.find(@leaf.branch_id)
       if @branch.leafs.count <= 1
         if @branch.destroy
-          flash[:success] = "Branch pruned!"
+          flash[:success] = 'Branch pruned!'
         end
       elsif @leaf.destroy
-          flash[:success] = "Leaf pruned!"
+        flash[:success] = 'Leaf pruned!'
       end
     end
 

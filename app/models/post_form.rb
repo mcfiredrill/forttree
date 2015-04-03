@@ -9,9 +9,9 @@ class PostForm
   end
 
   def self.model_name
-    ActiveModel::Name.new(self, nil, "Post")
+    ActiveModel::Name.new(self, nil, 'Post')
   end
-  
+
   def id
     if persisted?
       "#{@board.id}/branch/#{@branch.id}"
@@ -20,7 +20,7 @@ class PostForm
     end
   end
 
-  def initialize board=Board.new, branch=Branch.new, leaf=Leaf.new
+  def initialize(board = Board.new, branch = Branch.new, leaf = Leaf.new)
     @board = board
     @branch = branch
     @leaf = leaf

@@ -2,7 +2,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/mcfiredrill/forttree.svg?style=flat)](https://codeclimate.com/github/mcfiredrill/forttree)
 [![Dependency Status](https://img.shields.io/gemnasium/mcfiredrill/forttree.svg?style=flat)](https://gemnasium.com/mcfiredrill/forttree)
 
-Fortree
+Forttree
 =======
 
 A wakaba/kareha imageboard clone.

@@ -1,7 +1,7 @@
 before_install: sudo apt-get install libicu-dev -y
 language: ruby
 rvm:
-  - 2.2.1
+  - 2.2.2
 # uncomment this line if your project needs to run something other than `rake`:
 script: bundle exec rspec
 before_script:

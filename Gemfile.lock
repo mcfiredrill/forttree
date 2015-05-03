@@ -62,7 +62,7 @@ GEM
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    exception_notification (4.0.1)
+    exception_notification (4.1.0)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (2.4.0)
@@ -73,7 +73,7 @@ GEM
       railties (>= 3.0.0)
     gemoji (2.1.0)
     github-markdown (0.6.8)
-    globalid (0.3.3)
+    globalid (0.3.5)
       activesupport (>= 4.1.0)
     hike (1.2.3)
     html-pipeline (1.11.0)
@@ -91,9 +91,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.4.3)
+    mime-types (2.5)
     mini_portile (0.6.2)
-    minitest (5.5.1)
+    minitest (5.6.1)
     multi_json (1.11.0)
     negative_captcha (0.4)
       actionpack
@@ -203,7 +203,7 @@ DEPENDENCIES
   bcrypt
   byebug
   capybara
-  exception_notification (~> 4.0.1)
+  exception_notification (~> 4.1.0)
   factory_girl_rails
   gemoji
   github-markdown

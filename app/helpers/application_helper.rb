@@ -15,13 +15,13 @@ module ApplicationHelper
   end
 
   def themes
-    Dir['app/assets/stylesheets/themes/*.css.scss']
+    Dir['app/assets/stylesheets/themes/*.scss']
   end
 
   def theme_basenames
     names = Array.new
     themes.each do |t|
-      names << t[/(\w*)\.css\.scss/, 1]
+      names << t[/(\w*)\.scss/, 1]
     end
     return names
   end

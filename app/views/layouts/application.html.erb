@@ -22,7 +22,7 @@
         <% theme_basenames.each do |t| %>
           <%= link_to t, "#", class: 'set-theme', data: { theme: "#{t}" } %>
         <% end %>
-        <%= link_to 'big', 'https://bigchan.herokuapp.com/', target: 'blank' %>
+        <%= link_to 'big', 'https://bigchan.herokuapp.com/', target: '_blank' %>
       </div>
       <h1><%= link_to BOARDTITLE, "/" %></h1>
       <% board_listing.each do |board| %>

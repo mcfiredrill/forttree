@@ -4,7 +4,7 @@ ruby "2.2.2"
 
 gem 'rails', '4.2.3'
 
-gem 'paperclip', '~> 4.2.0'
+gem 'paperclip', '~> 4.3.0'
 gem 'will_paginate'
 gem 'aws-sdk', '< 2.0'
 gem 'bcrypt'

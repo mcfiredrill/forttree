@@ -38,7 +38,7 @@
         </div>
         <div id="smiley_helper" style="display:none">
           <h3>smiley assistant</h3>
-          <%= link_to "(´ε`) click me to close", "#", id: "smiley-helper-show"  %>
+          <%= link_to "(´ε`) click me to not close", "#", id: "smiley-helper-show"  %>
           <br />
           <% faces.each do |f| %>
             <%= link_to f, "#", class: 'insert-emoticon', data: { text:  " #{f} " }  %>

@@ -38,5 +38,5 @@ group :development, :test do
   gem 'sqlite3', :require => 'sqlite3'
 end
 
-gem 'exception_notification', '~> 4.1.0'
+gem 'exception_notification', '~> 4.1.1'
 gem 'unicorn'

@@ -1,4 +1,3 @@
-before_install: sudo apt-get install libicu-dev -y
 language: ruby
 rvm:
   - 2.2.2

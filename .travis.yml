@@ -1,3 +1,9 @@
+notifications:
+  irc:
+    channels:
+      - "irc.esper.net#datafruitsouth"
+    on_success: always
+    on_failure: always
 language: ruby
 rvm:
   - 2.2.3

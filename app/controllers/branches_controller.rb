@@ -7,7 +7,7 @@ class BranchesController < ApplicationController
   def new
     @branch = Branch.new
     @leaf = Leaf.new
-    @branches = Branch.paginate(:page => params[:page])
+    @branches = Branch.page(params[:page])
 
     if request.headers['X-PJAX']
       render :partial => 'cur_page'
@@ -17,7 +17,7 @@ class BranchesController < ApplicationController
   def create
     @branch = Branch.new(:last_post_at => Time.now)
     @leaf = Leaf.new(leaf_params)
-    @branches = Branch.paginate(:page => params[:page])
+    @branches = Branch.page(params[:page])
 
     respond_to do |format|
       if @branch.save

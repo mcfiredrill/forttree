@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @post_form = PostForm.new @board
-    @branches = @board.branches.paginate(page: params[:page])
+    @branches = @board.branches.page(params[:page])
     respond_to do |format|
       format.html
     end

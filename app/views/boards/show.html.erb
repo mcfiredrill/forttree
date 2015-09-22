@@ -16,9 +16,9 @@
   </div>
   <div id="page">
     <div id="branches">
-      <%= will_paginate @branches %>
+      <%= paginate @branches %>
       <%= render @branches, :action => :show %>
-      <%= will_paginate @branches %>
+      <%= paginate @branches %>
     </div>
   </div>
   <div class="loader" style="display:none">

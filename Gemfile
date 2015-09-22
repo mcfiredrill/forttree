@@ -5,7 +5,7 @@ ruby "2.2.3"
 gem 'rails', '4.2.4'
 
 gem 'paperclip', '~> 4.3.0'
-gem 'will_paginate'
+gem 'kaminari'
 gem 'aws-sdk', '< 2.0'
 gem 'bcrypt'
 gem 'negative_captcha'

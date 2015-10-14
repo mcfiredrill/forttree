@@ -1,7 +1,7 @@
 //= require jquery
 //= require textinputs_jquery
 //= require jquery-cookie/jquery.cookie
-//= require three.min
+//= require three.js.js
 //= require fort-scene
 
 (function() {

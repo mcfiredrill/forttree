@@ -40,8 +40,9 @@ module ApplicationHelper
       :asset_root => "/images/"
     }
     pipeline = HTML::Pipeline.new [
+      HTML::Pipeline::YoutubeFilter,
       HTML::Pipeline::MarkdownFilter,
-      HTML::Pipeline::EmojiFilter
+      HTML::Pipeline::EmojiFilter,
     ], context
     result = pipeline.call(text)
     result[:output].to_s

@@ -41,3 +41,7 @@ end
 
 gem 'exception_notification', '~> 4.1.1'
 gem 'unicorn'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-three.js'
+end

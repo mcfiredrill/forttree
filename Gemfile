@@ -9,7 +9,7 @@ gem 'kaminari'
 gem 'aws-sdk', '< 2.0'
 gem 'bcrypt'
 gem 'negative_captcha'
-gem 'html-pipeline', '~> 1.11.0'
+gem 'html-pipeline', '~> 2.2.2'
 
 # html-pipeline deps
 gem 'github-markdown'

@@ -38,7 +38,7 @@ class Leaf < ActiveRecord::Base
   end
 
   def self.latest
-    where("photo_file_name is not null").limit(5).order("updated_at DESC")
+    limit(5).order("updated_at DESC")
   end
 
   #XXX totally yoinked from bigchan

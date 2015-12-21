@@ -1,6 +1,6 @@
 //= require jquery
 //= require textinputs_jquery
-//= require jquery-cookie/jquery.cookie
+//= require js-cookie/js.cookie
 //= require three.js.js
 //= require fort-scene
 
@@ -76,11 +76,12 @@
 
   window.onunload = function() {
     var title = getActiveStylesheet();
-    $.cookie('style_cookie', title, 365);
+    Cookies.remove('style_cookie');
+    Cookies.set('style_cookie', title);
   };
 
   window.onload = function() {
-    var cookie = $.cookie('style_cookie');
+    var cookie = Cookies.get('style_cookie');
     var title = cookie ? cookie : getPreferredStylesheet();
     setStylesheet(title);
   };

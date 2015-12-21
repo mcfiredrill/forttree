@@ -1,21 +1,22 @@
 //= require jquery
-//= require textinputs_jquery
+//= require caret/jquery.caret
 //= require js-cookie/js.cookie
 //= require three.js.js
 //= require fort-scene
 
 (function() {
   function insertEmoticon(face) {
-    var myText = $('#leaf_content').val();
-    var caretPos = $('#leaf_content').getSelection().end;
+    var $content = $('#leaf_content');
+    var myText = $content.val();
+    var caretPos = $content.caret();
 
-    $('#leaf_content').val(
+    $content.val(
       myText.substring(0, caretPos) +
       face +
       myText.substring(caretPos)
     );
 
-    $('#leaf_content').setSelection(caretPos + face.length);
+    $content.caret(caretPos + face.length);
   }
 
   /* yoinked from wakaba */
@@ -24,12 +25,12 @@
     $('#forttree-content').show();
     var links = document.getElementsByTagName('link');
     var found = false;
-    for (var i=0; i<links.length; i++) {
+    for (var i = 0;  i <links.length; i++) {
       var rel = links[i].getAttribute('rel');
       var title = links[i].getAttribute('title');
-      if(rel.indexOf('style') != -1 && title) {
+      if(rel.indexOf('style') !== -1 && title) {
         links[i].disabled = true; // IE needs this to work. IE needs to die.
-        if (styletitle == title) {
+        if (styletitle === title) {
           links[i].disabled = false;
           found = true;
         }
@@ -42,21 +43,21 @@
 
   function setPreferredStylsheet() {
     var links = document.getElementsByTagName('link');
-    for (var i=0; i<links.length; i++) {
+    for (var i = 0; i < links.length; i++) {
       var rel = links[i].getAttribute('rel');
       var title = links[i].getAttribute('title');
-      if (rel.indexOf('style') != -1 && title) {
-        links[i].disabled = (rel.indexOf('alt') != -1);
+      if (rel.indexOf('style') !== -1 && title) {
+        links[i].disabled = (rel.indexOf('alt') !== -1);
       }
     }
   }
 
   function getPreferredStylesheet() {
     var links = document.getElementsByTagName('link');
-    for (var i=0; i<links.length; i++) {
+    for (var i = 0; i < links.length; i++) {
       var rel = links[i].getAttribute('rel');
       var title = links[i].getAttribute('title');
-      if (rel.indexOf('style') != -1 && rel.indexOf('alt') == -1 && title) {
+      if (rel.indexOf('style') !== -1 && rel.indexOf('alt') === -1 && title) {
         return title;
       }
     }
@@ -64,11 +65,11 @@
   }
 
   function getActiveStylesheet() {
-    var links=document.getElementsByTagName('link');
-    for (var i=0; i<links.length; i++) {
-      var rel=links[i].getAttribute('rel');
-      var title=links[i].getAttribute('title');
-      if (rel.indexOf('style') != -1 && title && !links[i].disabled) {
+    var links = document.getElementsByTagName('link');
+    for (var i = 0; i < links.length; i++) {
+      var rel = links[i].getAttribute('rel');
+      var title = links[i].getAttribute('title');
+      if (rel.indexOf('style') !== -1 && title && !links[i].disabled) {
         return title;
       }
     }

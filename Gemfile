@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0.beta3'
 
 gem 'paperclip', '~> 4.3.0'
 gem 'kaminari'
@@ -20,7 +20,11 @@ gem 'gemoji'
 gem 'jquery-rails'
 gem 'therubyracer'
 
-gem 'rspec-rails', :group => [:test,:development]
+#gem 'rspec-rails', :group => [:test,:development], github: "rspec/rspec-rails"
+
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+end
 
 group :production do
   gem 'pg'
@@ -40,7 +44,7 @@ group :development, :test do
   gem 'sqlite3', :require => 'sqlite3'
 end
 
-gem 'exception_notification', '~> 4.1.1'
+#gem 'exception_notification', '~> 4.1.1'
 gem 'unicorn'
 
 source 'https://rails-assets.org' do

@@ -39,6 +39,7 @@ module ApplicationHelper
       HTML::Pipeline::YoutubeFilter,
       HTML::Pipeline::MarkdownFilter,
       HTML::Pipeline::EmojiFilter,
+      HTML::Pipeline::SanitizationFilter,
     ], context
     result = pipeline.call(text)
     result[:output].to_s

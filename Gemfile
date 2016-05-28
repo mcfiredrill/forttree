@@ -13,6 +13,7 @@ gem 'html-pipeline'
 gem 'html-pipeline-youtube'
 
 # html-pipeline deps
+gem 'sanitize'
 gem 'github-markdown'
 gem 'gemoji'
 
@@ -45,3 +46,4 @@ gem 'unicorn'
 source 'https://rails-assets.org' do
   gem 'rails-assets-three.js'
 end
+

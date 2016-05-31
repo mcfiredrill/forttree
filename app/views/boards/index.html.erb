@@ -1,8 +1,8 @@
-<h2>latest posts...</h2>
+<h2><%= t("latest_posts") %></h2>
 <% @latest_posts.each do |post| %>
   <h3>in <%= link_to "/#{post.board_name}/", post.board %><h3>
-    <%= link_to image_tag(post.photo.url(:thumb)), board_path(post.board) if post.photo.present? %>
-    <blockquote>
-      <%= display_content(post) %>
-    </blockquote>
+  <%= link_to image_tag(post.photo.url(:thumb)), board_path(post.board) if post.photo.present? %>
+  <blockquote>
+    <%= display_content(post) %>
+  </blockquote>
 <% end %>

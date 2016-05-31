@@ -27,3 +27,15 @@ Image Storage
 =============
 You can use local filesystem or S3 for storage. Set STORAGE to :s3 and enter your
 S3 credentials in fortconfig.rb to use S3.
+
+---
+
+A ruby translation project managed on [Locale](http://www.localeapp.com/) that's open to all!
+
+## Contributing to forttree
+
+- Edit the translations directly on the [forttree](http://www.localeapp.com/projects/public?search=forttree) project on Locale.
+- **That's it!**
+- The maintainer will then pull translations from the Locale project and push to Github.
+
+Happy translating!

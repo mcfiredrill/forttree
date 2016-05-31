@@ -7,3 +7,5 @@ tmp/**/*
 public/assets/
 tags
 public/system/**/*
+
+.localeapp

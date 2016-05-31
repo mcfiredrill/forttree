@@ -47,3 +47,4 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-three.js'
 end
 
+gem 'localeapp'

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails', '5.0.0.racecar1'
+gem 'rails', github: "rails/rails"
 
 gem 'paperclip', '~> 4.3.0'
 gem 'kaminari'

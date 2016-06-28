@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails', github: "rails/rails"
+#gem 'rails', github: "rails/rails"
+gem 'rails', '5.0.0.rc2'
 
 gem 'paperclip', '~> 4.3.0'
 gem 'kaminari'

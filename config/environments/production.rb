@@ -35,7 +35,10 @@ Forttree::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.default_url_options = { :host => "fortchan" }
+  config.action_mailer.default_url_options = {
+    :host => "fortchan" ,
+    :from => "info@fortchan.org"
+  }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
@@ -65,8 +68,8 @@ Forttree::Application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
     email: {
-    email_prefix: "[Exception] ",
-    sender_address: %{"Exception Notifier" #{ENV['EXCEPTION_EMAIL_SENDER']}>},
-    exception_recipients: %W{#{ENV['EXCEPTION_EMAIL_RECEPIENTS']}}
-  }
+      email_prefix: "[Exception] ",
+      sender_address: %{"Exception Notifier" #{ENV['EXCEPTION_EMAIL_SENDER']}>},
+      exception_recipients: %W{#{ENV['EXCEPTION_EMAIL_RECEPIENTS']}}
+    }
 end

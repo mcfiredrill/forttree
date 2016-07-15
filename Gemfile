@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'paperclip', '~> 4.3.0'
@@ -41,7 +41,7 @@ group :development, :test do
   gem 'sqlite3', :require => 'sqlite3'
 end
 
-gem 'exception_notification', '~> 4.1.1'
+gem 'exception_notification'
 gem 'unicorn'
 
 source 'https://rails-assets.org' do

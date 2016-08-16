@@ -43,31 +43,31 @@ class Leaf < ActiveRecord::Base
 
   #XXX totally yoinked from bigchan
   private
-    def transliterate_file_name
-      extension = File.extname(photo_file_name).gsub(/^\.+/, '')
-      filename = photo_file_name.gsub(/\.#{extension}$/, '')
+  def transliterate_file_name
+    extension = File.extname(photo_file_name).gsub(/^\.+/, '')
+    filename = photo_file_name.gsub(/\.#{extension}$/, '')
 
-      # Prepend timestamp for a unique filename
-      time = Time.now.strftime("%d-%m-%Y_%H-%M-%S_").to_s
+    # Prepend timestamp for a unique filename
+    time = Time.now.strftime("%d-%m-%Y_%H-%M-%S_").to_s
 
-      self.photo.instance_write(:file_name, "#{time}#{transliterate(filename)}.#{transliterate(extension)}")
-    end
+    self.photo.instance_write(:file_name, "#{time}#{transliterate(filename)}.#{transliterate(extension)}")
+  end
 
-    def transliterate(str)
-      # Based on permalink_fu by Rick Olsen
+  def transliterate(str)
+    # Based on permalink_fu by Rick Olsen
 
-      s = str.encode("UTF-8")
-      # Downcase string
-      s.downcase!
-      # Remove apostrophes so isn't changes to isnt
-      s.gsub!(/'/, '')
-      # Replace any non-letter or non-number character with a space
-      s.gsub!(/[^A-Za-z0-9]+/, ' ')
-      # Remove spaces from beginning and end of string
-      s.strip!
-      # Replace groups of spaces with single hyphen
-      s.gsub!(/\ +/, '-')
+    s = str.encode("UTF-8")
+    # Downcase string
+    s.downcase!
+    # Remove apostrophes so isn't changes to isnt
+    s.gsub!(/'/, '')
+    # Replace any non-letter or non-number character with a space
+    s.gsub!(/[^A-Za-z0-9]+/, ' ')
+    # Remove spaces from beginning and end of string
+    s.strip!
+    # Replace groups of spaces with single hyphen
+    s.gsub!(/\ +/, '-')
 
-      return s
-    end
+    return s
+  end
 end

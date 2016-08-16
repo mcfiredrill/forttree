@@ -5,9 +5,9 @@ ruby "2.3.1"
 gem 'rails', '5.0.0'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-gem 'paperclip', '~> 4.3.0'
+gem 'paperclip', '~> 5.0.0'
 gem 'kaminari'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem 'bcrypt'
 gem 'negative_captcha'
 gem 'html-pipeline'
@@ -43,6 +43,7 @@ end
 
 gem 'exception_notification'
 gem 'unicorn'
+gem 'pry-byebug'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-three.js'

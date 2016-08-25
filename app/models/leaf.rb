@@ -7,7 +7,8 @@ class Leaf < ActiveRecord::Base
       :path => PHOTO_PATH,
       :s3_credentials => {
         :access_key_id => S3_KEY,
-        :secret_access_key => S3_SECRET
+        :secret_access_key => S3_SECRET,
+        :s3_region => S3_REGION
       },
       :bucket => S3_BUCKET
 

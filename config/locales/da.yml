@@ -1,0 +1,10 @@
+da:
+  activemodel:
+    models:
+      post: Slå op
+  helpers:
+    submit:
+      post:
+        create: Lav opslag
+        submit: Slå op
+  latest_posts: nyeste indlæg

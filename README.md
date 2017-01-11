@@ -23,6 +23,8 @@ Configuration
 =============
 Edit the file config/initializers/fortconfig.rb to configure various options.
 
+Go to `/boards/new` to make a new board in your tree.
+
 Image Storage
 =============
 You can use local filesystem or S3 for storage. Set STORAGE to :s3 and enter your

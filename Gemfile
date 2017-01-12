@@ -18,7 +18,7 @@ gem 'sanitize'
 gem 'github-markdown'
 gem 'gemoji'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '4.2.0'
 gem 'therubyracer'
 
 gem 'rspec-rails', :group => [:test,:development]

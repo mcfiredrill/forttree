@@ -14,3 +14,4 @@ before_script:
   - bundle exec rake db:migrate
 env:
   SECRET_TOKEN='f0asg8ih0etbw0e0w9it0w9309b42bb42birs9d0fh009ahr09a0w9jr099g09misa09hg09a30t3awtb0wt0w9aiwoaoaoaoBca0'
+  LOCALEAPP_API_KEY='abc'

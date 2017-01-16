@@ -109,7 +109,7 @@
       return false;
     });
 
-    $('#smiley-helper-show').click(function() {
+    $('.smiley-helper-show').click(function() {
       $('#smiley_helper').fadeToggle();
       return false;
     });

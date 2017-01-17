@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 ruby "2.3.3"
 
-gem 'rails', '5.0.0.1'
+gem 'rails', '5.0.1'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip', '~> 5.1.0'
 gem 'kaminari'
 gem 'aws-sdk'
 gem 'bcrypt'

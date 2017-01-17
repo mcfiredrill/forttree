@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :check_password, only: [:destroy]
-  before_filter :setup_negative_captcha, only: [:create, :edit, :update]
+  before_action :check_password, only: [:destroy]
+  before_action :setup_negative_captcha, only: [:create, :edit, :update]
   def index
     @board = Board.find(params[:board_id])
   end

@@ -1,6 +1,6 @@
 class BranchesController < ApplicationController
 
-  before_filter :check_password, :only => [:destroy]
+  before_action :check_password, :only => [:destroy]
 
   layout :set_layout
 

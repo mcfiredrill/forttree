@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.3.3"
+ruby "2.4.0"
 
 gem 'rails', '5.0.1'
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -19,7 +19,7 @@ gem 'github-markdown'
 gem 'gemoji'
 
 gem 'jquery-rails', '4.2.0'
-gem 'therubyracer'
+gem 'therubyracer', github: "cowboyd/therubyracer"
 
 gem 'rspec-rails', :group => [:test,:development]
 

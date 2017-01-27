@@ -4,18 +4,18 @@
 @import "../application.scss";
 
 @mixin rotate($deg) {
-	-webkit-transform: rotate($deg);
-	-moz-transform: rotate($deg);
-	-ms-transform: rotate($deg);
-	-o-transform: rotate($deg);
-	transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
 }
 
 @mixin tieDye($a, $b, $c) {
-	background-color: $a;
-	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $a), color-stop(2%, $b), color-stop(100%, $c));
-	background-image: -webkit-linear-gradient($a, $b 12%,$c);
-	background-image: linear-gradient($a, $b 2%,$c);
+  background-color: $a;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $a), color-stop(2%, $b), color-stop(100%, $c));
+  background-image: -webkit-linear-gradient($a, $b 12%, $c);
+  background-image: linear-gradient($a, $b 2%, $c);
 }
 
 $pink: #ff69ec;
@@ -146,12 +146,16 @@ hr {
 }
 
 * {
-	background-color: #f0f0b0;
-	text-shadow: rgba(123, 30, 20, 0.5)  2px -2px 2px;
+  background-color: #f0f0b0;
+  text-shadow: rgba(123, 30, 20, 0.5)  2px -2px 2px;
 }
 
 div, span, a, img, input, button {
   box-shadow: 1px 1px 20px #f88;
+}
+
+img {
+  @include rotate(5deg);
 }
 
 .postarea {
@@ -162,6 +166,6 @@ div, span, a, img, input, button {
   @include rotate(3deg);
 }
 #smiley_helper {
-	margin-right: 50px;
+  margin-right: 50px;
   @include rotate(-147deg);
 }

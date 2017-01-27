@@ -1,0 +1,10 @@
+es:
+  activemodel:
+    models:
+      post: Publicar
+  helpers:
+    submit:
+      post:
+        create: Crear Publicación
+        submit: Guardar Publicación
+  latest_posts: 'las publicaciones más recientes'

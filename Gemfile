@@ -50,3 +50,4 @@ source 'https://rails-assets.org' do
 end
 
 gem 'localeapp'
+gem 'http_accept_language'

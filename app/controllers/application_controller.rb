@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include HttpAcceptLanguage::AutoLocale
   protect_from_forgery
   before_action :prepare_for_mobile
 

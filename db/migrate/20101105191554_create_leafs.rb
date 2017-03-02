@@ -1,4 +1,4 @@
-class CreateLeafs < ActiveRecord::Migration
+class CreateLeafs < ActiveRecord::Migration[4.2]
   def self.up
     create_table :leafs do |t|
       t.string :name

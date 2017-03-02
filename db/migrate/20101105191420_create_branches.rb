@@ -1,4 +1,4 @@
-class CreateBranches < ActiveRecord::Migration
+class CreateBranches < ActiveRecord::Migration[4.2]
   def self.up
     create_table :branches do |t|
       t.datetime :last_post_at

@@ -1,4 +1,4 @@
-class AddAttachmentPhotoToLeaf < ActiveRecord::Migration
+class AddAttachmentPhotoToLeaf < ActiveRecord::Migration[4.2]
   def self.up
     add_column :leafs, :photo_file_name, :string
     add_column :leafs, :photo_content_type, :string

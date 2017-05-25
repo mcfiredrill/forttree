@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.3.3"
 
-gem 'rails', '5.0.2'
+gem 'rails', '5.0.3'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'paperclip', '~> 5.1.0'

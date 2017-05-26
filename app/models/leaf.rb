@@ -39,7 +39,7 @@ class Leaf < ActiveRecord::Base
   end
 
   def self.latest
-    limit(5).order("updated_at DESC")
+    limit(32).order("updated_at DESC")
   end
 
   #XXX totally yoinked from bigchan

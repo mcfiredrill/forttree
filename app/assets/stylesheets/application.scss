@@ -285,4 +285,8 @@ a:hover {
 .forttree-box {
   float: left;
   margin-right: 10px;
+
+  blockquote {
+    max-width: 300px;
+  }
 }

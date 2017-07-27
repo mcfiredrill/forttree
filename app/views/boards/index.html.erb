@@ -1,6 +1,6 @@
 <h2><%= t("latest_posts") %></h2>
 <% @latest_posts.each do |post| %>
-  <div class="forttree-box">
+  <div class="forttree-box" style="animation: App-logo-spin infinite 20s linear;">
     <h3>in <%= link_to "/#{post.board_name}/", post.board %></h3>
     <%= link_to image_tag(post.photo.url(:thumb)), board_path(post.board) if post.photo.present? %>
     <blockquote>

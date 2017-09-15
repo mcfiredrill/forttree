@@ -7,7 +7,7 @@ notifications:
 language: ruby
 sudo: false
 rvm:
-  - 2.3.4
+  - 2.4
 # uncomment this line if your project needs to run something other than `rake`:
 script: bundle exec rspec
 before_script:

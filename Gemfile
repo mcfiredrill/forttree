@@ -15,7 +15,7 @@ gem 'html-pipeline-youtube'
 
 # html-pipeline deps
 gem 'sanitize'
-gem 'github-markdown'
+gem 'commonmarker'
 gem 'gemoji'
 
 gem 'jquery-rails', '4.2.0'

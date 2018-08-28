@@ -1,10 +1,10 @@
-class CreateLeafs < ActiveRecord::Migration
+class CreateLeafs < ActiveRecord::Migration[5.0]
   def self.up
     create_table :leafs do |t|
       t.string :name
       t.text :content
 
-      t.timestamps
+      t.timestamps null: true
     end
   end
 

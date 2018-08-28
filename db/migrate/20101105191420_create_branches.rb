@@ -1,9 +1,9 @@
-class CreateBranches < ActiveRecord::Migration
+class CreateBranches < ActiveRecord::Migration[5.0]
   def self.up
     create_table :branches do |t|
       t.datetime :last_post_at
 
-      t.timestamps
+      t.timestamps null: true
     end
   end
 

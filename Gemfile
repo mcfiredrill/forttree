@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby "2.4.2"
+ruby "2.4.4"
 
-gem 'rails', '5.1.0'
+gem 'rails', '5.1.6'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'paperclip', '~> 5.1.0'

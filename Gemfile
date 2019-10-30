@@ -5,7 +5,7 @@ ruby "2.4.4"
 gem 'rails', '5.1.6'
 gem 'dotenv-rails', :groups => [:development, :test]
 
-gem 'paperclip', '~> 5.1.0'
+gem 'paperclip', '~> 5.2.0'
 gem 'kaminari'
 gem 'aws-sdk'
 gem 'bcrypt'
